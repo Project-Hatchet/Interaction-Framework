@@ -6,7 +6,7 @@ class CfgPatches {
     units[] = {};
     weapons[] = {};
     requiredVersion = REQUIRED_VERSION;
-    requiredAddons[] = {"A3_Data_F_Tank_Loadorder"};
+    requiredAddons[] = {"cba_common"};
     author = "Project Hatchet";
     VERSION_CONFIG;
   };
