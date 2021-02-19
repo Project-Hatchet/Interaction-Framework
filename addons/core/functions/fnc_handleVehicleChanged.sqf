@@ -17,7 +17,7 @@ params ["_caller", "_newVehicle"];
 if (isNil "_caller" || isNil "_newVehicle") exitWith {};
 if !(_caller isEqualTo hatchet_player) exitWith {};
 
-if (!(isNil QGVAR(vehicle))) then {
+if !(isNil QGVAR(vehicle)) then {
 	[GVAR(vehicle)] call FUNC(shutDownAll);
 };
 
@@ -33,7 +33,7 @@ if !(_isHatchetSetup) exitWith {
 GVAR(vehicle) = _newVehicle;
 
 GVAR(vehicleSwitchedEH) = _newVehicle addEventHandler ["SeatSwitched", {
-  if (_this # 1 == hatchet_player) then {
+  if ((_this # 1) isEqualTo hatchet_player) then {
 	  [hatchet_player, vehicle hatchet_player] call FUNC(handleVehicleChanged);
 	};
 }];
