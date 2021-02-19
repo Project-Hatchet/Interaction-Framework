@@ -18,13 +18,13 @@ private _configFound = false;
 private _configSources = [];
 
 _vehicle setVariable [QGVAR(config), nil];
-private _turretIndex = [ace_player] call ace_common_fnc_getTurretIndex;
+private _turretIndex = [hatchet_player] call EFUNC(util,getTurretIndex);
 
-if (ace_player == driver _vehicle) then {
+if (hatchet_player == driver _vehicle) then {
   _configSources pushBack QGVAR(driver);
 };
 
-private _copilotTurretIndex = [_vehicle] call ace_common_fnc_getTurretCopilot;
+private _copilotTurretIndex = [_vehicle] call EFUNC(util,getTurretCopilot);
 if ((count _copilotTurretIndex) > 0 && (count _turretIndex) > 0 && {(_turretIndex # 0) == (_copilotTurretIndex # 0)}) then {
   _configSources pushBack QGVAR(copilot);
 };
@@ -33,11 +33,11 @@ if (count _turretIndex > 0) then {
   _configSources pushBack format [QGVAR(turret_%1), (_turretIndex # 0)];
 };
 
-if (ace_player == gunner _vehicle) then {
+if (hatchet_player == gunner _vehicle) then {
   _configSources pushBack QGVAR(gunner);
 };
 
-if (_vehicle getCargoIndex ace_player > -1) then {
+if (_vehicle getCargoIndex hatchet_player > -1) then {
   _configSources pushBack QGVAR(cargo);
 };
 

@@ -31,5 +31,5 @@ if !(_vehicle call compile _interactCondition) exitWith {};
 if (_animation in vxf_animating_keys) exitWith {false};
 
 [_vehicle] call _dragStart;
-[_vehicle, _position, 1, name ace_player] call FUNC(pointNetSend);
+[_vehicle, _position, 1, name hatchet_player] call FUNC(pointNetSend);
 vxf_animating_keys pushBack _animation;

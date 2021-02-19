@@ -15,8 +15,8 @@ _args params ["_vehicle", "_lastFrameTime"];
 
 //shutdown conditions
 if (
-  !((vehicle ace_player) isEqualTo _vehicle) ||
-  !(alive ace_player) ||
+  !((vehicle hatchet_player) isEqualTo _vehicle) ||
+  !(alive hatchet_player) ||
   !(alive _vehicle)
 ) exitWith {
   [GVAR(vehicle)] call FUNC(shutDownAll);
