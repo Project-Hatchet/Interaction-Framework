@@ -1,5 +1,6 @@
+#include "script_component.hpp"
 /*
- * vxf_interaction_fnc_perFrame
+ * hatchet_interaction_fnc_perFrame
  *
  * Runs per frame for interaction, handles button holding code
  *

@@ -6,7 +6,7 @@ This framework is in active development, expect the `vxf` prefix to change. Inte
 ## Features
  - Allows simple config based binding of scripts to vehicles and seats(module system)
  - Allows config based implementation of vehicle interaction(interaction system)
- 
+
 ## Vehicle & Seat Config
 All configuration is provided by adding the `vxf` subclass to the cfgVehicles class of your desired vehicle.
 Configurations can be specified to specific seats using a specifier suffix. As the player gets in a vehicle or switches seats, the system will find the most specific configuration available for their seat. For example, when a `vxf_driver` and a `vxf` config are present, passengers will use the `vxf` config, but the driver will use only modules and interactions found in `vxf_driver`.
@@ -17,7 +17,7 @@ Config options
  - `vxf_gunner`: applies to all gunners of a vehicle, this includes all door guns
  - `vxf_cargo`: applies to all passengers
  - `vxf_turret_` followed by the turret index: applies to the occupant of the turret with specified index, can apply to fire from vehicle seats.
- 
+
 Example:
 ```
 class myMod_myVehicleName {

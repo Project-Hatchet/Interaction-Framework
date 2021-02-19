@@ -3,8 +3,8 @@
  * hatchet_core_fnc_getVehicleConfig
  *
  * Function will look through the cfgVehicles for the vehicle
- * and look for relevant vxf config subclasses, when it finds them
- * the most relevant one will be assigned to the vehicle's vxf_config variable
+ * and look for relevant hatchet config subclasses, when it finds them
+ * the most relevant one will be assigned to the vehicle's hatchet_core_config variable
  *
  * Params: (object) vehicle
  * Returns: (bool) success

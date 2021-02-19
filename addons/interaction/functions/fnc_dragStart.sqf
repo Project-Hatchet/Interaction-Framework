@@ -11,7 +11,7 @@ GVAR(currentButton) PARAMS;
 _knobConfig params KNOBPARAMS;
 diag_log format ["%2: drag start %1", _name, time];
 
-if (isNil{_vehicle getVariable "vxf_interaction"}) exitWith {false};
+if (isNil{_vehicle getVariable QGVAR(points)}) exitWith {false};
 if (!isNil QGVAR(knobHolding) && { GVAR(knobHolding) # 0 != _animation }) exitWith {false};
 
 GVAR(knobHolding) = GVAR(currentButton);

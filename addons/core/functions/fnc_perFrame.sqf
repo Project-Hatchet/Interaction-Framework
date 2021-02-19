@@ -19,7 +19,7 @@ if (
   !(alive ace_player) ||
   !(alive _vehicle)
 ) exitWith {
-  [GVAR(vehicle)] call vxf_core_fnc_shutDownAll;
+  [GVAR(vehicle)] call FUNC(shutDownAll);
   [_pfhId] call CBA_fnc_removePerFrameHandler;
   GVAR(perFrameHandler) = nil;
   if (!isNil {GVAR(drawHandler)}) then {
@@ -32,7 +32,7 @@ if (cba_missionTime == _lastFrameTime) exitWith {GVAR(paused) = true;};
 _args set [1, cba_missionTime];
 if (GVAR(paused)) then {
   // unpause
-  ["vxf_unPause", []] call CBA_fnc_localEvent;
+  [QGVAR(unPause), []] call CBA_fnc_localEvent;
 };
 GVAR(paused) = false;
 
@@ -41,10 +41,9 @@ private _frameTime = (cba_missionTime - _lastFrameTime);
 //skip a frame when unpausing so time between frames stays normal
 if (_frameTime > 1) exitWith {};
 
-private ["_func"];
-{ //forEach vehicle vxf_modules
+{ //forEach vehicle hatchet_core_modules
   if (_x # 1) then {
-    _func = missionNameSpace getVariable (_x # 3);
+    private _func = missionNameSpace getVariable (_x # 3);
     if (!isNil {_func}) then {[_vehicle, _frameTime] call _func;};
   };
 } forEach (_vehicle getVariable [QGVAR(modules), []]);

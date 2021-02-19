@@ -20,7 +20,7 @@ if (_positionType == "anim") then {
 private _color = if (GVAR(buttonHolding)) then {[1,0,0,1]} else {[1,1,1,1]};
 private _size = if (GVAR(buttonHolding)) then {0.045} else {0.05};
 if (count _buttonConfig > 0 && count _knobConfig == 0) then {
-  _label = format ["[%1] %2",((["VXF Interaction","vxf_interaction"] call CBA_fnc_getKeybind)# 5) call CBA_fnc_localizeKey, _label];
+  _label = format ["[%1] %2",((["VXF Interaction",QGVAR(points)] call CBA_fnc_getKeybind)# 5) call CBA_fnc_localizeKey, _label];
 };
 drawIcon3D [
   "\a3\ui_f\data\IGUI\Cfg\Cursors\selected_ca.paa",

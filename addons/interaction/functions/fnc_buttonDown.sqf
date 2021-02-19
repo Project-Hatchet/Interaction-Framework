@@ -7,7 +7,7 @@
 
 params ["_vehicle", "_button", ["_forced", false]];
 
-if (isNil {_vehicle getVariable "vxf_interaction"}) exitWith {false};
+if (isNil {_vehicle getVariable QGVAR(points)}) exitWith {false};
 if (isNil QGVAR(currentButton) && {!_forced}) exitWith {};
 
 _button PARAMS;

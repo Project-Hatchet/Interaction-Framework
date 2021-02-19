@@ -14,10 +14,10 @@ if !(isNull curatorCamera) exitWith {};
 if (GVAR(updateIndex) >= GVAR(updateEvery) && !GVAR(dragging) && !GVAR(buttonHolding)) then {
   GVAR(updateIndex) = 0;
   private _result = nil;
-  { // forEach (_vehicle getVariable ["vxf_interaction", []])
+  { // forEach (_vehicle getVariable [QGVAR(points), []])
     _result = _x call FUNC(checkInteraction);
     if (!isNil "_result") exitWith {};
-  } forEach (_vehicle getVariable ["vxf_interaction", []]);
+  } forEach (_vehicle getVariable [QGVAR(points), []]);
 
   GVAR(currentButton) = _result;
 };

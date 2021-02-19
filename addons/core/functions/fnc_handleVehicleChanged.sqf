@@ -3,7 +3,7 @@
  * hatchet_core_fnc_handleVehicleChanged
  *
  * Function is triggered by cba vehicleChanged eventhandler
- * when called, it will check if the vehicle has any vxf config,
+ * when called, it will check if the vehicle has any Hatchet config,
  * and if relevant, set up the functions for it
  *
  * Params: Array[(object) caller, (object) newVehicle]
@@ -21,10 +21,10 @@ if (!(isNil QGVAR(vehicle))) then {
 	[GVAR(vehicle)] call FUNC(shutDownAll);
 };
 
-private _isVxfSetup = [_newVehicle] call FUNC(getVehicleConfig);
+private _isHatchetSetup = [_newVehicle] call FUNC(getVehicleConfig);
 
 //end the function if the vehicle isn't compatible
-if !(_isVxfSetup) exitWith {
+if !(_isHatchetSetup) exitWith {
   _newVehicle setVariable [QGVAR(modules), nil];
 };
 

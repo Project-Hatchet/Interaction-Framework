@@ -26,7 +26,7 @@ GVAR(perSecondHandler) = nil;
 GVAR(drawHandler) = nil;
 
 private ["_func"];
-{ //forEach vehicle vxf_modules
+{ //forEach vehicle hatchet_core_modules
   if (_x # 1) then {
     _func = missionNameSpace getVariable (_x # 5);
     if (!isNil {_func}) then {[_vehicle] call _func;};

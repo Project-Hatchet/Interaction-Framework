@@ -9,7 +9,7 @@ params ["_vehicle", "_animDirection", "_knobConfig"];
 _knobConfig params KNOBPARAMS;
 diag_log format ["%2: knob animate %1", _name, time];
 
-if (isNil {_vehicle getVariable "vxf_interaction"}) exitWith {false};
+if (isNil {_vehicle getVariable QGVAR(points)}) exitWith {false};
 if (!isNil QGVAR(knobHolding) && { GVAR(knobHolding) # 0 != _animation }) exitWith {false};
 
 private _animationPhase = (_vehicle animationPhase _animation);

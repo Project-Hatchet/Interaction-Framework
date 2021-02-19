@@ -8,7 +8,7 @@
  */
 
 private _vehicle = vehicle ace_player;
-if (isNil{_vehicle getVariable "vxf_interaction"}) exitWith {false};
+if (isNil{_vehicle getVariable QGVAR(points)}) exitWith {false};
 
 GVAR(pointStart) = true;
 true

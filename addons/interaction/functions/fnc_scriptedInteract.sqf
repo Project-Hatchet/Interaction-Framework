@@ -7,7 +7,7 @@
 
 params ["_vehicle", "_config", ["_animationTargetLabel", nil]];
 
-private _vehicleConfig = _vehicle getVariable "vxf_config";
+private _vehicleConfig = _vehicle getVariable QEGVAR(core,config);
 
 if (isNil "_vehicleConfig") exitWith {};
 

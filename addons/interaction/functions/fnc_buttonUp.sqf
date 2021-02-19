@@ -7,7 +7,7 @@
 
 GVAR(buttonHolding) = false;
 params ["_vehicle", "_button"];
-if (isNil{_vehicle getVariable "vxf_interaction"}) exitWith {false};
+if (isNil{_vehicle getVariable QGVAR(points)}) exitWith {false};
 
 _button PARAMS;
 diag_log format ["%2: button up %1", _name, time];

@@ -30,7 +30,7 @@ private _modules = (_vehicle getVariable [QGVAR(modules), []]);
   params ["_vehicle", "_modules"];
   private _moduleDelay = 1 / ((count _modules) + 1);
   private ["_func"];
-  { //forEach vehicle vxf_modules
+  { //forEach vehicle hatchet_core_modules
     sleep _moduleDelay;
     if (_x # 1) then {
       _func = missionNameSpace getVariable (_x # 4);

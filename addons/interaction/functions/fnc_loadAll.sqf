@@ -11,11 +11,11 @@ params ["_vehicle"];
 
 private _vehicleInteraction = [];
 
-private _vehicleConfig = _vehicle getVariable "vxf_config";
+private _vehicleConfig = _vehicle getVariable QEGVAR(core,config);
 private _interaction = "true" configClasses (_vehicleConfig >> "interaction");
 
 { // forEach _interaction
   _vehicleInteraction pushBack ([_vehicle, _x] call FUNC(loadItem));
 } forEach _interaction;
 
-_vehicle setVariable ["vxf_interaction", _vehicleInteraction];
+_vehicle setVariable [QGVAR(points), _vehicleInteraction];

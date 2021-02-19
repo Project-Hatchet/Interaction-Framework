@@ -7,7 +7,7 @@
 
 params ["_vehicle", "_animation", "_animationTarget", "_animationTargetLabel", "_animationSpeed", "_animStart", "_animEnd", "_button"];
 
-if (isNil{_vehicle getVariable "vxf_interaction"}) exitWith {false};
+if (isNil{_vehicle getVariable QGVAR(points)}) exitWith {false};
 if (_animation in vxf_animating_keys) exitWith {false};
 
 _button PARAMS;
