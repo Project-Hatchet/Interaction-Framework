@@ -29,14 +29,26 @@ if (_clickSound != "") then {
 vxf_animating_keys pushBack _animation;
 
 _vehicle animateSource [_animation, _animationTarget, _animationSpeed];
-[_vehicle, _animation, _animationTarget, _animationTargetLabel, _animEnd] spawn {
-  params ["_vehicle", "_animation", "_animationTarget", "_animationTargetLabel", "_animEnd"];
-  private _startTime = cba_missionTime;
-  //showCommandingMenu "RscMainMenu";
-  //showCommandingMenu "";
-  waitUntil {
-    cba_missionTime > _startTime + 3 ||
-    ((_vehicle animationPhase _animation > _animationTarget - 0.02) && (_vehicle animationPhase _animation < _animationTarget + 0.02))};
-  [_vehicle, _animation, _animationTargetLabel, _animationTarget] call _animEnd;
-  vxf_animating_keys deleteAt (vxf_animating_keys find _animation);
-};
+
+#define OUTER_ARGS(ARRAY) ARRAY params ["_vehicle", "_animation", "_animationTarget", "_animationTargetLabel", "_animEnd"]
+#define INNER_ARGS \
+  _this params ["_p1", "_startTime"]; \
+  OUTER_ARGS(_p1)
+
+// Waits for 3 seconds, then begins a CBA waitUntil
+[{
+  OUTER_ARGS(_this);
+  [{
+    INNER_ARGS;
+    (_vehicle animationPhase _animation > _animationTarget - 0.02) &&
+      { (_vehicle animationPhase _animation < _animationTarget + 0.02) }
+  }, {
+    INNER_ARGS;
+    [_vehicle, _animation, _animationTargetLabel, _animationTarget] call _animEnd;
+    vxf_animating_keys deleteAt (vxf_animating_keys find _animation);
+  },
+    [[_vehicle, _animation, _animationTarget, _animationTargetLabel, _animEnd], cba_missionTime]
+  ] call CBA_fnc_waitUntilAndExecute;
+}, [
+  _vehicle, _animation, _animationTarget, _animationTargetLabel, _animEnd
+], 3] call CBA_fnc_waitAndExecute;
