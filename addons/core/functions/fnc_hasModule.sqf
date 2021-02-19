@@ -1,5 +1,6 @@
+#include "script_component.hpp"
 /*
- * vxf_core_fnc_hasModule
+ * hatchet_core_fnc_hasModule
  *
  * Checks if a module exists
  *
@@ -9,10 +10,10 @@
  * Author: Yax
  */
 
-params ["_vehicle", "_moduleName",["_className", nil]];
+params ["_vehicle", "_moduleName", ["_className", nil]];
 
-private _vehicleModuleArray = _vehicle getVariable ["vxf_modules", []];
-private _isClass = if(!isNil "_className") then [{_vehicle isKindOf _className}, {true}];
+private _vehicleModuleArray = _vehicle getVariable [QGVAR(modules), []];
+private _isClass = if (!isNil "_className") then [{_vehicle isKindOf _className}, {true}];
 private _hasModule = false;
 { // forEach _vehicleModuleArray
   _name = _x # 0;

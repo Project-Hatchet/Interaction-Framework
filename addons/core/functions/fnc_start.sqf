@@ -1,5 +1,6 @@
+#include "script_component.hpp"
 /*
- * vxf_core_fnc_start
+ * hatchet_core_fnc_start
  *
  * Starts a loaded module
  *
@@ -11,7 +12,7 @@
 
 params ["_vehicle", "_moduleName", ["_parameters", nil]];
 
-private _vehicleModuleArray = _vehicle getVariable ["vxf_modules", []];
+private _vehicleModuleArray = _vehicle getVariable [QGVAR(modules), []];
 
 private ["_moduleName", "_running", "_setup"];
 { // forEach _vehicleModuleArray
@@ -27,6 +28,6 @@ private ["_moduleName", "_running", "_setup"];
       };
     };
     _module set [1, _running];
-    _vehicleModuleArray set [_foreachIndex, _module];
+    _vehicleModuleArray set [_forEachIndex, _module];
   };
 } forEach _vehicleModuleArray;

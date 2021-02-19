@@ -1,5 +1,6 @@
+#include "script_component.hpp"
 /*
- * vxf_core_fnc_perSecond
+ * hatchet_core_fnc_perSecond
  *
  * Function will run relevante modules' per second functions
  *
@@ -8,22 +9,23 @@
  *
  * Author: Yax
  */
+
 params ["_args", "_pfhId"];
 _args params ["_vehicle"];
 
-//shutdown conditions
+// shutdown conditions
 if (
-  (vehicle player != _vehicle) ||
-  (!alive player) ||
-  (!alive _vehicle)
+  !((vehicle ace_player) isEqualTo _vehicle) ||
+  !(alive ace_player) ||
+  !(alive _vehicle)
 ) exitWith {
   [_pfhId] call CBA_fnc_removePerFrameHandler;
-  vxf_perSecondHandler = nil;
+  GVAR(perSecondHandler) = nil;
 };
 
-if (vxf_paused) exitWith {};
+if (GVAR(paused)) exitWith {};
 
-private _modules = (_vehicle getVariable ["vxf_modules", []]);
+private _modules = (_vehicle getVariable [QGVAR(modules), []]);
 [_vehicle, _modules] spawn {
   params ["_vehicle", "_modules"];
   private _moduleDelay = 1 / ((count _modules) + 1);

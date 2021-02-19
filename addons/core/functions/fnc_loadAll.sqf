@@ -1,5 +1,6 @@
+#include "script_component.hpp"
 /*
- * vxf_core_fnc_loadAll
+ * hatchet_core_fnc_loadAll
  *
  * Reads out relevant vehicle modules from config and stores them in vehicle variables
  *
@@ -8,15 +9,16 @@
  *
  * Author: Yax
  */
+
 params ["_vehicle"];
 
 private _vehicleModuleArray = [];
 
-private _vehicleConfig = _vehicle getVariable "vxf_config";
+private _vehicleConfig = _vehicle getVariable QGVAR(config);
 private _modules = "true" configClasses (_vehicleConfig >> "modules");
 
-private _projectPrefix = _vehicle getVariable ["vxf_projectPrefix", ""];
-#define HANDLEDEFAULT(VAR,MODULENAME,PATH) if(VAR == "" && {!isNil{missionNameSpace getVariable format[PATH, MODULENAME]}}) then {VAR = format[PATH, MODULENAME];};
+private _projectPrefix = _vehicle getVariable [QGVAR(projectPrefix), ""];
+#define HANDLEDEFAULT(VAR,MODULENAME,PATH) if (VAR == "" && {!isNil{missionNameSpace getVariable format[PATH, MODULENAME]}}) then {VAR = format[PATH, MODULENAME];};
 
 { //forEach _modules
   private _moduleConfig = _x;
@@ -52,4 +54,4 @@ private _projectPrefix = _vehicle getVariable ["vxf_projectPrefix", ""];
   ];
 } forEach _modules;
 
-_vehicle setVariable ["vxf_modules", _vehicleModuleArray];
+_vehicle setVariable [QGVAR(modules), _vehicleModuleArray];
