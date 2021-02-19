@@ -43,8 +43,9 @@ if (_vehicle getCargoIndex ace_player > -1) then {
 
 _configSources pushBack QUOTE(PREFIX);
 
+private _rootVehicleConfig = configOf _vehicle;
 {
-  private _config = (configFile >> "CfgVehicles" >> (typeOf _vehicle) >> _x);
+  private _config = _rootVehicleConfig >> _x);
   if (isClass _config) exitWith {
     _configFound = true;
     //if there was already a config present, a seat change happened, so do a shutdown of old systems
