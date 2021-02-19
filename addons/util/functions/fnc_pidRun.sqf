@@ -1,5 +1,6 @@
+#include "script_component.hpp"
 /*
- * vxf_util_fnc_pidRun
+ * hatchet_util_fnc_pidRun
  *
  * Runs a pid controller update
  *
@@ -9,7 +10,7 @@
 
 params ["_vehicle", "_name", "_frameTime", "_desiredValue", "_actualValue"];
 
-private _pid = _vehicle getVariable [format ["vxf_pid_%1", _name], nil];
+private _pid = _vehicle getVariable [PID(_name), nil];
 if (isNil "_pid") exitWith {0};
 
 _pid params ["_kp", "_ki", "_kd", "_priorError", "_integral"];
@@ -20,6 +21,6 @@ private _derivative = (_error - _priorError) / _frameTime;
 private _output = _kp * _error + _ki * _integral + _kd * _derivative;
 _priorError = _error;
 
-_vehicle setVariable [format ["vxf_pid_%1", _name], [_kp, _ki, _kd, _priorError, _integral]];
+_vehicle setVariable [PID(_name), [_kp, _ki, _kd, _priorError, _integral]];
 
 _output

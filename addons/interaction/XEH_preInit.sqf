@@ -1,5 +1,6 @@
 #include "script_component.hpp"
 ADDON = false;
+#include "XEH_PREP.hpp"
 
 GVAR(updateIndex) = 0;
 GVAR(currentButton) = nil;

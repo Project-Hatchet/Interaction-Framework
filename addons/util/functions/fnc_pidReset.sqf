@@ -1,5 +1,6 @@
+#include "script_component.hpp"
 /*
- * vxf_util_fnc_pidReset
+ * hatchet_util_fnc_pidReset
  *
  * Resets a PiD controller
  *
@@ -12,9 +13,9 @@ params ["_vehicle", "_name"];
 
 if (isNil "_vehicle" || _name == "") exitWith {};
 
-private _pid = _vehicle getVariable [format ["vxf_pid_%1", _name], nil];
+private _pid = _vehicle getVariable [PID(_name), nil];
 if (isNil "_pid") exitWith {};
 
 _pid set [3, 0];
 _pid set [4, 0];
-_vehicle setVariable [format ["vxf_pid_%1", _name], _pid];
+_vehicle setVariable [PID(_name), _pid];
