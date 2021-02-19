@@ -6,7 +6,7 @@
  *
  */
 
-private _vehicle = vehicle ace_player;
+private _vehicle = vehicle hatchet_player;
 
 if (cameraView != "INTERNAL") exitWith {};
 if !(isNull curatorCamera) exitWith {};

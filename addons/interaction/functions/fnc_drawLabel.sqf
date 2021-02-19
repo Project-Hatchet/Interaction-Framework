@@ -5,7 +5,7 @@
  * interaction button release functionality
  */
 
-private _vehicle = vehicle ace_player;
+private _vehicle = vehicle hatchet_player;
 
 if (isNil QGVAR(currentButton)) exitWith {
   ["",0,0.4,0,0,0, 1301] spawn BIS_fnc_dynamicText;

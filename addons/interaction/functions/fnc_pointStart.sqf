@@ -7,7 +7,7 @@
  *
  */
 
-private _vehicle = vehicle ace_player;
+private _vehicle = vehicle hatchet_player;
 if (isNil{_vehicle getVariable QGVAR(points)}) exitWith {false};
 
 GVAR(pointStart) = true;

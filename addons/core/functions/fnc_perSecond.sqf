@@ -15,8 +15,8 @@ _args params ["_vehicle"];
 
 // shutdown conditions
 if (
-  !((vehicle ace_player) isEqualTo _vehicle) ||
-  !(alive ace_player) ||
+  !((vehicle hatchet_player) isEqualTo _vehicle) ||
+  !(alive hatchet_player) ||
   !(alive _vehicle)
 ) exitWith {
   [_pfhId] call CBA_fnc_removePerFrameHandler;

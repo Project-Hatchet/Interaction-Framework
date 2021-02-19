@@ -25,7 +25,7 @@ if (_clickSound != "") then {
 };
 
 [_vehicle, _animation, _animationTargetLabel, _animationTarget] call _animStart;
-[_vehicle, _position, 1, name ace_player] call FUNC(pointNetSend);
+[_vehicle, _position, 1, name hatchet_player] call FUNC(pointNetSend);
 vxf_animating_keys pushBack _animation;
 
 _vehicle animateSource [_animation, _animationTarget, _animationSpeed];

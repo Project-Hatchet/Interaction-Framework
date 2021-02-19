@@ -22,7 +22,7 @@ if !(_clickSound isEqualTo "") then {
 };
 
 [_vehicle] call _buttonDown;
-[_vehicle, _position, 1, name ace_player] call FUNC(pointNetSend);
+[_vehicle, _position, 1, name hatchet_player] call FUNC(pointNetSend);
 
 if !(isNil "_buttonHold") then {
   GVAR(buttonHoldCode) = _buttonHold;
