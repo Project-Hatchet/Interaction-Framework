@@ -11,7 +11,7 @@ params ["_vehicle"];
 
 private _vehicleInteraction = [];
 
-private _vehicleConfig = _vehicle getVariable QEGVAR(core,config);
+private _vehicleConfig = _vehicle getVariable QRVAR(config);
 private _interaction = "true" configClasses (_vehicleConfig >> "interaction");
 
 { // forEach _interaction

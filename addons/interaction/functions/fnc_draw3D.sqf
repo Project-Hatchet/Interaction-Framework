@@ -8,7 +8,7 @@
 
 private _vehicle = vehicle hatchet_player;
 
-if (cameraView != "INTERNAL") exitWith {};
+if !(cameraView isEqualTo "INTERNAL") exitWith {};
 if !(isNull curatorCamera) exitWith {};
 
 if (GVAR(updateIndex) >= GVAR(updateEvery) && !GVAR(dragging) && !GVAR(buttonHolding)) then {
@@ -25,7 +25,7 @@ GVAR(updateIndex) = GVAR(updateIndex) + 1;
 
 _this call FUNC(drawLabel);
 
-if (QGVAR(crosshair)) then {
+if (GVAR(crosshair)) then {
   ["<t color='#bae5bb' size = '.5'>+</t>",-1, 0.485, 1, 0, 0, 794] spawn BIS_fnc_dynamicText;
 };
 

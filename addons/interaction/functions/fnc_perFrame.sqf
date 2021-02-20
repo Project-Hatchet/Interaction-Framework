@@ -7,8 +7,6 @@
  * Params: array[(object) vehicle, (scalar) frame time]
  */
 
-#include "interactDefines.hpp"
-
 params ["_vehicle", "_frameTime"];
 
 if !(isNil QGVAR(buttonHoldCode)) then {

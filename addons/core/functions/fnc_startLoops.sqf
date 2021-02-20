@@ -12,7 +12,7 @@
 
 params ["_vehicle"];
 
-private _vehicleConfig = _vehicle getVariable QGVAR(config);
+private _vehicleConfig = _vehicle getVariable QRVAR(config);
 
 // set up draw3D handler
 if (isClass (_vehicleConfig >> "interaction")) then {

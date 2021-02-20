@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Project name="hatchet">
+  <Package name="core">
+    <Key ID="STR_hatchet_core_EngineOn_Label">
+      <English>Engine On</English>
+      <German>Motor An</German>
+    </Key>
+    <Key ID="STR_hatchet_core_EngineOff_Label">
+      <English>Engine Off</English>
+      <German>Motor Aus</German>
+    </Key>
+    <Key ID="STR_hatchet_core_LightsOn_Label">
+      <English>Lights On</English>
+      <German>Scheinwerfer Aus</German>
+    </Key>
+    <Key ID="STR_hatchet_core_LightsOff_Label">
+      <English>Lights Off</English>
+      <German>Scheinwerfer Aus</German>
+    </Key>
+  </Package>
+</Project>

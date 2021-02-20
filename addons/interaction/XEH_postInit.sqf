@@ -1,10 +1,20 @@
 #include "script_component.hpp"
 
 [
+  "Hatchet Interaction",
+  QGVAR(ButtonPress),
+  "Vehicle Interaction",
+  {[vehicle hatchet_player, GVAR(currentButton)] call FUNC(buttonDown)},
+  {[vehicle hatchet_player, GVAR(currentButton)] call FUNC(buttonUp)},
+  [33, [false, false, false]],
+  false
+] call CBA_fnc_addKeybind;
+
+[
   QGVAR(updateEvery),
   "SLIDER",
   "Label update rates (frames between)",
-  "VXF Interaction",
+  "Hatchet Interaction",
   [0,10,5,0],
   nil,
   {}
@@ -14,7 +24,7 @@
   "vxf_uh60_interaction_pointing",
   "checkbox",
   "Enable pointing system(uses remoteCall)",
-  "VXF Interaction",
+  "Hatchet Interaction",
   [true],
   nil,
   {}

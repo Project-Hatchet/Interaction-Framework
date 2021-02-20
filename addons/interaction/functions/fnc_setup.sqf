@@ -12,11 +12,11 @@ params ["_vehicle"];
 _this call FUNC(loadAll);
 
 if (isNil {GVAR(drawHandler)}) then {
-  GVAR(drawHandler) = addmissioneventhandler ["Draw3d", FUNC(draw3D)];
+  GVAR(drawHandler) = addMissionEventHandler ["Draw3d", FUNC(draw3D)];
 };
 
-private _vehicleConfig = _vehicle getVariable EGVAR(core,config);
-QGVAR(crosshair) = (getNumber (_vehicleConfig >> "interaction" >> "crossHair") == 1);
+private _vehicleConfig = _vehicle getVariable RVAR(config);
+GVAR(crosshair) = (getNumber (_vehicleConfig >> "interaction" >> "crossHair") == 1);
 
 vxf_animating_keys = [];
 GVAR(cursorPos) = [0.5,0.5];

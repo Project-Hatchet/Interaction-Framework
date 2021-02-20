@@ -2,7 +2,6 @@
 ADDON = false;
 #include "XEH_PREP.hpp"
 
-
 GVAR(paused) = false;
 
 ADDON = true;

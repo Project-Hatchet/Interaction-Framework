@@ -14,7 +14,7 @@ params ["_vehicle"];
 
 private _vehicleModuleArray = [];
 
-private _vehicleConfig = _vehicle getVariable QGVAR(config);
+private _vehicleConfig = _vehicle getVariable QRVAR(config);
 private _modules = "true" configClasses (_vehicleConfig >> "modules");
 
 private _projectPrefix = _vehicle getVariable [QGVAR(projectPrefix), ""];

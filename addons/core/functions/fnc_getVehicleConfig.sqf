@@ -17,42 +17,42 @@ params ["_vehicle"];
 private _configFound = false;
 private _configSources = [];
 
-_vehicle setVariable [QGVAR(config), nil];
+_vehicle setVariable [QRVAR(config), nil];
 private _turretIndex = [hatchet_player] call EFUNC(util,getTurretIndex);
 
 if (hatchet_player == driver _vehicle) then {
-  _configSources pushBack QGVAR(driver);
+  _configSources pushBack QRVAR(driver);
 };
 
 private _copilotTurretIndex = [_vehicle] call EFUNC(util,getTurretCopilot);
 if ((count _copilotTurretIndex) > 0 && (count _turretIndex) > 0 && {(_turretIndex # 0) == (_copilotTurretIndex # 0)}) then {
-  _configSources pushBack QGVAR(copilot);
+  _configSources pushBack QRVAR(copilot);
 };
 
 if (count _turretIndex > 0) then {
-  _configSources pushBack format [QGVAR(turret_%1), (_turretIndex # 0)];
+  _configSources pushBack format [QRVAR(turret_%1), (_turretIndex # 0)];
 };
 
 if (hatchet_player == gunner _vehicle) then {
-  _configSources pushBack QGVAR(gunner);
+  _configSources pushBack QRVAR(gunner);
 };
 
 if (_vehicle getCargoIndex hatchet_player > -1) then {
-  _configSources pushBack QGVAR(cargo);
+  _configSources pushBack QRVAR(cargo);
 };
 
 _configSources pushBack QUOTE(PREFIX);
 
 private _rootVehicleConfig = configOf _vehicle;
 {
-  private _config = _rootVehicleConfig >> _x);
+  private _config = (_rootVehicleConfig >> _x);
   if (isClass _config) exitWith {
     _configFound = true;
     //if there was already a config present, a seat change happened, so do a shutdown of old systems
-    //if (!isNil {_vehicle getVariable QGVAR(config)}) then {
+    //if (!isNil {_vehicle getVariable QRVAR(config)}) then {
     //  [_vehicle] call FUNC(shutDown);
     //};
-    _vehicle setVariable [QGVAR(config), _config];
+    _vehicle setVariable [QRVAR(config), _config];
     _vehicle setVariable [QGVAR(projectPrefix), getText (_config >> "projectPrefix")];
   };
 } forEach _configSources;

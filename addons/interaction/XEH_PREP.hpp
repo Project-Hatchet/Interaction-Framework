@@ -3,7 +3,7 @@ PREP(buttonDown);
 PREP(buttonUp);
 PREP(drag);
 PREP(dragStart);
-PREP(drahStop);
+PREP(dragStop);
 PREP(knobAnimate);
 PREP(leverAnimate);
 
