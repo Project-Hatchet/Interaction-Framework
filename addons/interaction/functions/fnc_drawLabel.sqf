@@ -54,7 +54,7 @@ if (count _knobConfig > 0) then {
   if (inputAction "nextAction" > 0 && !GVAR(scrolledHolding)) then {
     [_vehicle, -1, _knobConfig] call FUNC(knobAnimate);
   };
-  if (GVAR(showLabel)) then {
+  if (GVAR(showKeybinds)) then {
     ["Scroll or drag to spin",0,0.6,0,0,0, 1303] spawn BIS_fnc_dynamicText;
   } else {
     ["",0,0.6,0,0,0, 1303] spawn BIS_fnc_dynamicText;
@@ -85,7 +85,7 @@ if (count _animConfig > 0 && count _knobConfig == 0) then {
   private _loopLast = if (_animLooping) then {(count _animationSteps) - 1} else {-1};
   private _prevStep = if (_currentState == 0) then {_loopLast} else {_currentState - 1};
   private _nextStep = if (_currentState == (count _animationSteps) - 1) then {_loopFirst} else {_currentState + 1};
-  if (GVAR(showLabel)) then {
+  if (GVAR(showKeybinds)) then {
     if (_prevStep > -1) then {
       [format ["<t size='0.8'>Set to <t color='#ff0000'>%2</t> with <t color='#ff0000'>%1</t></t>", actionKeysNames "prevAction", _animationLabels # _prevStep],(-safeZoneX)+(GVAR(cursorPos) # 0) - (safeZoneW / 2),((GVAR(cursorPos) # 1) - 0.1),0,0,0, 1301] spawn BIS_fnc_dynamicText;
     } else {
