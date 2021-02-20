@@ -17,6 +17,8 @@ params ["_caller", "_newVehicle"];
 if (isNil "_caller" || isNil "_newVehicle") exitWith {};
 if !(_caller isEqualTo hatchet_player) exitWith {};
 
+call EFUNC(interaction,removeActions);
+
 if !(isNil QGVAR(vehicle)) then {
 	[GVAR(vehicle)] call FUNC(shutDownAll);
 };
@@ -26,14 +28,13 @@ private _isHatchetSetup = [_newVehicle] call FUNC(getVehicleConfig);
 //end the function if the vehicle isn't compatible
 if !(_isHatchetSetup) exitWith {
   _newVehicle setVariable [QGVAR(modules), nil];
+  if !((vehicle hatchet_player) isEqualTo hatchet_player) then {
+    call EFUNC(interaction,addActions);
+  };
 };
 
 [_newVehicle] call FUNC(loadAll);
 [_newVehicle] call FUNC(startLoops);
 GVAR(vehicle) = _newVehicle;
 
-GVAR(vehicleSwitchedEH) = _newVehicle addEventHandler ["SeatSwitched", {
-  if ((_this # 1) isEqualTo hatchet_player) then {
-	  [hatchet_player, vehicle hatchet_player] call FUNC(handleVehicleChanged);
-	};
-}];
+call EFUNC(interaction,addActions);

@@ -11,6 +11,16 @@
 ] call CBA_fnc_addKeybind;
 
 [
+  QGVAR(removeActions),
+  "CHECKBOX",
+  "Remove Vanilla Actions",
+  [COMPONENT_NAME, "Actions"],
+  [true],
+  nil,
+  {}
+] call CBA_fnc_addSetting;
+
+[
   QGVAR(updateEvery),
   "SLIDER",
   "Label update rates (frames between)",
