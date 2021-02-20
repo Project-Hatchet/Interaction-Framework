@@ -17,6 +17,7 @@ PREP(pointStart);
 PREP(checkInteraction);
 PREP(draw3D);
 PREP(drawLabel);
+PREP(findButton);
 PREP(loadAll);
 PREP(loadItem);
 PREP(perFrame);
