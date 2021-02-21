@@ -9,6 +9,6 @@
 
 params ["_vehicle", "_pointPos", "_iconIndex", "_label"];
 
-if (vxf_uh60_interaction_pointing) then {
+if (GVAR(pointingEnabled)) then {
   [_pointPos, _iconIndex, _label] remoteExecCall [QFUNC(pointNetReceive), crew _vehicle];
 };

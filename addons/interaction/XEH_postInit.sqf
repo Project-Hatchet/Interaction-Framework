@@ -1,7 +1,7 @@
 #include "script_component.hpp"
 
 [
-  "Hatchet Interaction",
+  COMPONENT_NAME,
   QGVAR(ButtonPress),
   "Vehicle Interaction",
   {[vehicle hatchet_player, GVAR(currentButton)] call FUNC(buttonDown)},
@@ -14,21 +14,42 @@
   QGVAR(updateEvery),
   "SLIDER",
   "Label update rates (frames between)",
-  "Hatchet Interaction",
+  [COMPONENT_NAME, "Performance"],
   [0,10,5,0],
   nil,
   {}
 ] call CBA_fnc_addSetting;
 
 [
-  "vxf_uh60_interaction_pointing",
-  "checkbox",
+  QGVAR(pointingEnabled),
+  "CHECKBOX",
   "Enable pointing system(uses remoteCall)",
-  "Hatchet Interaction",
+  [COMPONENT_NAME, "Performance"],
   [true],
   nil,
   {}
-] call CBA_Settings_fnc_init;
+] call CBA_fnc_addSetting;
+
+[
+  QGVAR(showLabel),
+  "CHECKBOX",
+  "Show Label",
+  [COMPONENT_NAME, "Labels"],
+  [true],
+  nil,
+  {}
+] call CBA_fnc_addSetting;
+
+[
+  QGVAR(showKeybind),
+  "CHECKBOX",
+  "Show Keybind",
+  [COMPONENT_NAME, "Labels"],
+  [true],
+  nil,
+  {}
+] call CBA_fnc_addSetting;
+
 
 ["vtx_uh60m_enabled_jvmf","CHECKBOX","(DEBUG) Enable JVMF","UH-60M",[true],nil,{}] call CBA_Settings_fnc_init;
 ["vtx_uh60m_enabled_fms","CHECKBOX","(DEBUG) Enable FMS","UH-60M",[true],nil,{}] call CBA_Settings_fnc_init;
