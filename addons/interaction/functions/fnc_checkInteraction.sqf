@@ -28,7 +28,7 @@ scopeName "main";
 // cut it off if the condition is false
 if (_condition != "" && {!(_vehicle call (compile _condition))}) exitWith {nil};
 
-if (!isNil "_positionType") then {
+if !(isNil "_positionType") then {
   // get the selection position coordinates
   if (_positionType == "anim") then {
     _position = _vehicle selectionPosition _position;
@@ -37,17 +37,17 @@ if (!isNil "_positionType") then {
   private _screenPos = worldToScreen _positionWorld;
   // make sure the position is on the screen
   if (count _screenPos == 2) then {
-    private _btnSel = (_screenPos distance GVAR(cursorPos)) < (_radius * GVAR(buttonRadius));
-    if (_btnSel) then {
-      _this breakOut "main";
+    private _dis = (_screenPos distance GVAR(cursorPos));
+    if (_dis < (_radius * GVAR(buttonRadius))) then {
+      _dis breakOut "main";
     };
   };
 };
 
 private ["_result"];
 { // forEach _subItems
-  _result = _x call FUNC(checkInteraction);
-  if (!isNil "_result") then {
+  _result = [_x] call FUNC(findButton);
+  if !(isNil "_result") then {
     _result breakOut "main";
   };
 } forEach _subItems;
