@@ -50,6 +50,13 @@ private _buttonDown = getText (_config >> "buttonDown");
 private _buttonUp = getText (_config >> "buttonUp");
 private _buttonHold = getText (_config >> "buttonHold");
 private _clickSound = getText (_config >> "clickSound");
+private _action = getText (_config >> "action");
+
+if !(_action isEqualTo "") then {
+  if (GVAR(removeActions)) then {
+    GVAR(actionIgnore) pushBack _action;
+  };
+};
 
 private _buttonConfig = [];
 if (_buttonDown != "" || _buttonUp != "" || _buttonHold != "") then {

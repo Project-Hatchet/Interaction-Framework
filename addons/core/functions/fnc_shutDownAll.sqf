@@ -34,5 +34,4 @@ private ["_func"];
   _x set [1, false];
 } forEach (_vehicle getVariable [QGVAR(modules), []]);
 
-_vehicle removeEventHandler ["SeatSwitched", GVAR(vehicleSwitchedEH)];
 GVAR(vehicle) = nil;

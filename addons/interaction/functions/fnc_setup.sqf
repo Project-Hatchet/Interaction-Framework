@@ -9,6 +9,9 @@
 
 params ["_vehicle"];
 
+GVAR(actionIds) = [];
+GVAR(actionIgnore) = [];
+
 _this call FUNC(loadAll);
 
 if (isNil {GVAR(drawHandler)}) then {

@@ -3,6 +3,7 @@ class RVAR(EngineOn) {
   label = CSTRING(EngineOn_Label);
   radius = 0.3;
   buttonDown = QUOTE(vehicle hatchet_player engineOn true);
+  action = "EngineOn";
 };
 
 class RVAR(EngineOff) {
@@ -10,18 +11,21 @@ class RVAR(EngineOff) {
   label = CSTRING(EngineOff_Label);
   radius = 0.3;
   buttonDown = QUOTE(vehicle hatchet_player engineOn false);
+  action = "EngineOff";
 };
 
-class RVAR(LightsOn) {
+class RVAR(LightOn) {
   condition = QUOTE(!(isLightOn (vehicle hatchet_player)));
   label = CSTRING(LightsOn_Label);
   radius = 0.3;
   buttonDown = QUOTE(vehicle hatchet_player setPilotLight true);
+  action = "LightOn";
 };
 
-class RVAR(LightsOff) {
+class RVAR(LightOff) {
   condition = QUOTE(isLightOn (vehicle hatchet_player));
   label = CSTRING(LightsOff_Label);
   radius = 0.3;
   buttonDown = QUOTE(vehicle hatchet_player setPilotLight false);
+  action = "LightOff";
 };

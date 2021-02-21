@@ -14,12 +14,15 @@ PREP(pointNetReceive);
 PREP(pointNetSend);
 PREP(pointStart);
 
+PREP(addAction);
+PREP(addActions);
 PREP(checkInteraction);
 PREP(draw3D);
 PREP(drawLabel);
 PREP(loadAll);
 PREP(loadItem);
 PREP(perFrame);
+PREP(removeActions);
 PREP(scriptedInteract);
 PREP(setup);
 PREP(shutDown);
