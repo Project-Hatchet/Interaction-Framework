@@ -18,7 +18,7 @@ jobs:
         command: 'build --release'
     # Upload to Steam Workshop
     - name: Extract mod.zip
-      run: cd releases && unzip hatchet.zip
+      run: cd releases && sudo unzip hatchet.zip
     - uses: arma-actions/workshop-upload@v1
       with:
         appId: '107410'    # default
