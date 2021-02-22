@@ -13,7 +13,7 @@ jobs:
       - name: Release Drafter
         if: github.repository == ${{ github.repository }}
         uses: release-drafter/release-drafter@v5
-         with:
-           config-name: config_release.yml
+          with:
+            config-name: config_release.yml
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
