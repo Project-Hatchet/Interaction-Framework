@@ -36,4 +36,4 @@ jobs:
       - uses: actions/upload-artifact@v2
         with:
           name: hatchet
-          path: releases/@hatchet.zip
+          path: releases/hatchet.zip
