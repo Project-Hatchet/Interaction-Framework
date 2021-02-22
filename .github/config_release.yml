@@ -1,3 +1,5 @@
+name: Release Drafter Configs
+
 branches:
   - main
 
@@ -40,7 +42,10 @@ template: |
   _Requires CBA Version 3.Y.Z or later and Arma 3 Version X.Y or later._
   DESCRIPTION HERE
   ## Change Log Summary
+
   $CHANGES
+
+  $CONTRIBUTORS
 replacers:
   # Category titles
   - search: '/\#\# (\*\*(ADDED|IMPROVED|CHANGED|FIXED|TRANSLATIONS):\*\*)/g'

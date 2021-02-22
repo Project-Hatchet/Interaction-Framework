@@ -1,4 +1,4 @@
-Continuous deployment/Main Release
+name: Steam_Upload/Main_Release
 
 on:
   push:

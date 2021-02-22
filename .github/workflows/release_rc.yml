@@ -1,4 +1,4 @@
-name: Continuous deployment/Release Candidate
+name: Steam_Upload/Release_Candidate
 
 on:
   push:
