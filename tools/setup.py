@@ -1,7 +1,7 @@
 #!/usr/bin/env python3
 
 #######################
-#  PROJ_TEMPL Setup Script  #
+#  hatchet_framework Setup Script  #
 #######################
 
 import os
@@ -12,27 +12,28 @@ import subprocess
 import winreg
 
 ######## GLOBALS #########
-MAINDIR = "z"
-PROJECTDIR = "proj_templ"
+MAINDIR = "x"
+PROJECTDIR = "hatchet_framework"
+CBA = "P:\\x\\cba"
 ##########################
 
 def main():
     FULLDIR = "{}\\{}".format(MAINDIR,PROJECTDIR)
     print("""
   ######################################
-  # PROJ_TEMPL Development Environment Setup #
+  # hatchet_framework Development Environment Setup #
   ######################################
 
-  This script will create your PROJ_TEMPL dev environment for you.
+  This script will create your hatchet_framework dev environment for you.
 
   Before you run this, you should already have:
     - A properly setup ACE3 Development Environment
 
   If you have not done those things yet, please abort this script in the next step and do so first.
 
-  This script will create two hard links on your system, both pointing to your PROJ_TEMPL project folder:
-    [Arma 3 installation directory]\\{} => PROJ_TEMPL project folder
-    P:\\{}                              => PROJ_TEMPL project folder
+  This script will create two hard links on your system, both pointing to your hatchet_framework project folder:
+    [Arma 3 installation directory]\\{} => hatchet_framework project folder
+    P:\\{}                              => hatchet_framework project folder
     """.format(FULLDIR,FULLDIR))
     print("\n")
 

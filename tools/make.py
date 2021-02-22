@@ -30,7 +30,7 @@
 
 ###############################################################################
 
-__version__ = "0.8"
+__version__ = "0.9"
 
 import sys
 
@@ -57,8 +57,8 @@ if sys.platform == "win32":
     import winreg
 
 ######## GLOBALS #########
-project = "@proj_templ"
-project_version = "3.0.0"
+project = "@vtx"
+project_version = "0.3.0"
 arma3tools_path = ""
 work_drive = ""
 module_root = ""
@@ -66,13 +66,13 @@ make_root = ""
 release_dir = ""
 module_root_parent = ""
 optionals_root = ""
-key_name = "proj_templ"
+key_name = "zen"
 key = ""
 dssignfile = ""
-prefix = "proj_templ"
-pbo_name_prefix = "proj_templ_"
+prefix = "vtx"
+pbo_name_prefix = "vtx_"
 signature_blacklist = []
-importantFiles = ["mod.cpp", "README.md", "AUTHORS.txt", "LICENSE", "logo_proj_templ_ca.paa"]
+importantFiles = ["mod.cpp", "meta.cpp", "README.md", "AUTHORS.txt", "LICENSE"]
 versionFiles = ["README.md", "mod.cpp"]
 
 ciBuild = False # Used for CI builds
@@ -239,8 +239,16 @@ def find_depbo_tools():
                 k = winreg.OpenKey(winreg.HKEY_CURRENT_USER, r"Software\Mikero\{}".format(tool))
                 path = winreg.QueryValueEx(k, "exe")[0]
             except FileNotFoundError:
-                k = winreg.OpenKey(winreg.HKEY_LOCAL_MACHINE, r"Software\Mikero\{}".format(tool))
-                path = winreg.QueryValueEx(k, "exe")[0]
+                try:
+                    k = winreg.OpenKey(winreg.HKEY_LOCAL_MACHINE, r"Software\Mikero\{}".format(tool))
+                    path = winreg.QueryValueEx(k, "exe")[0]
+                except FileNotFoundError:
+                    try:
+                        k = winreg.OpenKey(winreg.HKEY_CURRENT_USER, r"Software\Wow6432Node\Mikero\{}".format(tool))
+                        path = winreg.QueryValueEx(k, "exe")[0]
+                    except FileNotFoundError:
+                        k = winreg.OpenKey(winreg.HKEY_LOCAL_MACHINE, r"Software\Wow6432Node\Mikero\{}".format(tool))
+                        path = winreg.QueryValueEx(k, "exe")[0]
         except FileNotFoundError:
             print_error("Could not find {}".format(tool))
             failed = True
@@ -284,8 +292,10 @@ def color(color):
 
 def print_error(msg):
     color("red")
-    print ("ERROR: {}".format(msg))
+    print("ERROR: {}".format(msg))
     color("reset")
+    global printedErrors
+    printedErrors += 1
 
 def print_green(msg):
     color("green")
@@ -412,17 +422,25 @@ def cleanup_optionals(mod):
 
             try:
                 file_name = "{}{}.pbo".format(pbo_name_prefix,dir_name)
+                folder= "@{}{}".format(pbo_name_prefix,dir_name)
                 src_file_path = os.path.join(release_dir, project, "addons", file_name)
-                dst_file_path = os.path.join(release_dir, project, "optionals", file_name)
+                dst_file_path = os.path.join(release_dir, project, "optionals",folder,"addons",file_name)
 
                 sigFile_name = "{}.{}.bisign".format(file_name,key_name)
                 src_sig_path = os.path.join(release_dir, project, "addons", sigFile_name)
-                dst_sig_path = os.path.join(release_dir, project, "optionals", sigFile_name)
+                dst_sig_path = os.path.join(release_dir, project, "optionals",folder,"addons", sigFile_name)
+
 
                 if (os.path.isfile(src_file_path)):
+                    if (os.path.isfile(dst_file_path)):
+                        # print("Cleanuping up old file {}".format(dst_file_path))
+                        os.remove(dst_file_path);
                     #print("Preserving {}".format(file_name))
                     os.renames(src_file_path,dst_file_path)
                 if (os.path.isfile(src_sig_path)):
+                    if (os.path.isfile(dst_sig_path)):
+                        # print("Cleanuping up old file {}".format(dst_sig_path))
+                        os.remove(dst_sig_path);
                     #print("Preserving {}".format(sigFile_name))
                     os.renames(src_sig_path,dst_sig_path)
             except FileExistsError:
@@ -784,6 +802,10 @@ def main(argv):
     global pbo_name_prefix
     global ciBuild
     global missingFiles
+    global failedBuilds
+    global printedErrors
+
+    printedErrors = 0
 
     if sys.platform != "win32":
         print_error("Non-Windows platform (Cygwin?). Please re-run from cmd.")
@@ -872,6 +894,12 @@ See the make.cfg file for additional build options.
         quiet = True
         argv.remove("quiet")
 
+    if "checkexternal" in argv:
+        argv.remove("checkexternal")
+        check_external = True
+    else:
+        check_external = False
+
     if "version" in argv:
         argv.remove("version")
         version_update = True
@@ -895,6 +923,8 @@ See the make.cfg file for additional build options.
     if "ci" in argv:
         argv.remove("ci")
         ciBuild = True
+
+    print_yellow("\nCheck external references is set to {}".format(str(check_external)))
 
     # Get the directory the make script is in.
     make_root = os.path.dirname(os.path.realpath(__file__))
@@ -1190,7 +1220,7 @@ See the make.cfg file for additional build options.
 
                 except:
                     raise
-                    print_error("ERROR: Could not copy module to work drive. Does the module exist?")
+                    print_error("Could not copy module to work drive. Does the module exist?")
                     input("Press Enter to continue...")
                     print("Resuming build...")
                     continue
@@ -1211,7 +1241,7 @@ See the make.cfg file for additional build options.
                         os.remove(f)
             except:
                 raise
-                print_error("ERROR: Could not copy module to work drive. Does the module exist?")
+                print_error("Could not copy module to work drive. Does the module exist?")
                 input("Press Enter to continue...")
                 print("Resuming build...")
                 continue
@@ -1238,10 +1268,13 @@ See the make.cfg file for additional build options.
 
                     if os.path.isfile(nobinFilePath):
                         print_green("$NOBIN$ Found. Proceeding with non-binarizing!")
-                        cmd = [makepboTool, "-P","-A","-X=*.backup", os.path.join(work_drive, prefix, module),os.path.join(module_root, release_dir, project,"addons")]
+                        cmd = [makepboTool, "-P","-A","-G","-N","-X=*.backup", os.path.join(work_drive, prefix, module),os.path.join(module_root, release_dir, project,"addons")]
 
                     else:
-                        cmd = [pboproject, "-P", os.path.join(work_drive, prefix, module), "+Engine=Arma3", "-S","+Noisy", "+Clean", "+Mod="+os.path.join(module_root, release_dir, project), "-Key"]
+                        if check_external:
+                            cmd = [pboproject, "-P", os.path.join(work_drive, prefix, module), "+Engine=Arma3", "-S","+Noisy", "+X", "+Clean", "+Mod="+os.path.join(module_root, release_dir, project), "-Key"]
+                        else:
+                            cmd = [pboproject, "-P", os.path.join(work_drive, prefix, module), "+Engine=Arma3", "-S","+Noisy", "-X", "+Clean", "+Mod="+os.path.join(module_root, release_dir, project), "-Key"]
 
                     color("grey")
                     if quiet:
@@ -1448,23 +1481,22 @@ See the make.cfg file for additional build options.
             except:
                 print_error("Could not copy files. Is Arma 3 running?")
 
-    if len(failedBuilds) > 0 or len(missingFiles) > 0:
+    tracedErrors = len(failedBuilds) + len(missingFiles)
+    if printedErrors > 0: # printedErrors includes tracedErrors
+        printedOnlyErrors = printedErrors - tracedErrors
+        print()
+        print_error("Failed with {} errors.".format(printedErrors))
         if len(failedBuilds) > 0:
-            print()
-            print_error("Build failed! {} PBOs failed!".format(len(failedBuilds)))
             for failedBuild in failedBuilds:
-                print("- {} failed.".format(failedBuild))
-
+                print("- {} build failed!".format(failedBuild))
         if len(missingFiles) > 0:
-            missingFiles = set(missingFiles)
-            print()
-            print_error("Missing files! {} files not found!".format(len(missingFiles)))
             for missingFile in missingFiles:
-                print("- {} failed.".format(missingFile))
-
-        sys.exit(1)
+                print("- {} not found!".format(missingFile))
+        if printedOnlyErrors > 0:
+            print_yellow("- {} untraced error(s)!".format(printedOnlyErrors))
     else:
         print_green("\nCompleted with 0 errors.")
+
 
 if __name__ == "__main__":
     start_time = timeit.default_timer()
