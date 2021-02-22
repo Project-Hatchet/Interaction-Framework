@@ -1,40 +1,40 @@
 branches:
   - main
 
-name-template: 'Zeus Enhanced $RESOLVED_VERSION'
+name-template: 'Hatchet Framework $RESOLVED_VERSION'
 tag-template: 'v$RESOLVED_VERSION'
 
 categories:
   - title: '**ADDED:**'
     labels:
-      - 'feature'
+      - 'Type: Feature'
   - title: '**IMPROVED:**'
     labels:
-      - 'enhancement'
-      - 'optimization'
+      - 'Type: Enhancements'
+      - 'Type: Optimization'
   - title: '**CHANGED:**'
     labels:
-      - 'cleanup'
+      - 'Type: Cleanup'
   - title: '**FIXED:**'
     labels:
-      - 'bug fix'
+      - 'Type: Bug'
   - title: '**TRANSLATIONS:**'
     labels:
-      - 'translation'
+      - 'Type: Translation'
 
 exclude-labels:
-  - 'ignore changelog'
+  - 'Ignore Changelog'
 
 change-template: '- $TITLE (#$NUMBER)'
 version-resolver:
   minor:
     labels:
-      - 'feature'
+      - 'Type: Feature'
   patch:
     labels:
-      - 'enhancement'
-      - 'optimization'
-      - 'bug fix'
+      - 'Type: Enhancements'
+      - 'Type: Optimization'
+      - 'Type: Bug'
   default: patch
 template: |
   _Requires CBA Version 3.Y.Z or later and Arma 3 Version X.Y or later._
