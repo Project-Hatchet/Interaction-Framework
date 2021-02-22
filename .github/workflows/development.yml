@@ -18,12 +18,12 @@ jobs:
         command: 'build --release'
     # Upload to Steam Workshop
     - name: Extract mod.zip
-      run: mv releases/hatchet.zip /tmp/hathet.zip && cd /tmp && unzip hatchet.zip
+      run: cd releases && unzip hatchet.zip
     - uses: arma-actions/workshop-upload@v1
       with:
         appId: '107410'    # default
         itemId: '2403978406' # Id of item to update
-        contentPath: '/tmp/@hatchet'
+        contentPath: 'releases/@hatchet'
         changelog: 'Content of change notes'
       env:
         STEAM_USERNAME: ${{ secrets.STEAM_USERNAME }}
