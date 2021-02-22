@@ -1,3 +1,5 @@
+name: Continuous deployment/Development Candidate
+
 on:
   push:
     branches:
@@ -19,7 +21,7 @@ jobs:
       with:
         appId: '107410'    # default
         itemId: '2403978406' # Id of item to update
-        contentPath: 'releases/${{ env.VERSION }}/@hatchet'
+        contentPath: 'releases/${{ env.VERSION }}/@Hatchet Framework - Test Version'
         changelog: 'Content of change notes'
       env:
         STEAM_USERNAME: ${{ secrets.STEAM_USERNAME }}
