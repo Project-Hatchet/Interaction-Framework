@@ -33,3 +33,7 @@ jobs:
         uses: arma-actions/hemtt@master
         with:
           command: build --release --ci
+      - uses: actions/upload-artifact@v2
+        with:
+          name: hatchet
+          path: releases/@hatchet.zip
