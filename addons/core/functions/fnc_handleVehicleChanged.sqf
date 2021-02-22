@@ -20,7 +20,7 @@ if !(_caller isEqualTo hatchet_player) exitWith {};
 call EFUNC(interaction,removeActions);
 
 if !(isNil QGVAR(vehicle)) then {
-	[GVAR(vehicle)] call FUNC(shutDownAll);
+  [GVAR(vehicle)] call FUNC(shutDownAll);
 };
 
 private _isHatchetSetup = [_newVehicle] call FUNC(getVehicleConfig);
