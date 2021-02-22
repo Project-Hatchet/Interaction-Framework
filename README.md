@@ -1,4 +1,5 @@
 [![Release Drafter](https://github.com/Project-Hatchet/hatchet-framework/actions/workflows/release-drafter.yml/badge.svg?branch=main)](https://github.com/Project-Hatchet/hatchet-framework/actions/workflows/release-drafter.yml)
+[![CI/Validate](https://github.com/Project-Hatchet/hatchet-framework/actions/workflows/build.yml/badge.svg?branch=main)](https://github.com/Project-Hatchet/hatchet-framework/actions/workflows/build.yml)
 
 # Hatchet Vehicle Framework
 A vehicle scripting framework for Arma 3
