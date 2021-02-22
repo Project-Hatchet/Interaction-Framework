@@ -57,7 +57,7 @@ if sys.platform == "win32":
     import winreg
 
 ######## GLOBALS #########
-project = "@vtx"
+project = "@htf"
 project_version = "0.3.0"
 arma3tools_path = ""
 work_drive = ""
@@ -66,16 +66,16 @@ make_root = ""
 release_dir = ""
 module_root_parent = ""
 optionals_root = ""
-key_name = "zen"
+key_name = "htf"
 key = ""
 dssignfile = ""
-prefix = "vtx"
-pbo_name_prefix = "vtx_"
+prefix = "htf"
+pbo_name_prefix = "htf_"
 signature_blacklist = []
 importantFiles = ["mod.cpp", "meta.cpp", "README.md", "AUTHORS.txt", "LICENSE"]
 versionFiles = ["README.md", "mod.cpp"]
 
-ciBuild = False # Used for CI builds
+ciBuild = True # Used for CI builds
 
 ###############################################################################
 # http://akiscode.com/articles/sha-1directoryhash.shtml

@@ -84,5 +84,8 @@
     "todo-tree.tree.flat": true,
     "cSpell.words": [
         "arma"
+    ],
+    "cSpell.ignoreWords": [
+        "fnmatch"
     ]
 }

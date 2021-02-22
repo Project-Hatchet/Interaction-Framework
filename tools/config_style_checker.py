@@ -1,5 +1,4 @@
 #!/usr/bin/env python3
-
 import fnmatch
 import os
 import re
@@ -121,12 +120,9 @@ def check_config_style(filepath):
     return bad_count_file
 
 def main():
-
     print("Validating Config Style")
-
     sqf_list = []
     bad_count = 0
-
     parser = argparse.ArgumentParser()
     parser.add_argument('-m','--module', help='only search specified module addon folder', required=False, default="")
     args = parser.parse_args()
@@ -136,7 +132,7 @@ def main():
     if (os.path.exists("addons")):
         rootDir = "addons"
 
-    for root, dirnames, filenames in os.walk(rootDir + '/' + args.module):
+    for root, dirnames, filenames in os.walk(f"{rootDir}/{args.module}"):
       for filename in fnmatch.filter(filenames, '*.cpp'):
         sqf_list.append(os.path.join(root, filename))
       for filename in fnmatch.filter(filenames, '*.hpp'):
@@ -145,7 +141,8 @@ def main():
     for filename in sqf_list:
         bad_count = bad_count + check_config_style(filename)
 
-    print("------\nChecked {0} files\nErrors detected: {1}".format(len(sqf_list), bad_count))
+    print(f"\n Checked {len(sqf_list)} files\nErrors detected: {bad_count}")
+
     if (bad_count == 0):
         print("Config validation PASSED")
     else:

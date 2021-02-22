@@ -7,7 +7,25 @@ import sys
 
 
 def valid_keyword_after_code(content, index):
-    for word in ["for", "do", "count", "each", "forEach", "else", "and", "not", "isEqualTo", "in", "call", "spawn", "execVM", "catch", "param", "select", "apply", "findIf", "remoteExec"]:
+    for word in ["for",
+                "do",
+                "count",
+                "each",
+                "forEach",
+                "else",
+                "and",
+                "not",
+                "isEqualTo",
+                "in",
+                "call",
+                "spawn",
+                "execVM",
+                "catch",
+                "param",
+                "select",
+                "apply",
+                "findIf",
+                "remoteExec"]:
         if content.find(word, index, index + len(word)) != -1:
             return True
 
@@ -17,7 +35,7 @@ def valid_keyword_after_code(content, index):
 def check_sqf(filepath):
     errors = []
 
-    with open(filepath, "r", encoding = "utf-8", errors = "ignore") as file:
+    with open(filepath, "r", encoding="utf-8", errors="ignore") as file:
         content = file.read()
 
         # Store all brackets we find in this file, so we can validate everything on the end
@@ -55,7 +73,8 @@ def check_sqf(filepath):
                 last_is_curly_brace = False
 
                 # Test generates false positives with binary commands that take CODE as 2nd arg (e.g. findIf)
-                check_for_semicolon = not re.search("findIf", content, re.IGNORECASE)
+                check_for_semicolon = not re.search(
+                    "findIf", content, re.IGNORECASE)
 
             # Keep track of current line number
             if c == "\n":
@@ -102,22 +121,25 @@ def check_sqf(filepath):
                         elif c == "/":
                             check_if_comment = True
                         elif c == "\t":
-                            errors.append("  ERROR: Found a tab on line {}.".format(line_number))
+                            errors.append(
+                                f"  ERROR: Found a tab on line {line_number}.")
                         elif c in ["(", "[", "{"]:
                             brackets.append(c)
                         elif c == ")":
                             if not brackets or brackets[-1] in ["[", "{"]:
-                                errors.append("  ERROR: Missing parenthesis '(' on line {}.".format(line_number))
+                                errors.append(
+                                    f"  ERROR: Missing parenthesis '(' on line {line_number}.")
                             brackets.append(c)
                         elif c == "]":
                             if not brackets or brackets[-1] in ["(", "{"]:
-                                errors.append("  ERROR: Missing square bracket '[' on line {}.".format(line_number))
+                                errors.append(
+                                    "  ERROR: Missing square bracket '[' on line {line_number}.")
                             brackets.append(c)
                         elif c == "}":
                             last_is_curly_brace = True
 
                             if not brackets or brackets[-1] in ["(", "["]:
-                                errors.append("  ERROR: Missing curly brace '{{' on line {}.".format(line_number))
+                                errors.append(f" ERROR: Missing curly brace {{ on line {line_number}.")
                             brackets.append(c)
 
                         if check_for_semicolon:
@@ -125,19 +147,21 @@ def check_sqf(filepath):
                             if c not in [" ", "\t", "\n", "/"]:
                                 check_for_semicolon = False
                                 if c not in ["]", ")", "}", ";", ",", "&", "!", "|", "="] and not valid_keyword_after_code(content, char_index):
-                                    errors.append("  ERROR: Possible missing semicolon ';' on line {}.".format(line_number))
-
+                                    errors.append(f"  ERROR: Possible missing semicolon ';' on line {line_number}.")
             char_index += 1
 
         # Compare opening and closing bracket counts
         if brackets.count("(") != brackets.count(")"):
-            errors.append("  ERROR: Unequal number of parentheses, '(' = {}, ')' = {}.".format(brackets.count("("), brackets.count(")")))
+            errors.append("  ERROR: Unequal number of parentheses, '(' = {}, ')' = {}.".format(
+                brackets.count("("), brackets.count(")")))
 
         if brackets.count("[") != brackets.count("]"):
-            errors.append("  ERROR: Unequal number of square brackets, '[' = {}, ']' = {}.".format(brackets.count("["), brackets.count("]")))
+            errors.append("  ERROR: Unequal number of square brackets, '[' = {}, ']' = {}.".format(
+                brackets.count("["), brackets.count("]")))
 
         if brackets.count("{") != brackets.count("}"):
-            errors.append("  ERROR: Unequal number of curly braces, '{{' = {}, '}}' = {}.".format(brackets.count("{"), brackets.count("}")))
+            errors.append("  ERROR: Unequal number of curly braces, '{{' = {}, '}}' = {}.".format(
+                brackets.count("{"), brackets.count("}")))
 
         # Ensure includes are before block comments
         if re.compile('\s*(/\*[\s\S]+?\*/)\s*#include').match(content):
@@ -151,7 +175,6 @@ def main():
 Validating SQF expect errors
 ------------------
   """)
-
 
     # Allow running from root directory and tools directory
     root_dir = ".."
@@ -173,14 +196,16 @@ Validating SQF expect errors
         errors = check_sqf(filepath)
 
         if errors:
-            print(f"\nFound {} error(s) in {}:".format(len(errors), os.path.relpath(filepath, root_dir)))
+            print(
+                f"Found {len(errors)} error(s) in {os.path.relpath(filepath, root_dir)}: ")
 
             for error in errors:
                 print(error)
 
             bad_count += 1
 
-    print("\nChecked {} files, found errors in {}.".format(len(sqf_files), bad_count))
+    print("\nChecked {} files, found errors in {}.".format(
+        len(sqf_files), bad_count))
 
     if bad_count == 0:
         print("SQF Validation PASSED")
