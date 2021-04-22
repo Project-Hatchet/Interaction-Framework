@@ -6,7 +6,7 @@ import subprocess
 
 ######## GLOBALS #########
 MAINPREFIX = "z"
-PREFIX = "htf_"
+PREFIX = "hatchet_framework_"
 ##########################
 
 def mod_time(path):
