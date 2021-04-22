@@ -12,7 +12,7 @@ import subprocess
 import winreg
 
 ######## GLOBALS #########
-MAINDIR = "x"
+MAINDIR = "z"
 PROJECTDIR = "hatchet_framework"
 CBA = "P:\\x\\cba"
 ##########################
