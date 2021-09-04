@@ -1,17 +1,19 @@
 ---
 name: Bug report
-about: Report an issue with ACE3
+about: Report an issue with the Hatchet Framework
 
 ---
 
 **Arma 3 Version:** `x.xx` (stable / rc / dev)
 **CBA Version:** `3.x.x` (stable / dev + commit hash)
 **ACE3 Version:** `3.x.x` (stable / dev + commit hash)
+**Hatchet Version:** `0.x.x` (stable / dev + commit hash)
 
 **Mods:**
 ```
 - CBA_A3
 - ace
+- hatchet_framework
 ```
 
 **Description:**
