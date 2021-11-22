@@ -12,8 +12,8 @@ import subprocess
 import winreg
 
 ######## GLOBALS #########
-MAINDIR = "x"
-PROJECTDIR = "hatchet_framework"
+MAINDIR = "z"
+PROJECTDIR = "htf"
 CBA = "P:\\x\\cba"
 ##########################
 
