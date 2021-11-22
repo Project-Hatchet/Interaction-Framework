@@ -1,6 +1,6 @@
 #include "script_component.hpp"
 /*
- * hatchet_interaction_fnc_findButton
+ * htf_interaction_fnc_findButton
  */
 
 params ["_points"];

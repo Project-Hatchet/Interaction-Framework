@@ -1,6 +1,6 @@
 #include "script_component.hpp"
 /*
- * hatchet_core_fnc_handleVehicleChanged
+ * htf_core_fnc_handleVehicleChanged
  *
  * Function is triggered by cba vehicleChanged eventhandler
  * when called, it will check if the vehicle has any Hatchet config,
@@ -15,7 +15,7 @@
 params ["_caller", "_newVehicle"];
 
 if (isNil "_caller" || isNil "_newVehicle") exitWith {};
-if !(_caller isEqualTo hatchet_player) exitWith {};
+if !(_caller isEqualTo htf_player) exitWith {};
 
 call EFUNC(interaction,removeActions);
 
@@ -28,7 +28,7 @@ private _isHatchetSetup = [_newVehicle] call FUNC(getVehicleConfig);
 //end the function if the vehicle isn't compatible
 if !(_isHatchetSetup) exitWith {
   _newVehicle setVariable [QGVAR(modules), nil];
-  if !((vehicle hatchet_player) isEqualTo hatchet_player) then {
+  if !((vehicle htf_player) isEqualTo htf_player) then {
     call EFUNC(interaction,addActions);
   };
 };

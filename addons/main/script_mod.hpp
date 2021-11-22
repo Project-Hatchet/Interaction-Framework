@@ -1,7 +1,7 @@
 // COMPONENT should be defined in the script_component.hpp and included BEFORE this hpp
 
 #define MAINPREFIX z
-#define PREFIX hatchet
+#define PREFIX htf
 #define SUBPREFIX addons
 
 #include "script_version.hpp"

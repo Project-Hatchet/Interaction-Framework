@@ -1,6 +1,6 @@
 #include "script_component.hpp"
 /*
- * hatchet_util_fnc_pidReset
+ * htf_util_fnc_pidReset
  *
  * Resets a PiD controller
  *

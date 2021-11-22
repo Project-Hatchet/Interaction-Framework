@@ -1,6 +1,6 @@
 #include "script_component.hpp"
 /*
- * hatchet_interaction_fnc_perFrame
+ * htf_interaction_fnc_perFrame
  *
  * Runs per frame for interaction, handles button holding code
  *

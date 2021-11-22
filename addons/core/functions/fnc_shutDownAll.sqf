@@ -1,6 +1,6 @@
 #include "script_component.hpp"
 /*
- * hatchet_core_fnc_shutDownAll
+ * htf_core_fnc_shutDownAll
  *
  * Reads out relevant vehicle modules from config and stores them in vehicle variables
  *
@@ -26,7 +26,7 @@ GVAR(perSecondHandler) = nil;
 GVAR(drawHandler) = nil;
 
 private ["_func"];
-{ //forEach vehicle hatchet_core_modules
+{ //forEach vehicle htf_core_modules
   if (_x # 1) then {
     _func = missionNameSpace getVariable (_x # 5);
     if (!isNil {_func}) then {[_vehicle] call _func;};

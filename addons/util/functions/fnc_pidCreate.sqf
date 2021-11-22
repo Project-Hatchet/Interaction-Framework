@@ -1,6 +1,6 @@
 #include "script_component.hpp"
 /*
- * hatchet_util_fnc_pidCreate
+ * htf_util_fnc_pidCreate
  *
  * Creates a new PiD controller
  *

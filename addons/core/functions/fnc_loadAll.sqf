@@ -1,6 +1,6 @@
 #include "script_component.hpp"
 /*
- * hatchet_core_fnc_loadAll
+ * htf_core_fnc_loadAll
  *
  * Reads out relevant vehicle modules from config and stores them in vehicle variables
  *

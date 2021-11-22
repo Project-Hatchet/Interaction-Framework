@@ -1,6 +1,6 @@
 #include "script_component.hpp"
 /*
- * hatchet_interaction_fnc_buttonUp
+ * htf_interaction_fnc_buttonUp
  *
  * interaction button release functionality
  */

@@ -1,6 +1,6 @@
 #include "script_component.hpp"
 /*
- * hatchet_core_fnc_load
+ * htf_core_fnc_load
  *
  * Loads a single module with default paths
  *
@@ -16,10 +16,10 @@ private _vehicleModuleArray = _vehicle getVariable [QGVAR(modules), []];
 private _startUp = true;
 
 #define HANDLEDEFAULT(VAR,MODULENAME,PATH) private VAR = format[PATH, MODULENAME];
-HANDLEDEFAULT(_setup,_moduleName,"hatchet_%1_fnc_setup")
-HANDLEDEFAULT(_perFrame,_moduleName,"hatchet_%1_fnc_perFrame")
-HANDLEDEFAULT(_perSecond,_moduleName,"hatchet_%1_fnc_perSecond")
-HANDLEDEFAULT(_shutDown,_moduleName,"hatchet_%1_fnc_shutDown")
+HANDLEDEFAULT(_setup,_moduleName,"htf_%1_fnc_setup")
+HANDLEDEFAULT(_perFrame,_moduleName,"htf_%1_fnc_perFrame")
+HANDLEDEFAULT(_perSecond,_moduleName,"htf_%1_fnc_perSecond")
+HANDLEDEFAULT(_shutDown,_moduleName,"htf_%1_fnc_shutDown")
 
 if (_startUp && {_setup != ""}) then {
   private _func = missionNameSpace getVariable _setup;

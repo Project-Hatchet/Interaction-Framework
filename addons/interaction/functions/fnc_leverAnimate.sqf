@@ -1,6 +1,6 @@
 #include "script_component.hpp"
 /*
- * hatchet_interaction_fnc_leverAnimate
+ * htf_interaction_fnc_leverAnimate
  *
  * interaction button animate lever/switch functionality
  */
@@ -25,7 +25,7 @@ if (_clickSound != "") then {
 };
 
 [_vehicle, _animation, _animationTargetLabel, _animationTarget] call _animStart;
-[_vehicle, _position, 1, name hatchet_player] call FUNC(pointNetSend);
+[_vehicle, _position, 1, name htf_player] call FUNC(pointNetSend);
 vxf_animating_keys pushBack _animation;
 
 _vehicle animateSource [_animation, _animationTarget, _animationSpeed];

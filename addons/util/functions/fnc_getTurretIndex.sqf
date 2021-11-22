@@ -10,7 +10,7 @@
  * Turret Index <ARRAY>
  *
  * Example:
- * [hatchet_player] call hatchet_util_fnc_getTurretIndex
+ * [htf_player] call htf_util_fnc_getTurretIndex
  *
  * Public: Yes
  */

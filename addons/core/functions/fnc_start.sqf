@@ -1,6 +1,6 @@
 #include "script_component.hpp"
 /*
- * hatchet_core_fnc_start
+ * htf_core_fnc_start
  *
  * Starts a loaded module
  *

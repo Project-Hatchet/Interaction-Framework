@@ -1,12 +1,12 @@
 #include "script_component.hpp"
 /*
- * hatchet_interaction_fnc_draw3D
+ * htf_interaction_fnc_draw3D
  *
  * runs the draw3D eventhandler code to check for interaction
  *
  */
 
-private _vehicle = vehicle hatchet_player;
+private _vehicle = vehicle htf_player;
 
 if !(cameraView isEqualTo "INTERNAL") exitWith {};
 if !(isNull curatorCamera) exitWith {};

@@ -4,8 +4,8 @@
   COMPONENT_NAME,
   QGVAR(ButtonPress),
   "Vehicle Interaction",
-  {[vehicle hatchet_player, GVAR(currentButton)] call FUNC(buttonDown)},
-  {[vehicle hatchet_player, GVAR(currentButton)] call FUNC(buttonUp)},
+  {[vehicle htf_player, GVAR(currentButton)] call FUNC(buttonDown)},
+  {[vehicle htf_player, GVAR(currentButton)] call FUNC(buttonUp)},
   [33, [false, false, false]],
   false
 ] call CBA_fnc_addKeybind;

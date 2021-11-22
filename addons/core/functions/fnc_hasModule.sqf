@@ -1,6 +1,6 @@
 #include "script_component.hpp"
 /*
- * hatchet_core_fnc_hasModule
+ * htf_core_fnc_hasModule
  *
  * Checks if a module exists
  *

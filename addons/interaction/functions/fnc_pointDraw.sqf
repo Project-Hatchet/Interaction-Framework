@@ -1,6 +1,6 @@
 #include "script_component.hpp"
 /*
- * hatchet_interaction_fnc_pointDraw
+ * htf_interaction_fnc_pointDraw
  *
  * draws pointing positions
  *

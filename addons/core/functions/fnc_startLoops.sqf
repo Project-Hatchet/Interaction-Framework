@@ -1,6 +1,6 @@
 #include "script_component.hpp"
 /*
- * hatchet_core_fnc_startLoops
+ * htf_core_fnc_startLoops
  *
  * starts the per per frameHandlers and the draw3D eventHandler
  *

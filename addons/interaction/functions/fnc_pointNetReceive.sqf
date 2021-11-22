@@ -1,6 +1,6 @@
 #include "script_component.hpp"
 /*
- * hatchet_interaction_fnc_pointNetReceive
+ * htf_interaction_fnc_pointNetReceive
  *
  * receives pointing positions and adds timestamps and textures
  *

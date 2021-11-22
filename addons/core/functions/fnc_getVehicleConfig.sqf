@@ -1,10 +1,10 @@
 #include "script_component.hpp"
 /*
- * hatchet_core_fnc_getVehicleConfig
+ * htf_core_fnc_getVehicleConfig
  *
  * Function will look through the cfgVehicles for the vehicle
- * and look for relevant hatchet config subclasses, when it finds them
- * the most relevant one will be assigned to the vehicle's hatchet_core_config variable
+ * and look for relevant htf config subclasses, when it finds them
+ * the most relevant one will be assigned to the vehicle's htf_core_config variable
  *
  * Params: (object) vehicle
  * Returns: (bool) success
@@ -18,9 +18,9 @@ private _configFound = false;
 private _configSources = [];
 
 _vehicle setVariable [QRVAR(config), nil];
-private _turretIndex = [hatchet_player] call EFUNC(util,getTurretIndex);
+private _turretIndex = [htf_player] call EFUNC(util,getTurretIndex);
 
-if (hatchet_player == driver _vehicle) then {
+if (htf_player == driver _vehicle) then {
   _configSources pushBack QRVAR(driver);
 };
 
@@ -33,11 +33,11 @@ if (count _turretIndex > 0) then {
   _configSources pushBack format [QRVAR(turret_%1), (_turretIndex # 0)];
 };
 
-if (hatchet_player == gunner _vehicle) then {
+if (htf_player == gunner _vehicle) then {
   _configSources pushBack QRVAR(gunner);
 };
 
-if (_vehicle getCargoIndex hatchet_player > -1) then {
+if (_vehicle getCargoIndex htf_player > -1) then {
   _configSources pushBack QRVAR(cargo);
 };
 

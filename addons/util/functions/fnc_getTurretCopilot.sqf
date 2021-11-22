@@ -10,7 +10,7 @@
  * Vehicle Copilot Turret indecies <ARRAY>
  *
  * Example:
- * [car] call hatchet_util_fnc_getTurretCopilot
+ * [car] call htf_util_fnc_getTurretCopilot
  *
  * Public: Yes
  */

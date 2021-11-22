@@ -1,7 +1,7 @@
 #!/usr/bin/env python3
 
 #######################
-#  hatchet_framework Setup Script  #
+#  htf_framework Setup Script  #
 #######################
 
 import os
@@ -21,19 +21,19 @@ def main():
     FULLDIR = "{}\\{}".format(MAINDIR,PROJECTDIR)
     print("""
   ######################################
-  # hatchet_framework Development Environment Setup #
+  # htf_framework Development Environment Setup #
   ######################################
 
-  This script will create your hatchet_framework dev environment for you.
+  This script will create your htf_framework dev environment for you.
 
   Before you run this, you should already have:
     - A properly setup ACE3 Development Environment
 
   If you have not done those things yet, please abort this script in the next step and do so first.
 
-  This script will create two hard links on your system, both pointing to your hatchet_framework project folder:
-    [Arma 3 installation directory]\\{} => hatchet_framework project folder
-    P:\\{}                              => hatchet_framework project folder
+  This script will create two hard links on your system, both pointing to your htf_framework project folder:
+    [Arma 3 installation directory]\\{} => htf_framework project folder
+    P:\\{}                              => htf_framework project folder
     """.format(FULLDIR,FULLDIR))
     print("\n")
 

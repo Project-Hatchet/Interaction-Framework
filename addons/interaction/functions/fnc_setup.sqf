@@ -1,6 +1,6 @@
 #include "script_component.hpp"
 /*
- * hatchet_interaction_fnc_setup
+ * htf_interaction_fnc_setup
  *
  * starts the interaction system
  *

@@ -1,6 +1,6 @@
 #include "script_component.hpp"
 /*
- * hatchet_interaction_fnc_checkInteraction
+ * htf_interaction_fnc_checkInteraction
  *
  * checks if a sub-item is valid for interaction
  *

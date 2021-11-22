@@ -1,6 +1,6 @@
 #include "script_component.hpp"
 /*
- * hatchet_interaction_fnc_scriptedInteract
+ * htf_interaction_fnc_scriptedInteract
  *
  * call a button or lever from a script
  */

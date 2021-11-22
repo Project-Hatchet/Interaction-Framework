@@ -1,6 +1,6 @@
 #include "script_component.hpp"
 /*
- * hatchet_util_fnc_pidRun
+ * htf_util_fnc_pidRun
  *
  * Runs a pid controller update
  *

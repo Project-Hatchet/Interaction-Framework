@@ -1,6 +1,6 @@
 #include "script_component.hpp"
 /*
- * hatchet_interaction_fnc_loadAll
+ * htf_interaction_fnc_loadAll
  *
  * loads interaction from config
  *

@@ -1,6 +1,6 @@
 #include "script_component.hpp"
 /*
- * hatchet_interaction_fnc_dragStart
+ * htf_interaction_fnc_dragStart
  *
  * interaction button knob drag
  */
