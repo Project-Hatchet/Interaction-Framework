@@ -3,6 +3,6 @@
 releases/*
 *.biprivatekey
 keys/*
-.hemtt/local.toml
+.hemtt/local
 addons/*.pbo
 ####
