@@ -16,7 +16,7 @@ import xml.etree.ElementTree as ET
 
 
 ######## GLOBALS #########
-PROJECT_NAME = "HTF"
+PROJECT_NAME = "ACE"
 ##########################
 
 
@@ -127,7 +127,7 @@ def check_stringtable(filepath):
            line_clean = line.lstrip().lower()
 
            if line_clean.startswith("</key") or line_clean.startswith("</package") or line_clean.startswith("</project") or line_clean.startswith("</container"):
-               spacing_depth -= 2
+               spacing_depth -= 4
 
            line_spacing = len(line.lower()) - len(line_clean)
 
@@ -136,7 +136,7 @@ def check_stringtable(filepath):
                errors += 1
 
            if line_clean.startswith("<key") or line_clean.startswith("<package") or line_clean.startswith("<project") or line_clean.startswith("<container"):
-               spacing_depth += 2
+               spacing_depth += 4
 
     return errors
 
