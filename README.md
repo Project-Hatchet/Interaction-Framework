@@ -4,46 +4,46 @@
 # Hatchet Vehicle Framework
 A vehicle scripting framework for Arma 3
 
-This framework is in active development, expect the `vxf` prefix to change. Interaction configurations are unlikely to change.
+This framework is in active development, expect the `htf` prefix to change. Interaction configurations are unlikely to change.
 
 ## Features
  - Allows simple config based binding of scripts to vehicles and seats(module system)
  - Allows config based implementation of vehicle interaction(interaction system)
 
 ## Vehicle & Seat Config
-All configuration is provided by adding the `vxf` subclass to the cfgVehicles class of your desired vehicle.
-Configurations can be specified to specific seats using a specifier suffix. As the player gets in a vehicle or switches seats, the system will find the most specific configuration available for their seat. For example, when a `vxf_driver` and a `vxf` config are present, passengers will use the `vxf` config, but the driver will use only modules and interactions found in `vxf_driver`.
+All configuration is provided by adding the `htf` subclass to the cfgVehicles class of your desired vehicle.
+Configurations can be specified to specific seats using a specifier suffix. As the player gets in a vehicle or switches seats, the system will find the most specific configuration available for their seat. For example, when a `htf_driver` and a `htf` config are present, passengers will use the `htf` config, but the driver will use only modules and interactions found in `htf_driver`.
 
 Config options
- - `vxf`: applies to all players in a vehicle
- - `vxf_driver`: applies to the driver(or pilot) of a vehicle
- - `vxf_gunner`: applies to all gunners of a vehicle, this includes all door guns
- - `vxf_cargo`: applies to all passengers
- - `vxf_turret_` followed by the turret index: applies to the occupant of the turret with specified index, can apply to fire from vehicle seats.
+ - `htf`: applies to all players in a vehicle
+ - `htf_driver`: applies to the driver(or pilot) of a vehicle
+ - `htf_gunner`: applies to all gunners of a vehicle, this includes all door guns
+ - `htf_cargo`: applies to all passengers
+ - `htf_turret_` followed by the turret index: applies to the occupant of the turret with specified index, can apply to fire from vehicle seats.
 
 Example:
 ```
 class myMod_myVehicleName {
-  class vxf_driver {
+  class htf_driver {
     class modules {
       class driverSpecificModule {};
       class moduleForEveryone {};
     }; // modules
-  }; // vxf_driver
-  class vxf {
+  }; // htf_driver
+  class htf {
     class modules {
       class moduleForEveryone {};
     }; // modules
-  }; // vxf
+  }; // htf
 }; // myMod_myVehicleName
 ```
 ## Modules
 Modules are sets of scripts attached to vehicles, this allows you to execute scripts when the player is in a specific type of vehicle without having to worry about eventhandlers or keeping track of the vehicle or seat.
-Modules are defined in the `modules` subClass of the vxf config class.
+Modules are defined in the `modules` subClass of the htf config class.
 
 Example:
 ```
-class vxf_driver {
+class htf_driver {
   class modules {
     class customFuelManagementModule {
       startOnEnter = 1; // this makes it so the module is automatically started when the vehicle is entered
@@ -71,11 +71,11 @@ The interaction subclass is used to configure vehicle interaction on arma vehicl
 
 Interactions can be nested in each other, and in empty groups with conditions to disable interactions. Note that conditions will completely stop their labels from being rendered, this is largely useful for performance reasons.
 
-Players will use their VXF interaction key for buttons, while using their default keybindings for action menu scrolling(default scroll wheel) for animated interactions.
+Players will use their htf interaction key for buttons, while using their default keybindings for action menu scrolling(default scroll wheel) for animated interactions.
 
 **Simple buttons and conditions**
 ```
-vxf_driver {
+htf_driver {
  class interaction {
   class groupForEngineOn {
    condition = "isEngineOn _this";
@@ -91,7 +91,7 @@ vxf_driver {
    }; // aSimpleButton
   }; // groupForEngineOn
  }; // interaction
-}; // vxf_driver
+}; // htf_driver
 ```
 The above example will show a button on the position `B_MFD3_1` with the label "btn" while the vehicle's engine is on. If the vehicle's health is below 50%, nothing will happen when the button is pushed.
 
