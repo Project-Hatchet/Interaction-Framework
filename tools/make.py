@@ -72,7 +72,7 @@ dssignfile = ""
 prefix = "htf_"
 pbo_name_prefix = ""
 signature_blacklist = []
-importantFiles = ["mod.cpp", "meta.cpp", "README.md", "AUTHORS.txt", "LICENSE"]
+importantFiles = ["logo_htf_ca.paa", "mod.cpp", "meta.cpp", "README.md", "AUTHORS.txt", "LICENSE"]
 versionFiles = ["README.md", "mod.cpp"]
 
 ciBuild = False # Used for CI builds
