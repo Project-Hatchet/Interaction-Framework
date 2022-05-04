@@ -14,13 +14,14 @@
 
 params ["_caller", "_newVehicle"];
 
+
 if (isNil "_caller" || isNil "_newVehicle") exitWith {};
 if !(_caller isEqualTo htf_player) exitWith {};
 
 call EFUNC(interaction,removeActions);
 
-if !(isNil QGVAR(vehicle)) then {
-  [GVAR(vehicle)] call FUNC(shutDownAll);
+if !(isNil htf_vehicle) then {
+  [htf_vehicle] call FUNC(shutDownAll);
 };
 
 private _isHatchetSetup = [_newVehicle] call FUNC(getVehicleConfig);
@@ -35,6 +36,6 @@ if !(_isHatchetSetup) exitWith {
 
 [_newVehicle] call FUNC(loadAll);
 [_newVehicle] call FUNC(startLoops);
-GVAR(vehicle) = _newVehicle;
+htf_vehicle = _newVehicle;
 
 call EFUNC(interaction,addActions);

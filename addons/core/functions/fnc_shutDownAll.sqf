@@ -12,7 +12,7 @@
 
 params ["_vehicle"];
 
-if (isNil "_vehicle") then {_vehicle = GVAR(vehicle)};
+if (isNil "_vehicle") then {_vehicle = htf_vehicle};
 
 [GVAR(perFrameHandler)] call CBA_fnc_removePerFrameHandler;
 [GVAR(perSecondHandler)] call CBA_fnc_removePerFrameHandler;
@@ -34,4 +34,4 @@ private ["_func"];
   _x set [1, false];
 } forEach (_vehicle getVariable [QGVAR(modules), []]);
 
-GVAR(vehicle) = nil;
+htf_vehicle = nil;

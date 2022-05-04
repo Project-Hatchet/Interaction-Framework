@@ -19,7 +19,7 @@ if (
   !(alive htf_player) ||
   !(alive _vehicle)
 ) exitWith {
-  [GVAR(vehicle)] call FUNC(shutDownAll);
+  [htf_vehicle] call FUNC(shutDownAll);
   [_pfhId] call CBA_fnc_removePerFrameHandler;
   GVAR(perFrameHandler) = nil;
   if (!isNil {GVAR(drawHandler)}) then {
