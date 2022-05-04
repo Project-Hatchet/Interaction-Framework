@@ -20,7 +20,7 @@ if !(_caller isEqualTo htf_player) exitWith {};
 
 call EFUNC(interaction,removeActions);
 
-if !(isNil htf_vehicle) then {
+if !(isNil "htf_vehicle") then {
   [htf_vehicle] call FUNC(shutDownAll);
 };
 
