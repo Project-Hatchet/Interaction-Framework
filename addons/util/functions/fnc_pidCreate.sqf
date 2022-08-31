@@ -1,6 +1,6 @@
 #include "script_component.hpp"
 /*
- * htf_util_fnc_pidCreate
+ * vxf_util_fnc_pidCreate
  *
  * Creates a new PiD controller
  *

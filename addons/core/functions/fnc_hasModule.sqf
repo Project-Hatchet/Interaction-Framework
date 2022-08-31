@@ -1,6 +1,6 @@
 #include "script_component.hpp"
 /*
- * htf_core_fnc_hasModule
+ * vxf_core_fnc_hasModule
  *
  * Checks if a module exists
  *

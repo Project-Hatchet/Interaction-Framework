@@ -1,6 +1,6 @@
 #include "script_component.hpp"
 /*
- * htf_core_fnc_perFrame
+ * vxf_core_fnc_perFrame
  *
  * Function will run relevante modules' per frame functions
  *
@@ -15,11 +15,11 @@ _args params ["_vehicle", "_lastFrameTime"];
 
 //shutdown conditions
 if (
-  !((vehicle htf_player) isEqualTo _vehicle) ||
-  !(alive htf_player) ||
+  !((vehicle vxf_player) isEqualTo _vehicle) ||
+  !(alive vxf_player) ||
   !(alive _vehicle)
 ) exitWith {
-  [htf_vehicle] call FUNC(shutDownAll);
+  [vxf_vehicle] call FUNC(shutDownAll);
   [_pfhId] call CBA_fnc_removePerFrameHandler;
   GVAR(perFrameHandler) = nil;
   if (!isNil {GVAR(drawHandler)}) then {
@@ -41,7 +41,7 @@ private _frameTime = (cba_missionTime - _lastFrameTime);
 //skip a frame when unpausing so time between frames stays normal
 if (_frameTime > 1) exitWith {};
 
-{ //forEach vehicle htf_core_modules
+{ //forEach vehicle vxf_core_modules
   if (_x # 1) then {
     private _func = missionNameSpace getVariable (_x # 3);
     if (!isNil {_func}) then {[_vehicle, _frameTime] call _func;};

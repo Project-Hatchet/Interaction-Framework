@@ -1,12 +1,12 @@
 name = "Hatchet Interaction Framework"
-prefix = "htf"
+prefix = "vxf"
 author = "Yax"
 files = [
     "mod.cpp",
     "README.md",
     "AUTHORS.txt",
     "LICENSE",
-    "logo_htf_ca.paa",
+    "logo_vxf_ca.paa",
     "meta.cpp"
 ]
 
@@ -14,7 +14,7 @@ key_name = "{{prefix}}_{{version}}"
 authority = "{{prefix}}_{{version}}-{{git \"id 8\"}}"
 
 releasebuild = [
-    "@zip htf_{{semver.major}}.{{semver.minor}}.{{semver.patch}}"
+    "@zip vxf_{{semver.major}}.{{semver.minor}}.{{semver.patch}}"
 ]
 
 [header_exts]

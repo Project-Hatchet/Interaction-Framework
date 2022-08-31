@@ -1,6 +1,6 @@
 #include "script_component.hpp"
 /*
- * htf_core_fnc_shutDownAll
+ * vxf_core_fnc_shutDownAll
  *
  * Reads out relevant vehicle modules from config and stores them in vehicle variables
  *
@@ -12,7 +12,7 @@
 
 params ["_vehicle"];
 
-if (isNil "_vehicle") then {_vehicle = htf_vehicle};
+if (isNil "_vehicle") then {_vehicle = vxf_vehicle};
 
 [GVAR(perFrameHandler)] call CBA_fnc_removePerFrameHandler;
 [GVAR(perSecondHandler)] call CBA_fnc_removePerFrameHandler;
@@ -26,7 +26,7 @@ GVAR(perSecondHandler) = nil;
 GVAR(drawHandler) = nil;
 
 private ["_func"];
-{ //forEach vehicle htf_core_modules
+{ //forEach vehicle vxf_core_modules
   if (_x # 1) then {
     _func = missionNameSpace getVariable (_x # 5);
     if (!isNil {_func}) then {[_vehicle] call _func;};
@@ -34,4 +34,4 @@ private ["_func"];
   _x set [1, false];
 } forEach (_vehicle getVariable [QGVAR(modules), []]);
 
-htf_vehicle = nil;
+vxf_vehicle = nil;

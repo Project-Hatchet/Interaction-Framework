@@ -1,6 +1,6 @@
 #include "script_component.hpp"
 /*
- * htf_util_fnc_pidReset
+ * vxf_util_fnc_pidReset
  *
  * Resets a PiD controller
  *

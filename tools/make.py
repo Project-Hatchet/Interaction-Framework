@@ -57,7 +57,7 @@ if sys.platform == "win32":
     import winreg
 
 ######## GLOBALS #########
-project = "@htf_framework"
+project = "@vxf_framework"
 project_version = "0.2.0"
 arma3tools_path = ""
 work_drive = ""
@@ -69,10 +69,10 @@ optionals_root = ""
 key_name = ""
 key = ""
 dssignfile = ""
-prefix = "htf_"
+prefix = "vxf_"
 pbo_name_prefix = ""
 signature_blacklist = []
-importantFiles = ["logo_htf_ca.paa", "mod.cpp", "meta.cpp", "README.md", "AUTHORS.txt", "LICENSE"]
+importantFiles = ["logo_vxf_ca.paa", "mod.cpp", "meta.cpp", "README.md", "AUTHORS.txt", "LICENSE"]
 versionFiles = ["README.md", "mod.cpp"]
 
 ciBuild = False # Used for CI builds

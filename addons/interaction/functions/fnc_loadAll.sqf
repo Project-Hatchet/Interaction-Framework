@@ -1,6 +1,6 @@
 #include "script_component.hpp"
 /*
- * htf_interaction_fnc_loadAll
+ * vxf_interaction_fnc_loadAll
  *
  * loads interaction from config
  *

@@ -6,7 +6,7 @@ import subprocess
 
 ######## GLOBALS #########
 MAINPREFIX = "z"
-PREFIX = "htf_"
+PREFIX = "vxf_"
 ##########################
 
 
@@ -47,7 +47,7 @@ def check_for_obsolete_pbos(addonspath, file):
 def main():
     print("""
   ###################
-  # HTF Debug Build #
+  # vxf Debug Build #
   ###################
 """)
 

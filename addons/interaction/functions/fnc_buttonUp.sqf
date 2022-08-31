@@ -1,6 +1,6 @@
 #include "script_component.hpp"
 /*
- * htf_interaction_fnc_buttonUp
+ * vxf_interaction_fnc_buttonUp
  *
  * interaction button release functionality
  */

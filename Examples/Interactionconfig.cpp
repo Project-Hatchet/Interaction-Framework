@@ -1,7 +1,7 @@
 class CfgVehicles {
   class Car_F; // base class of the vehicle
   class LSV_01_base_F: Car_F { // change the config of the quad bike
-    class htf { // framework
+    class vxf { // framework
      class interaction { // to let the framework know these are buttons
         class engineOnButton { // name class for the button
           condition = "!(isEngineOn (vehicle player))"; // ! = "not" so if engine is not on it will display this button

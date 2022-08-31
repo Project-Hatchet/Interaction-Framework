@@ -1,6 +1,6 @@
 #include "script_component.hpp"
 /*
- * htf_interaction_fnc_setup
+ * vxf_interaction_fnc_setup
  *
  * starts the interaction system
  *

@@ -1,11 +1,11 @@
 #include "script_component.hpp"
 /*
- * htf_interaction_fnc_drawLabel
+ * vxf_interaction_fnc_drawLabel
  *
  * interaction button release functionality
  */
 
-private _vehicle = vehicle htf_player;
+private _vehicle = vehicle vxf_player;
 
 if (isNil QGVAR(currentButton)) exitWith {
   ["",0,0.4,0,0,0, 1301] spawn BIS_fnc_dynamicText;

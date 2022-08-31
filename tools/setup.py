@@ -13,7 +13,7 @@ import winreg
 
 ######## GLOBALS #########
 MAINDIR = "z"
-PROJECTDIR = "htf"
+PROJECTDIR = "vxf"
 CBA = "P:\\x\\cba"
 ##########################
 

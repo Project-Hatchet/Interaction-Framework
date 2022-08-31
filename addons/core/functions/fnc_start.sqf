@@ -1,6 +1,6 @@
 #include "script_component.hpp"
 /*
- * htf_core_fnc_start
+ * vxf_core_fnc_start
  *
  * Starts a loaded module
  *

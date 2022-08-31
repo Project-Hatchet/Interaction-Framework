@@ -1,6 +1,6 @@
 #include "script_component.hpp"
 /*
- * htf_interaction_fnc_buttonDown
+ * vxf_interaction_fnc_buttonDown
  *
  * interaction button press down functionality
  */
@@ -22,7 +22,7 @@ if !(_clickSound isEqualTo "") then {
 };
 
 [_vehicle] call _buttonDown;
-[_vehicle, _position, 1, name htf_player] call FUNC(pointNetSend);
+[_vehicle, _position, 1, name vxf_player] call FUNC(pointNetSend);
 
 if !(isNil "_buttonHold") then {
   GVAR(buttonHoldCode) = _buttonHold;

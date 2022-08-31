@@ -1,6 +1,6 @@
 #include "script_component.hpp"
 /*
- * htf_interaction_fnc_shutdown
+ * vxf_interaction_fnc_shutdown
  *
  * starts the interaction system
  *

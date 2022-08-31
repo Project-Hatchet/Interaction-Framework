@@ -6,7 +6,7 @@ class CfgPatches {
     units[] = {};
     weapons[] = {};
     requiredVersion = REQUIRED_VERSION;
-    requiredAddons[] = {"htf_main"};
+    requiredAddons[] = {"vxf_main"};
     author = "Project Hatchet";
     VERSION_CONFIG;
   };

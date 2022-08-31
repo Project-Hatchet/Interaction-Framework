@@ -1,6 +1,6 @@
 #include "script_component.hpp"
 /*
- * htf_interaction_fnc_perFrame
+ * vxf_interaction_fnc_perFrame
  *
  * Runs per frame for interaction, handles button holding code
  *

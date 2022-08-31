@@ -1,6 +1,6 @@
 #include "script_component.hpp"
 /*
- * htf_interaction_fnc_checkInteraction
+ * vxf_interaction_fnc_checkInteraction
  *
  * checks if a sub-item is valid for interaction
  *

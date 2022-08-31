@@ -1,6 +1,6 @@
 #include "script_component.hpp"
 /*
- * htf_util_fnc_pidRun
+ * vxf_util_fnc_pidRun
  *
  * Runs a pid controller update
  *

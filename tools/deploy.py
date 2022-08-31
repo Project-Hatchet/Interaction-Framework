@@ -1,7 +1,7 @@
 #!/usr/bin/env python3
 
 ###################################
-# HTF automatic deployment script #
+# vxf automatic deployment script #
 # =============================== #
 # This is not meant to be run     #
 # directly!                       #
@@ -21,8 +21,8 @@ TRANSLATIONBODY = """**[Translation Guide](http://ace3mod.com/wiki/development/h
 {}
 """
 
-REPOUSER = "htf-mod"
-REPONAME = "HTF"
+REPOUSER = "vxf-mod"
+REPONAME = "vxf"
 REPOPATH = "{}/{}".format(REPOUSER, REPONAME)
 
 

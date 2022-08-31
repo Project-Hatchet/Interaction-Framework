@@ -1,6 +1,6 @@
 #include "script_component.hpp"
 /*
- * htf_core_fnc_startLoops
+ * vxf_core_fnc_startLoops
  *
  * starts the per per frameHandlers and the draw3D eventHandler
  *

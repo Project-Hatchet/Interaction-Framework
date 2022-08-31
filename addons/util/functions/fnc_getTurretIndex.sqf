@@ -10,7 +10,7 @@
  * Turret Index <ARRAY>
  *
  * Example:
- * [htf_player] call htf_util_fnc_getTurretIndex
+ * [vxf_player] call vxf_util_fnc_getTurretIndex
  *
  * Public: Yes
  */

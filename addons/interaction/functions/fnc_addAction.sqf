@@ -1,12 +1,12 @@
 #include "script_component.hpp"
 /*
- * htf_interaction_fnc_addAction
+ * vxf_interaction_fnc_addAction
  */
 
 params ["_label", "_code", "_condition", "_action"];
 
 private _actionConfig = (configFile >> "CfgActions" >> _action);
-private _actionId = htf_player addAction [
+private _actionId = vxf_player addAction [
   _label,
   _code,
   nil,

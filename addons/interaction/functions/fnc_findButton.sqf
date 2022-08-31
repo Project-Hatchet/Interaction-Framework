@@ -1,6 +1,6 @@
 #include "script_component.hpp"
 /*
- * htf_interaction_fnc_findButton
+ * vxf_interaction_fnc_findButton
  */
 
 params ["_points"];

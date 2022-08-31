@@ -1,10 +1,10 @@
 #include "script_component.hpp"
 /*
- * htf_interaction_fnc_addActions
+ * vxf_interaction_fnc_addActions
  */
 
-private _veh = vehicle htf_player;
-if !((driver _veh) isEqualto htf_player || {(gunner _veh isEqualTo htf_player) && isCopilotEnabled _veh}) exitWith {};
+private _veh = vehicle vxf_player;
+if !((driver _veh) isEqualto vxf_player || {(gunner _veh isEqualTo vxf_player) && isCopilotEnabled _veh}) exitWith {};
 
 // Engine
 {

@@ -1,6 +1,6 @@
 #define COMPONENT core
 #define COMPONENT_BEAUTIFIED Core
-#include "\z\htf\addons\main\script_mod.hpp"
+#include "\z\vxf\addons\main\script_mod.hpp"
 
 #ifdef DEBUG_ENABLED_CORE
   #define DEBUG_MODE_FULL
@@ -10,4 +10,4 @@
   #define DEBUG_SETTINGS DEBUG_SETTINGS_CORE
 #endif
 
-#include "\z\htf\addons\main\script_macros.hpp"
+#include "\z\vxf\addons\main\script_macros.hpp"

@@ -1,6 +1,6 @@
 #include "script_component.hpp"
 /*
- * htf_core_fnc_loadAll
+ * vxf_core_fnc_loadAll
  *
  * Reads out relevant vehicle modules from config and stores them in vehicle variables
  *

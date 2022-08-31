@@ -1,6 +1,6 @@
 #include "script_component.hpp"
 /*
- * htf_interaction_fnc_dragStop
+ * vxf_interaction_fnc_dragStop
  */
 
 params ["_vehicle"];

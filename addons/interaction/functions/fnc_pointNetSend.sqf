@@ -1,6 +1,6 @@
 #include "script_component.hpp"
 /*
- * htf_interaction_fnc_pointNetSend
+ * vxf_interaction_fnc_pointNetSend
  *
  * sends pointing positions
  *

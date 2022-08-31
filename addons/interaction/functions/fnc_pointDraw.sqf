@@ -1,6 +1,6 @@
 #include "script_component.hpp"
 /*
- * htf_interaction_fnc_pointDraw
+ * vxf_interaction_fnc_pointDraw
  *
  * draws pointing positions
  *

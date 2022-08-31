@@ -1,6 +1,6 @@
 #include "script_component.hpp"
 /*
- * htf_core_fnc_perSecond
+ * vxf_core_fnc_perSecond
  *
  * Function will run relevante modules' per second functions
  *
@@ -15,8 +15,8 @@ _args params ["_vehicle"];
 
 // shutdown conditions
 if (
-  !((vehicle htf_player) isEqualTo _vehicle) ||
-  !(alive htf_player) ||
+  !((vehicle vxf_player) isEqualTo _vehicle) ||
+  !(alive vxf_player) ||
   !(alive _vehicle)
 ) exitWith {
   [_pfhId] call CBA_fnc_removePerFrameHandler;
@@ -30,7 +30,7 @@ private _modules = (_vehicle getVariable [QGVAR(modules), []]);
   params ["_vehicle", "_modules"];
   private _moduleDelay = 1 / ((count _modules) + 1);
   private ["_func"];
-  { //forEach vehicle htf_core_modules
+  { //forEach vehicle vxf_core_modules
     sleep _moduleDelay;
     if (_x # 1) then {
       _func = missionNameSpace getVariable (_x # 4);
