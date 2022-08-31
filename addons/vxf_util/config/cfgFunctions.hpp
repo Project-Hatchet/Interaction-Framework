@@ -3,13 +3,13 @@ class cfgFunctions {
     class functions {
       // PID Controllers
       class pidCreate {
-        file = "vxf_util\functions\pid\create.sqf";
+        file = "hatchet_vxf_util\functions\pid\create.sqf";
       };
       class pidRun {
-        file = "vxf_util\functions\pid\run.sqf";
+        file = "hatchet_vxf_util\functions\pid\run.sqf";
       };
       class pidReset {
-        file = "vxf_util\functions\pid\reset.sqf";
+        file = "hatchet_vxf_util\functions\pid\reset.sqf";
       };
     };
   };
