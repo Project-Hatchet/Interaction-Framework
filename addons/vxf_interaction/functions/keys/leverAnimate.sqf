@@ -15,10 +15,7 @@ _button PARAMS;
 diag_log format ["%2: lever animate %1", _name, time];
 
 if(!(_this call compile _interactCondition)) exitWith {
-  //[] spawn {
-  //  showCommandingMenu "RscMainMenu";
-  //  showCommandingMenu "";
-  //};
+  [] call vxf_interaction_fnc_attemptCloseActionMenu;
 };
 
 if (_clickSound != "") then {playSound _clickSound};
@@ -31,8 +28,7 @@ _vehicle animateSource [_animation, _animationTarget, _animationSpeed];
 [_vehicle, _animation, _animationTarget, _animationTargetLabel, _animEnd] spawn {
   params ["_vehicle", "_animation", "_animationTarget", "_animationTargetLabel", "_animEnd"];
   private _startTime = cba_missionTime;
-  //showCommandingMenu "RscMainMenu";
-  //showCommandingMenu "";
+  [] call vxf_interaction_fnc_attemptCloseActionMenu;
   waitUntil {
     cba_missionTime > _startTime + 3 ||
     ((_vehicle animationPhase _animation > _animationTarget - 0.02) && (_vehicle animationPhase _animation < _animationTarget + 0.02))};

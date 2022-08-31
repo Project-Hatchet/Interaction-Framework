@@ -23,10 +23,7 @@ vxf_interaction_knobHolding = vxf_interaction_currentButton;
 
 vxf_interaction_currentButton PARAMS;
 
-//[] spawn {
-//  showCommandingMenu "RscMainMenu";
-//  showCommandingMenu "";
-//};
+[] call vxf_interaction_fnc_attemptCloseActionMenu;
 
 if(!(_vehicle call compile _interactCondition)) exitWith {};
 if (_animation in vxf_animating_keys) exitWith {false};

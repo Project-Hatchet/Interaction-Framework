@@ -21,7 +21,7 @@ if (_positionType == "anim") then {
 private _color = if (vxf_interaction_buttonHolding) then {[1,0,0,1]} else {[1,1,1,1]};
 private _size = if (vxf_interaction_buttonHolding) then {0.045} else {0.05};
 if (count _buttonConfig > 0 && count _knobConfig == 0) then {
-  _label = format ["[%1] %2",((["VXF Interaction","vxf_interaction"] call CBA_fnc_getKeybind)# 5) call CBA_fnc_localizeKey, _label];
+  _label = format ["[%1] %2",((["Hatchet Vehicle Framework","vxf_interaction"] call CBA_fnc_getKeybind)# 5) call CBA_fnc_localizeKey, _label];
 };
 drawIcon3D [
   "\a3\ui_f\data\IGUI\Cfg\Cursors\selected_ca.paa",
@@ -37,10 +37,10 @@ drawIcon3D [
 
 if (count _knobConfig > 0) then {
   _knobConfig params KNOBPARAMS;
-  if (inputAction "prevAction" > 0 && !vxf_interaction_scrolledHolding) then {
+  if ((inputAction "prevAction" > 0 || vxf_alternative_scroll_up) && !vxf_interaction_scrolledHolding) then {
     [_vehicle, 1, _knobConfig] call vxf_interaction_fnc_knobAnimate;
   };
-  if (inputAction "nextAction" > 0 && !vxf_interaction_scrolledHolding) then {
+  if ((inputAction "nextAction" > 0 || vxf_alternative_scroll_down) && !vxf_interaction_scrolledHolding) then {
     [_vehicle, -1, _knobConfig] call vxf_interaction_fnc_knobAnimate;
   };
   ["Scroll or drag to spin",0,0.6,0,0,0, 1303] spawn BIS_fnc_dynamicText;
@@ -80,10 +80,10 @@ if (count _animConfig > 0 && count _knobConfig == 0) then {
   } else {
     ["",0,0.4,0,0,0, 1302] spawn BIS_fnc_dynamicText;
   };
-  if (inputAction "prevAction" > 0 && _prevStep > -1) then {
+  if ((inputAction "prevAction" > 0 || vxf_alternative_scroll_up) && _prevStep > -1) then {
     [_vehicle, _animation, _animationSteps # _prevStep, _animationLabels # _prevStep, _animationSpeed, _animStart, _animEnd, vxf_interaction_currentButton] call vxf_interaction_fnc_leverAnimate;
   };
-  if (inputAction "nextAction" > 0 && _nextStep > -1) then {
+  if ((inputAction "nextAction" > 0 || vxf_alternative_scroll_down) && _nextStep > -1) then {
     [_vehicle, _animation, _animationSteps # _nextStep, _animationLabels # _nextStep, _animationSpeed, _animStart, _animEnd, vxf_interaction_currentButton] call vxf_interaction_fnc_leverAnimate;
   };
 } else {
@@ -91,4 +91,4 @@ if (count _animConfig > 0 && count _knobConfig == 0) then {
   ["",0,0.6,0,0,0, 1302] spawn BIS_fnc_dynamicText;
 };
 
-if (inputAction "prevAction" == 0 && inputAction "nextAction" == 0) then {vxf_interaction_scrolledHolding = false;};
+if (inputAction "prevAction" == 0 && inputAction "nextAction" == 0 && !vxf_alternative_scroll_down && !vxf_alternative_scroll_up) then {vxf_interaction_scrolledHolding = false;};

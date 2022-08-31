@@ -36,6 +36,12 @@ class cfgFunctions {
       class shutDown {
         file = "hatchet_vxf_interaction\functions\shutDown.sqf";
       };
+      class handleMouseBlocker {
+        file = "hatchet_vxf_interaction\functions\handleMouseBlocker.sqf";
+      };
+      class attemptCloseActionMenu {
+        file = "hatchet_vxf_interaction\functions\attemptCloseActionMenu.sqf";
+      };
 
       class buttonDown {
         file = "hatchet_vxf_interaction\functions\keys\buttonDown.sqf";

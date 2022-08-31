@@ -11,6 +11,13 @@ private _vehicle = vehicle player;
 
 if (cameraView != "INTERNAL") exitWith {};
 if (!isNull curatorCamera) exitWith {};
+if (!isNil {uinamespace getVariable "BIS_fnc_camera_display"}) exitWith {};
+
+if (uiNamespace getVariable ["vxf_interaction_mouseBlocker", false]) then {
+  _this call vxf_interaction_fnc_handleMouseBlocker;
+};
+
+
 
 if (vxf_interaction_updateIndex >= vxf_interaction_updateEvery && !vxf_interaction_dragging && !vxf_interaction_buttonHolding) then {
   vxf_interaction_updateIndex = 0;
