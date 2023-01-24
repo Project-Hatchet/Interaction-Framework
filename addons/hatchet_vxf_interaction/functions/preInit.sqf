@@ -88,6 +88,20 @@
   {}
 ] call CBA_Settings_fnc_init;
 
+[
+  "vxf_interaction_showLabels", 
+  "LIST",     
+  [
+    "Label Settings",
+    "Select what format of interaction labels to show."
+  ], 
+  "Hatchet Vehicle Framework", 
+  [
+    [0, 1, 2], 
+    ["No Labels","Hide Keybinds", "Full Label"], 
+    2
+  ]
+] call CBA_fnc_addSetting;
 
 vtx_uh60m_enabled_jvmf = true;
 vtx_uh60m_enabled_fms = true;
