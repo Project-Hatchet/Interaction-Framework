@@ -20,7 +20,6 @@ jobs:
       uses: arma-actions/bom-check@master
 
   build:
-    if: github.repository == 'Project-Hatchet/Interaction-Framework' && ! contains(github.event.head_commit.message, '[ci skip]')
     runs-on: ubuntu-latest
     steps:
     - name: Checkout the source code
@@ -38,7 +37,7 @@ jobs:
 
   publish:
     needs: [build]
-    if: github.ref == 'refs/heads/main'
+    if: github.repository == 'Project-Hatchet/Interaction-Framework' && ! contains(github.event.head_commit.message, '[ci skip]') && github.ref == 'refs/heads/main'
     runs-on: ubuntu-latest
     steps:
       # Upload to Steam Workshop
