@@ -32,7 +32,7 @@ jobs:
       run: mv .hemttout/release .hemttout/@hatchet_framework
     - uses: actions/upload-artifact@v3
       with:
-        name: hatchet_${{ github.sha }}-nobin
+        name: hatchet_framework-${{ github.sha }}-nobin
         path: .hemttout/@*
 
   publish:
