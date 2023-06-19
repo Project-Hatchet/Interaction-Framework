@@ -1,4 +1,13 @@
 *.zip
+*.bak
+*.cache
+keys/*
+*.pbo
+texHeaders.bin
+*.swp
+*.swo
+*.biprivatekey
+Thumbs.db
 
 ## HEMTT
 releases/*
@@ -9,4 +18,5 @@ hemtt.exe
 
 ## SCONS
 release
+.sconsign.dblite
 ####
