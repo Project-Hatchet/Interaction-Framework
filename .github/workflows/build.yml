@@ -1,4 +1,4 @@
-name: CI/Validate
+name: Build
 
 on:
   push:
@@ -20,17 +20,36 @@ jobs:
       uses: arma-actions/bom-check@master
 
   build:
+    if: github.repository == 'Project-Hatchet/Interaction-Framework' && ! contains(github.event.head_commit.message, '[ci skip]')
     runs-on: ubuntu-latest
     steps:
-      - name: Checkout the source code
-        uses: actions/checkout@v3
-      - name: Setup HEMTT
-        uses: arma-actions/hemtt@v1
-      - name: Run HEMTT build
-        run: hemtt build
-      - name: Rename build folder
-        run: mv .hemttout/build .hemttout/@hatchet_framework
-      - uses: actions/upload-artifact@v3
+    - name: Checkout the source code
+      uses: actions/checkout@v3
+    - name: Setup HEMTT
+      uses: arma-actions/hemtt@v1
+    - name: Run HEMTT release
+      run: hemtt release --no-archive
+    - name: Rename release folder
+      run: mv .hemttout/release .hemttout/@hatchet_framework
+    - uses: actions/upload-artifact@v3
+      with:
+        name: hatchet_${{ github.sha }}-nobin
+        path: .hemttout/@*
+
+  publish:
+    needs: [build]
+    if: github.ref == 'refs/heads/main'
+    runs-on: ubuntu-latest
+    steps:
+      # Upload to Steam Workshop
+      - name: Download Artifacts
+        uses: actions/download-artifact@v3
+      - uses: arma-actions/workshop-upload@v1
         with:
-          name: hatchet_${{ github.sha }}-nobin
-          path: .hemttout/@*
+          appId: '107410'
+          itemId: '2403978406' # Hatchet Framework - Test Version
+          contentPath: '.hemttout/@*'
+          changelog: 'See changelog on GitHub: https://github.com/Project-Hatchet/Interaction-Framework/commits'
+        env:
+          STEAM_USERNAME: ${{ secrets.STEAM_USERNAME }}
+          STEAM_PASSWORD: ${{ secrets.STEAM_PASSWORD }}
