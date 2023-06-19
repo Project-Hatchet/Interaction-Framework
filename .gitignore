@@ -1,4 +1,7 @@
+*.zip
+
 ## HEMTT
+releases/*
 hemtt
 hemtt.exe
 .hemttout

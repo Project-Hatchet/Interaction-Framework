@@ -1,5 +1,5 @@
-name = "Project Hatchet"
-prefix = "hatchet"
+name = "Hatchet Framework"
+prefix = "hatchet_vxf"
 author = "Project Hatchet"
 mainprefix = "z"
 
@@ -17,12 +17,16 @@ include = [
 git_hash = 0
 
 [asc]
-enabled = false # TODO
+enabled = true
 exclude = [
+  "/xeh_prep.sqf",
 ]
 
 [hemtt.config]
 preset = "Hemtt"
+
+[hemtt.release]
+folder = "vxf_framework"
 
 [hemtt.launch]
 workshop = [
