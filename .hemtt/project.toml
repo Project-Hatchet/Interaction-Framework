@@ -1,0 +1,32 @@
+name = "Project Hatchet"
+prefix = "hatchet"
+author = "Project Hatchet"
+mainprefix = "z"
+
+[files]
+include = [
+  "mod.cpp",
+  "README.md",
+  "AUTHORS.txt",
+  "LICENSE",
+  "logo_vtx_ca.paa",
+  "logo_vtx_small_ca.paa",
+  "meta.cpp",
+]
+
+[version]
+git_hash = 0
+
+[asc]
+enabled = false # TODO
+exclude = [
+]
+
+[hemtt.config]
+preset = "Hemtt"
+
+[hemtt.launch]
+workshop = [
+  "450814997", # CBA_A3's Workshop ID
+  "463939057", # ACE3's Workshop ID
+]
