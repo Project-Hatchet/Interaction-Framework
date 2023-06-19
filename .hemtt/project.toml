@@ -9,7 +9,7 @@ include = [
   "README.md",
   "AUTHORS.txt",
   "LICENSE",
-  "logo_vtx_ca.paa",
+  "logo_vxf_ca.paa",
   "meta.cpp",
 ]
 
