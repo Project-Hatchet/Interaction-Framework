@@ -52,38 +52,41 @@ def getPboInfo(settings):
         with open(os.path.join(pboInfo.folder,"$PBOPREFIX$"), "r") as file:
             pboInfo.pboPrefix = file.readline().strip()
         try:
-            pboInfo.a3symlink = os.path.join(arma3Path(),pboInfo.pboPrefix)
+            pboInfo.a3symlink = os.path.join("P:",pboInfo.pboPrefix)
         except:
             pboInfo.a3symlink = None
+
+        pboInfo.buildSymlink = os.path.join("build",pboInfo.pboPrefix)
 
         if (name in settings["excludePboSymlinks"]):
             pboInfo.a3symlink = None
         return pboInfo
     return list(map(addInfo,filter(lambda x: os.path.isdir(os.path.join(settings["addonsFolder"], x)), os.listdir(settings["addonsFolder"]))))
 
-# Build target functions
-def commandsToRemoveSymlink(pbo):
-    if pbo.a3symlink is None:
+def removeSymlink(pathTo):
+    if pathTo is None:
         return []
     commands = []
-    if isJunction(pbo.a3symlink):
-        commands.append(f'fsutil reparsepoint delete \"{pbo.a3symlink}\"')
-    if os.path.isdir(pbo.a3symlink):
-        commands.append(Delete(pbo.a3symlink))
+    if isJunction(pathTo):
+        commands.append(f'fsutil reparsepoint delete \"{pathTo}\"')
+    if os.path.isdir(pathTo):
+        commands.append(Delete(pathTo))
     return commands
 
-def commandsToCreateSymlink(pbo):
-    if pbo.a3symlink is None:
+def buildSymlink(pathFrom, pathTo):
+    if pathTo is None:
         return []
-    commands = commandsToRemoveSymlink(pbo)
-    if not os.path.isdir(os.path.dirname(pbo.a3symlink)):
-        commands.append(Mkdir(os.path.dirname(pbo.a3symlink)))
-    commands.append(f'mklink /J "{pbo.a3symlink}" "{pbo.folder}"')
+    commands = removeSymlink(pathTo)
+    if not os.path.isdir(os.path.dirname(pathTo)):
+        commands.append(Mkdir(os.path.dirname(pathTo)))
+    commands.append(f'mklink /J "{pathTo}" "{pathFrom}"')
     return commands
 
 def buildPbo(settings,env, pbo):
-    env.Command(pbo.outputPath, allFilesIn(pbo.folder), 
-        f'"{addonBuilderPath()}" "{os.path.abspath(pbo.folder)}" "{os.path.abspath(settings["addonsFolder"])}" -clear -include=buildExtIncludes.txt')
+    optBinarize = "-binarize=C:\\Windows\\System32\\print.exe" if pbo.name in settings["noBinarize"] else ""
+    cfgConvertArg = "-cfgconvert=asdfafds" # + a3toolsPath() + "\\CfgConvert\\CfgConvert.exe"
+    env.Command(pbo.outputPath, allFilesIn(pbo.folder)+["build"], 
+        f'"{addonBuilderPath()}" "{os.path.abspath(pbo.buildSymlink)}" "{os.path.abspath(settings["outputFolder"])}" "-project=build" "-prefix={pbo.pboPrefix}" -include=buildExtIncludes.txt {optBinarize}')
     targetDefinition(pbo.name, f"Build the {pbo.name} pbo.")
     return env.Alias(pbo.name, pbo.outputPath)
 
@@ -94,13 +97,16 @@ def downloadNaturaldocs(target, source, env):
     with zipfile.ZipFile(zipFilePath, 'r') as zip_ref:
         zip_ref.extractall(r"buildTools")
 
+print(addonBuilderPath())
 settings = getSettings()
 pbos = getPboInfo(settings)
 
 pboAliases = [buildPbo(settings,env, pbo) for pbo in pbos]
 
 env.Command("buildTools", [], Mkdir("buildTools"))
-    
+
+buildDir = env.Command("build", allFilesIn("include"), [Copy("build", "include")] + sum(map(lambda pbo: buildSymlink(pbo.folder, pbo.buildSymlink),pbos),[]))
+
 env.Command(r"buildTools\Natural Docs", [], [downloadNaturaldocs, Delete(r"buildTools\NaturalDocs.zip")])
 
 allPbos = env.Alias("all", pboAliases)
@@ -115,16 +121,19 @@ env.Alias("docs", r"docs\index.html")
 targetDefinition("docs", "Generate naturaldocs documentation")
 env.Help("\n")
 
+if GetOption('clean'):
+    env.Execute(sum(map(lambda pbo: removeSymlink(pbo.buildSymlink), pbos),[]))
+env.Clean(["build", "all"], r"build")
 env.Clean(["buildTools", "all"], r"buildTools")
 env.Clean(["docs", "all"], ["docs", r"naturaldocs\Working Data"])
 
 try:
     settings = getSettings()
     a3dir = arma3Path()
-    symlinks = env.Alias("symlinks", [], sum(map(commandsToCreateSymlink, pbos),[]))
+    symlinks = env.Alias("symlinks", [], sum(map(lambda pbo: buildSymlink(pbo.folder, pbo.a3symlink), pbos),[]))
     env.AlwaysBuild(symlinks)
 
-    removeSymlinks = env.Alias("rmsymlinks", [], sum(map(commandsToRemoveSymlink, pbos),[]))
+    removeSymlinks = env.Alias("rmsymlinks", [], sum(map(lambda pbo: removeSymlink(pbo.a3symlink), pbos),[]))
     env.AlwaysBuild(removeSymlinks)
 except Exception as e:
     print(e)
