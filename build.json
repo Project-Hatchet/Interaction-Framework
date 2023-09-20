@@ -1,4 +1,6 @@
 {
   "addonsFolder": "addons",
-  "excludePboSymlinks": []
+  "excludePboSymlinks": [],
+  "noBinarize": [],
+  "outputFolder": "release"
 }
