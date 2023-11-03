@@ -17,7 +17,7 @@ def allFilesIn(path):
     return [s.replace("$", "$$") for s in glob.glob(path + '/**/*', recursive=True) if os.path.isfile(s)]
 
 def getSettings():
-    with open("build.json") as file:
+    with open("tools/build.json") as file:
         return json.load(file)
 
 def targetDefinition(target, description):
@@ -82,8 +82,8 @@ def commandsToCreateSymlink(pbo):
     return commands
 
 def buildPbo(settings,env, pbo):
-    env.Command(pbo.outputPath, allFilesIn(pbo.folder), 
-        f'"{addonBuilderPath()}" "{os.path.abspath(pbo.folder)}" "{os.path.abspath(settings["addonsFolder"])}" -clear -include=buildExtIncludes.txt')
+    env.Command(pbo.outputPath, allFilesIn(pbo.folder),
+        f'"{addonBuilderPath()}" "{os.path.abspath(pbo.folder)}" "{os.path.abspath(settings["addonsFolder"])}" -clear -include=tools\\buildExtIncludes.txt')
     targetDefinition(pbo.name, f"Build the {pbo.name} pbo.")
     return env.Alias(pbo.name, pbo.outputPath)
 
@@ -100,14 +100,14 @@ pbos = getPboInfo(settings)
 pboAliases = [buildPbo(settings,env, pbo) for pbo in pbos]
 
 env.Command("buildTools", [], Mkdir("buildTools"))
-    
+
 env.Command(r"buildTools\Natural Docs", [], [downloadNaturaldocs, Delete(r"buildTools\NaturalDocs.zip")])
 
 allPbos = env.Alias("all", pboAliases)
 targetDefinition("all", "Build all pbos.")
 
 buildDocs = env.Command(r"docs\index.html",
-    [s for s in allFilesIn(settings["addonsFolder"]) if s.endswith(".sqf")] + [r"buildTools\Natural Docs"], 
+    [s for s in allFilesIn(settings["addonsFolder"]) if s.endswith(".sqf")] + [r"buildTools\Natural Docs"],
     [Mkdir("docs"), r'"buildTools\Natural Docs\NaturalDocs.exe" naturaldocs'])
 env.AlwaysBuild(buildDocs)
 

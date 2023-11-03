@@ -1,4 +1,4 @@
-name: CI/Validate
+name: Build
 
 on:
   push:
@@ -11,29 +11,44 @@ jobs:
     runs-on: ubuntu-latest
     steps:
     - name: Checkout the source code
-      uses: actions/checkout@v2
+      uses: actions/checkout@v3
     - name: Validate SQF
       run: python3 tools/sqf_validator.py
     - name: Validate Config
       run: python3 tools/config_style_checker.py
-    - name: Validate Stringtables
-      run: python3 tools/stringtable_validator.py
-    - name: Validate Return Types
-      run: python3 tools/return_checker.py
     - name: Check for BOM
       uses: arma-actions/bom-check@master
+
   build:
     runs-on: ubuntu-latest
     steps:
-      - name: Checkout the source code
-        uses: actions/checkout@v2
+    - name: Checkout the source code
+      uses: actions/checkout@v3
+    - name: Setup HEMTT
+      uses: arma-actions/hemtt@v1
+    - name: Run HEMTT release
+      run: hemtt release --no-archive
+    - name: Rename release folder
+      run: mv .hemttout/release .hemttout/@hatchet_framework
+    - uses: actions/upload-artifact@v3
+      with:
+        name: hatchet_framework-${{ github.sha }}-nobin
+        path: .hemttout/@*
+
+  publish:
+    needs: [build]
+    if: github.repository == 'Project-Hatchet/Interaction-Framework' && ! contains(github.event.head_commit.message, '[ci skip]') && github.ref == 'refs/heads/main'
+    runs-on: ubuntu-latest
+    steps:
+      # Upload to Steam Workshop
+      - name: Download Artifacts
+        uses: actions/download-artifact@v3
+      - uses: arma-actions/workshop-upload@v1
         with:
-          fetch-depth: 1
-      - name: Build with HEMTT
-        uses: arma-actions/hemtt@master
-        with:
-          command: build --release --ci
-      - uses: actions/upload-artifact@v2
-        with:
-          name: hatchet
-          path: releases/hatchet.zip
+          appId: '107410'
+          itemId: '2403978406' # Hatchet Framework - Test Version
+          contentPath: '.hemttout/@*'
+          changelog: 'See changelog on GitHub: https://github.com/Project-Hatchet/Interaction-Framework/commits'
+        env:
+          STEAM_USERNAME: ${{ secrets.STEAM_USERNAME }}
+          STEAM_PASSWORD: ${{ secrets.STEAM_PASSWORD }}

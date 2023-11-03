@@ -1,0 +1,52 @@
+name: Release Drafter Configs
+
+branches:
+  - main
+
+name-template: 'Hatchet Framework $RESOLVED_VERSION'
+tag-template: 'v$RESOLVED_VERSION'
+
+categories:
+  - title: '**ADDED:**'
+    labels:
+      - 'Type: Feature'
+  - title: '**IMPROVED:**'
+    labels:
+      - 'Type: Enhancements'
+      - 'Type: Optimization'
+  - title: '**CHANGED:**'
+    labels:
+      - 'Type: Cleanup'
+  - title: '**FIXED:**'
+    labels:
+      - 'Type: Bug'
+  - title: '**TRANSLATIONS:**'
+    labels:
+      - 'Type: Translation'
+
+exclude-labels:
+  - 'Ignore Changelog'
+
+change-template: '- $TITLE (#$NUMBER)'
+version-resolver:
+  minor:
+    labels:
+      - 'Type: Feature'
+  patch:
+    labels:
+      - 'Type: Enhancements'
+      - 'Type: Optimization'
+      - 'Type: Bug'
+  default: patch
+template: |
+  _Requires CBA Version 3.Y.Z or later and Arma 3 Version X.Y or later._
+  DESCRIPTION HERE
+  ## Change Log Summary
+
+  $CHANGES
+
+  $CONTRIBUTORS
+replacers:
+  # Category titles
+  - search: '/\#\# (\*\*(ADDED|IMPROVED|CHANGED|FIXED|TRANSLATIONS):\*\*)/g'
+    replace: '$1'

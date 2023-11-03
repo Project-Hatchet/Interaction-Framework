@@ -1,0 +1,35 @@
+name = "Hatchet Framework"
+prefix = "hatchet_vxf"
+author = "Project Hatchet"
+mainprefix = "z"
+
+[files]
+include = [
+  "mod.cpp",
+  "README.md",
+  "LICENSE",
+  "logo_vxf_ca.paa",
+  "meta.cpp",
+]
+
+[version]
+git_hash = 0
+
+[asc]
+enabled = true
+exclude = [
+  "/initsettings.sqf",
+  "/initkeybinds.sqf",
+  "/xeh_prep.sqf",
+]
+
+[hemtt.config]
+preset = "Hemtt"
+
+[hemtt.release]
+folder = "vxf_framework"
+
+[hemtt.launch]
+workshop = [
+  "450814997", # CBA_A3's Workshop ID
+]

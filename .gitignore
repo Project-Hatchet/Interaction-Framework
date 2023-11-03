@@ -1,8 +1,22 @@
-
-## Added by HEMTT
-releases/*
-*.biprivatekey
+*.zip
+*.bak
+*.cache
 keys/*
-.hemtt/local.toml
-addons/*.pbo
+*.pbo
+texHeaders.bin
+*.swp
+*.swo
+*.biprivatekey
+Thumbs.db
+
+## HEMTT
+releases/*
+hemtt
+hemtt.exe
+.hemttout
+####
+
+## SCONS
+release
+.sconsign.dblite
 ####

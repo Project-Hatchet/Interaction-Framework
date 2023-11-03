@@ -1,0 +1,36 @@
+name: Release
+
+on:
+  push:
+    tags:
+    - 'v*.*.*'
+
+jobs:
+  build_addon:
+    runs-on: ubuntu-latest
+    steps:
+    - name: Checkout the source code
+      uses: actions/checkout@v3
+    - name: Setup HEMTT
+      uses: arma-actions/hemtt@v1
+    - name: Run HEMTT release
+      run: hemtt release
+    - name: Rename release folder
+      run: mv .hemttout/release .hemttout/@hatchet_framework
+    - name: Upload to GitHub
+      uses: actions/action-gh-release@v1
+      with:
+        draft: true
+        files: releases/hatchet_framework_*.zip
+        name: 'Hatchet Framework ${{ github.ref_name }}'
+        tag_name: ${{ github.ref_name }}
+        target_commitish: ${{ github.sha }}
+    #- uses: arma-actions/workshop-upload@v1
+    #  with:
+    #    appId: '107410'
+    #    itemId: '' # Hatchet Framework - Stable Version
+    #    contentPath: '.hemttout/@*'
+    #    changelog: 'See changelog on GitHub: https://github.com/Project-Hatchet/Interaction-Framework/releases'
+    #  env:
+    #    STEAM_USERNAME: ${{ secrets.STEAM_USERNAME }}
+    #    STEAM_PASSWORD: ${{ secrets.STEAM_PASSWORD }}
