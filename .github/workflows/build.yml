@@ -42,7 +42,7 @@ jobs:
     steps:
       # Upload to Steam Workshop
       - name: Download Artifacts
-        uses: actions/download-artifact@v3
+        uses: actions/download-artifact@v4.1.7
       - uses: arma-actions/workshop-upload@v1
         with:
           appId: '107410'
