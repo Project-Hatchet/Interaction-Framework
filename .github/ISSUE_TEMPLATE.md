@@ -1,11 +1,9 @@
 **Arma 3 Version:** `x.xx` (stable / rc / dev)
 **CBA Version:** `3.x.x` (stable / dev + commit hash)
-**ACE3 Version:** `3.x.x` (stable / dev + commit hash)
 
 **Mods:**
 ```
 - CBA_A3
-- ace
 ```
 
 **Description:**
