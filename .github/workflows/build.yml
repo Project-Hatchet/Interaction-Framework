@@ -5,7 +5,7 @@ on:
   workflow_dispatch:
   push:
     branches:
-    - legacy
+    - main
   pull_request:
 
 jobs:

@@ -1,5 +1,5 @@
 
-## Added by HEMTT
+
 releases/*
 *.biprivatekey
 keys/*
@@ -7,4 +7,5 @@ keys/*
 addons/*.pbo
 .vscode
 .sconsign.dblite
-####
+release/*
+
