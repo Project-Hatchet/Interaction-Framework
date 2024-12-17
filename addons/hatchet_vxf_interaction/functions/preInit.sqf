@@ -48,7 +48,7 @@
 ] call CBA_Settings_fnc_init;
 
 [
-  "vxf_uh60_interaction_pointing",
+  "vxf_interaction_pointing",
   "checkbox",
   "Enable pointing system(uses remoteCall)",
   "Hatchet Vehicle Framework",
@@ -79,7 +79,7 @@
 ] call CBA_fnc_addKeybind;
 
 [
-  "vxf_uh60_interaction_autoclose_actionmenu",
+  "vxf_interaction_autoclose_actionmenu",
   "checkbox",
   "Automatically close action menu (experimental)",
   "Hatchet Vehicle Framework",
@@ -103,13 +103,15 @@
   ]
 ] call CBA_fnc_addSetting;
 
-vtx_uh60m_enabled_jvmf = true;
-vtx_uh60m_enabled_fms = true;
-vtx_uh60m_enabled_mfd = true;
-vtx_uh60m_enabled_fd = true;
-vtx_uh60m_enabled_cas = true;
-vtx_uh60m_enabled_aar = true;
-vtx_uh60m_enabled_flir = true;
-vtx_uh60m_enabled_engine = true;
+[
+  "vxf_interaction_showDebugMessages",
+  "checkbox",
+  "Enable debug messages",
+  "Hatchet Vehicle Framework",
+  [false],
+  nil,
+  {}
+] call CBA_Settings_fnc_init;
+
 vxf_alternative_scroll_up = false;
 vxf_alternative_scroll_down = false;

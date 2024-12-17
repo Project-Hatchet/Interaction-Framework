@@ -22,7 +22,7 @@ vxf_interaction_buttonHoldCode = nil;
 if (!isNil "_knobClick") then {
   private _clickTime = time - vxf_interaction_dragging_buttonDownTime;
   if (_clickTime < 0.25) then {
-    systemChat format["CLICK TIME %1", _clickTime];
+    if (vxf_interactionShowDebugMessages) then {systemChat format["CLICK TIME %1", _clickTime];};
     [_vehicle] call _knobClick;
   };
 };
