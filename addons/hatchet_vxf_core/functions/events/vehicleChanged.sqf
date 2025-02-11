@@ -28,6 +28,8 @@ if (!_isVxfSetup) exitWith {
 [_newVehicle] call vxf_core_fnc_startLoops;
 vxf_vehicle = _newVehicle;
 
-vxf_interaction_vehicleSwitchedEH = _newVehicle addEventHandler ["SeatSwitched", {
-  if (_this # 1 == player) then {[player, vehicle player] call vxf_core_fnc_vehicleChanged;};
-}];
+vxf_interaction_vehicleSwitchedEH = ["turret", {
+  [player, vehicle player] call vxf_core_fnc_vehicleChanged;
+	[vehicle player] call vtx_uh60_ui_fnc_setKeybindText;
+	[vehicle player, vtx_uh60_ui_helpEnabled] call vtx_uh60_ui_fnc_showHelp;
+}, true] call CBA_fnc_addPlayerEventHandler; 

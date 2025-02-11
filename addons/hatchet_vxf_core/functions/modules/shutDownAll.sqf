@@ -30,5 +30,5 @@ private ["_func"];
   _x set [1, false];
 } forEach (_vehicle getVariable ["vxf_modules", []]);
 
-_vehicle removeEventHandler ["SeatSwitched", vxf_interaction_vehicleSwitchedEH];
+["turret", vxf_interaction_vehicleSwitchedEH] call CBA_fnc_removePlayerEventHandler;
 vxf_vehicle = nil;
