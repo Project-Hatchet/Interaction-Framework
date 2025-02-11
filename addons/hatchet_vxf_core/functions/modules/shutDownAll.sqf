@@ -30,5 +30,5 @@ private ["_func"];
   _x set [1, false];
 } forEach (_vehicle getVariable ["vxf_modules", []]);
 
-["turret", vxf_interaction_vehicleSwitchedEH] call CBA_fnc_removePlayerEventHandler;
+//["turret", vxf_interaction_vehicleSwitchedEH] call CBA_fnc_removePlayerEventHandler;
 vxf_vehicle = nil;
