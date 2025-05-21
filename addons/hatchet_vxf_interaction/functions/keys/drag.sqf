@@ -23,7 +23,7 @@ if (count _screenPos == 2) then {
  //systemchat str (_verticalDistance / _dragRange) * _animRange;
  //systemChat str [abs _verticalDistance, abs vxf_interaction_dragging_lastDragDistance, abs (abs vxf_interaction_dragging_lastDragDistance - abs _verticalDistance)];
  if(abs (abs vxf_interaction_dragging_lastDragDistance - abs _verticalDistance) > 0.02) then {
-   systemChat str _verticalDistance;
+   if (vxf_interactionShowDebugMessages) then {systemChat str _verticalDistance;};
    private _animRange = (_animLimits # 0) - (_animLimits # 1);
    vxf_interaction_dragging_lastDragDistance = _verticalDistance;
    private _dragEndPoint = vxf_interaction_dragging_startAnimPhase + ((_verticalDistance / _dragRange) * _animRange);
