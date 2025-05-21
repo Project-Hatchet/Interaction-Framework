@@ -1,8 +1,11 @@
-
-## Added by HEMTT
+*.bak
+*.zip
+*.cache
 releases/*
+release/*
 *.biprivatekey
 keys/*
 .hemtt/local.toml
 addons/*.pbo
-####
+.vscode
+.sconsign.dblite

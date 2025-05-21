@@ -1,17 +1,15 @@
 ---
 name: Bug report
-about: Report an issue with ACE3
+about: Report an issue with Hatchet Framework
 
 ---
 
 **Arma 3 Version:** `x.xx` (stable / rc / dev)
 **CBA Version:** `3.x.x` (stable / dev + commit hash)
-**ACE3 Version:** `3.x.x` (stable / dev + commit hash)
 
 **Mods:**
 ```
 - CBA_A3
-- ace
 ```
 
 **Description:**
@@ -28,4 +26,3 @@ about: Report an issue with ACE3
 
 **RPT log file:**
 - Add a link ([gist](https://gist.github.com) or [pastebin](http://pastebin.com)) to the client and/or server RPT file. An instruction to find your RPT files can be found [here](https://community.bistudio.com/wiki/Crash_Files#Arma_3).
-- If possible at the time the bug is encountered, go to Options and select "ACE Debug To Clipboard", this will print extensive debug information to the RPT file and copy it to clipboard.
