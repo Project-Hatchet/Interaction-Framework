@@ -4,7 +4,7 @@
  * interaction button release functionality
  */
 
- private _vehicle = vehicle player;
+ private _vehicle = vehicle ace_player;
 
 #include "interactDefines.hpp"
 

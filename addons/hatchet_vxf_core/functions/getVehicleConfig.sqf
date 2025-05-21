@@ -17,9 +17,9 @@ private _configFound = false;
 private _configSources = [];
 
 _vehicle setVariable ["vxf_config", nil];
-private _turretIndex = [player] call ace_common_fnc_getTurretIndex;
+private _turretIndex = [ace_player] call ace_common_fnc_getTurretIndex;
 
-if(player == driver _vehicle) then {
+if(ace_player == driver _vehicle) then {
   _configSources pushBack "vxf_driver";
 };
 
@@ -32,11 +32,11 @@ if(count _turretIndex > 0) then {
   _configSources pushBack format["vxf_turret_%1",(_turretIndex # 0)];
 };
 
-if(player == gunner _vehicle) then {
+if(ace_player == gunner _vehicle) then {
   _configSources pushBack "vxf_gunner";
 };
 
-if(_vehicle getCargoIndex player > -1) then {
+if(_vehicle getCargoIndex ace_player > -1) then {
   _configSources pushBack "vxf_cargo";
 };
 

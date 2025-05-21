@@ -14,7 +14,7 @@
 params ["_caller", "_newVehicle"];
 
 if (isNil "_caller" || isNil "_newVehicle") exitWith {};
-if (_caller !=player) exitWith {};
+if (_caller != ace_player) exitWith {};
 if (!(isNil "vxf_vehicle")) then {[vxf_vehicle] call vxf_core_fnc_shutDownAll;};
 
 private _isVxfSetup = [_newVehicle] call vxf_core_fnc_getVehicleConfig;
@@ -29,5 +29,5 @@ if (!_isVxfSetup) exitWith {
 vxf_vehicle = _newVehicle;
 
 /*vxf_interaction_vehicleSwitchedEH = ["turret", {
-  [player, vehicle player] call vxf_core_fnc_vehicleChanged;
+  [ace_player, vehicle ace_player] call vxf_core_fnc_vehicleChanged;
 }, true] call CBA_fnc_addPlayerEventHandler; */

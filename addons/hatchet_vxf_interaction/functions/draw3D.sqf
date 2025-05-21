@@ -7,7 +7,7 @@
 
 #include "interactDefines.hpp"
 
-private _vehicle = vehicle player;
+private _vehicle = vehicle ace_player;
 
 if (cameraView != "INTERNAL") exitWith {};
 if (!isNull curatorCamera) exitWith {};
