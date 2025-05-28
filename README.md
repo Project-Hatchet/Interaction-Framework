@@ -6,7 +6,7 @@
         <img src="https://img.shields.io/steam/downloads/2941986336" alt="H-60 Pack" >
     </a>
     <a href="https://github.com/Project-Hatchet/Interaction-Framework/issues">
-        <img src="https://img.shields.io/github/issues-raw/Project-Hatchet/public_h-60.svg?label=Issues" alt="H-60 Pack Issues">
+        <img src="https://img.shields.io/github/issues-raw/Project-Hatchet/interaction-framework.svg?label=Issues" alt="H-60 Pack Issues">
     </a>
     <a href="https://discord.gg/58Pt5EGjvQ">
         <img src="https://img.shields.io/discord/487939925938012161.svg?label=Discord&colorB=7683D5" alt="Hatchet Discord">
