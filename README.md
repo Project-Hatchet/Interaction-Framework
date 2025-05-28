@@ -1,12 +1,15 @@
 <p align="center">
+  <img src="https://github.com/user-attachments/assets/ed05131a-abff-4856-a285-6e55617a94cf" alt="Project Hatchet" width="400" height="400">
+</p>
+<p align="center">
     <a href="https://github.com/Project-Hatchet/Interaction-Framework/releases">
-        <img src="https://img.shields.io/badge/Version-0.2.0-blue.svg?style=flat-square" alt="H-60 Pack Version">
+        <img src="https://img.shields.io/badge/Version-0.2.0-blue.svg?style=flat-square" alt="Framework Version">
     </a>
     <a href="https://steamcommunity.com/sharedfiles/filedetails/?id=2941986336">
-        <img src="https://img.shields.io/steam/downloads/2941986336" alt="H-60 Pack" >
+        <img src="https://img.shields.io/steam/downloads/2941986336" alt="Framework" >
     </a>
     <a href="https://github.com/Project-Hatchet/Interaction-Framework/issues">
-        <img src="https://img.shields.io/github/issues-raw/Project-Hatchet/interaction-framework.svg?label=Issues" alt="H-60 Pack Issues">
+        <img src="https://img.shields.io/github/issues-raw/Project-Hatchet/interaction-framework.svg?label=Issues" alt="Issues">
     </a>
     <a href="https://discord.gg/58Pt5EGjvQ">
         <img src="https://img.shields.io/discord/487939925938012161.svg?label=Discord&colorB=7683D5" alt="Hatchet Discord">
