@@ -34,7 +34,7 @@ vxf_interaction_updateIndex = vxf_interaction_updateIndex + 1;
 _this call vxf_interaction_fnc_drawLabel;
 
 if (vxf_interaction_crosshair) then {
-  ["<t color='#bae5bb' size = '.5'>+</t>",-1,0.485,1,0,0, 794] spawn BIS_fnc_dynamicText;
+  ["<t color='#ebebeb' size = '.5'>.</t>",-1,0.485,1,0,0, 794] spawn BIS_fnc_dynamicText;
 };
 
 if (vxf_interaction_pointStart) then {
