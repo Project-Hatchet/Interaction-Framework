@@ -1,6 +1,18 @@
-[![Release Drafter](https://github.com/Project-Hatchet/hatchet-framework/actions/workflows/release-drafter.yml/badge.svg?branch=main)](https://github.com/Project-Hatchet/hatchet-framework/actions/workflows/release-drafter.yml)
-[![CI/Validate](https://github.com/Project-Hatchet/hatchet-framework/actions/workflows/build.yml/badge.svg?branch=main)](https://github.com/Project-Hatchet/hatchet-framework/actions/workflows/build.yml)
-[![Steam_Upload/Dev](https://github.com/Project-Hatchet/hatchet-framework/actions/workflows/development.yml/badge.svg?branch=main)](https://github.com/Project-Hatchet/hatchet-framework/actions/workflows/development.yml)
+<p align="center">
+    <a href="https://github.com/Project-Hatchet/Interaction-Framework/releases">
+        <img src="https://img.shields.io/badge/Version-0.2.0-blue.svg?style=flat-square" alt="H-60 Pack Version">
+    </a>
+    <a href="https://steamcommunity.com/sharedfiles/filedetails/?id=2941986336">
+        <img src="https://img.shields.io/steam/downloads/2941986336" alt="H-60 Pack" >
+    </a>
+    <a href="https://github.com/Project-Hatchet/Interaction-Framework/issues">
+        <img src="https://img.shields.io/github/issues-raw/Project-Hatchet/public_h-60.svg?label=Issues" alt="H-60 Pack Issues">
+    </a>
+    <a href="https://discord.gg/58Pt5EGjvQ">
+        <img src="https://img.shields.io/discord/487939925938012161.svg?label=Discord&colorB=7683D5" alt="Hatchet Discord">
+    </a>
+</p>
+<p align="center">
 # Hatchet Vehicle Framework
 A vehicle scripting framework for Arma 3
 
