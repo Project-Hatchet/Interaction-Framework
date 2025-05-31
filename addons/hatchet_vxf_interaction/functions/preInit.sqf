@@ -1,43 +1,4 @@
 [
-  "Hatchet Vehicle Framework",
-  "vxf_interaction_scrollUpAlt",
-  "Scroll Up Alternative",
-  {vxf_alternative_scroll_up = true;},
-  {vxf_alternative_scroll_up = false;},
-  [16, [false, true, false]],
-  false
-] call CBA_fnc_addKeybind;
-[
-  "Hatchet Vehicle Framework",
-  "vxf_interaction_scrollDownAlt",
-  "Scroll Down Alternative",
-  {vxf_alternative_scroll_down = true;},
-  {vxf_alternative_scroll_down = false;},
-  [18, [false, true, false]],
-  false
-] call CBA_fnc_addKeybind;
-
-[
-  "Hatchet Vehicle Framework",
-  "vxf_interaction",
-  "Vehicle Interaction",
-  {[vehicle player, vxf_interaction_currentButton] call vxf_interaction_fnc_buttonDown},
-  {[vehicle player, vxf_interaction_currentButton] call vxf_interaction_fnc_buttonUp},
-  [33, [false, false, false]],
-  false
-] call CBA_fnc_addKeybind;
-
-[
-  "Hatchet Vehicle Framework",
-  "vxf_interaction_alternative",
-  "Vehicle Interaction Alternative (adds alt+F by default)",
-  {[vehicle player, vxf_interaction_currentButton] call vxf_interaction_fnc_buttonDown},
-  {[vehicle player, vxf_interaction_currentButton] call vxf_interaction_fnc_buttonUp},
-  [33, [false, false, true]],
-  false
-] call CBA_fnc_addKeybind;
-
-[
   "vxf_interaction_updateEvery",
   "SLIDER",
   "Label update rates(frames between)",
@@ -89,16 +50,16 @@
 ] call CBA_Settings_fnc_init;
 
 [
-  "vxf_interaction_showLabels", 
-  "LIST",     
+  "vxf_interaction_showLabels",
+  "LIST",
   [
     "Label Settings",
     "Select what format of interaction labels to show."
-  ], 
-  "Hatchet Vehicle Framework", 
+  ],
+  "Hatchet Vehicle Framework",
   [
-    [0, 1, 2], 
-    ["No Labels","Hide Keybinds", "Full Label"], 
+    [0, 1, 2],
+    ["No Labels","Hide Keybinds", "Full Label"],
     2
   ]
 ] call CBA_fnc_addSetting;

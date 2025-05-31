@@ -3,7 +3,7 @@
  *
  * receives pointing positions and adds timestamps and textures
  *
- * params (array)[(positionModel) pointPos, (SCALAR) type, (string) player name]
+ * params (array)[(positionModel) pointPos, (SCALAR) type, (string) ace_player name]
  */
 
 params ["_pointPos", "_pointType", "_name"];

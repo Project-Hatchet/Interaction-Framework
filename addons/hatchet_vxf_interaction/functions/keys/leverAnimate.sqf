@@ -21,7 +21,7 @@ if(!(_this call compile _interactCondition)) exitWith {
 if (_clickSound != "") then {playSound _clickSound};
 
 [_vehicle, _animation, _animationTargetLabel, _animationTarget] call _animStart;
-[_vehicle, _position, 1, name player] call vxf_interaction_fnc_pointNetSend;
+[_vehicle, _position, 1, name ace_player] call vxf_interaction_fnc_pointNetSend;
 vxf_animating_keys pushBack _animation;
 
 _vehicle animateSource [_animation, _animationTarget, _animationSpeed];

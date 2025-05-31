@@ -13,8 +13,8 @@ _args params ["_vehicle", "_lastFrameTime"];
 
 //shutdown conditions
 if (
-  (vehicle player != _vehicle) ||
-  (!alive player) ||
+  (vehicle ace_player != _vehicle) ||
+  (!alive ace_player) ||
   (!alive _vehicle)
 ) exitWith {
   [vxf_vehicle] call vxf_core_fnc_shutDownAll;
