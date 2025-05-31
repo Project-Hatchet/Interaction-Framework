@@ -27,7 +27,7 @@ _label = if (vxf_interaction_showLabels > 0.5) then {
     } else {
       "%2"
     };
-    format [_fmt,((["Hatchet Vehicle Framework","vxf_interaction"] call CBA_fnc_getKeybind)# 5) call CBA_fnc_localizeKey, _label]
+    format [_fmt,actionKeysNames "vxf_interaction_use", _label]
   } else {
     _label
   }

@@ -1,43 +1,4 @@
 [
-  "Hatchet Vehicle Framework",
-  "vxf_interaction_scrollUpAlt",
-  "Scroll Up Alternative",
-  {vxf_alternative_scroll_up = true;},
-  {vxf_alternative_scroll_up = false;},
-  [16, [false, true, false]],
-  false
-] call CBA_fnc_addKeybind;
-[
-  "Hatchet Vehicle Framework",
-  "vxf_interaction_scrollDownAlt",
-  "Scroll Down Alternative",
-  {vxf_alternative_scroll_down = true;},
-  {vxf_alternative_scroll_down = false;},
-  [18, [false, true, false]],
-  false
-] call CBA_fnc_addKeybind;
-
-[
-  "Hatchet Vehicle Framework",
-  "vxf_interaction",
-  "Vehicle Interaction",
-  {[vehicle ace_player, vxf_interaction_currentButton] call vxf_interaction_fnc_buttonDown},
-  {[vehicle ace_player, vxf_interaction_currentButton] call vxf_interaction_fnc_buttonUp},
-  [33, [false, false, false]],
-  false
-] call CBA_fnc_addKeybind;
-
-[
-  "Hatchet Vehicle Framework",
-  "vxf_interaction_alternative",
-  "Vehicle Interaction Alternative (adds alt+F by default)",
-  {[vehicle ace_player, vxf_interaction_currentButton] call vxf_interaction_fnc_buttonDown},
-  {[vehicle ace_player, vxf_interaction_currentButton] call vxf_interaction_fnc_buttonUp},
-  [33, [false, false, true]],
-  false
-] call CBA_fnc_addKeybind;
-
-[
   "vxf_interaction_updateEvery",
   "SLIDER",
   "Label update rates(frames between)",
