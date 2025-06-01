@@ -60,6 +60,16 @@
 ] call CBA_Settings_fnc_init;
 
 [
+    "vxf_interaction_trackIR_interaction_cursor_invert",
+    "CHECKBOX",
+    ["STR_VXF_INTERACTION_CursorInvert", "STR_VXF_INTERACTION_CursorInvert_Description"],
+    "Hatchet Vehicle Framework",
+    [false],
+    nil,
+    {}
+] call CBA_Settings_fnc_init;
+
+[
     "vxf_interaction_trackIR_interaction_cursorSensitivity",
     "SLIDER",
     ["STR_VXF_INTERACTION_DetachedCursorSensitivity", "STR_VXF_INTERACTION_Cursor_Description"],

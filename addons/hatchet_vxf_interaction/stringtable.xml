@@ -9,6 +9,13 @@
             <English>For TrackIR users</English>
             <Chinesesimp>为使用TrackIR玩家</Chinesesimp>
         </Key>
+        <Key ID="STR_VXF_INTERACTION_CursorInvert">
+            <English>Detached Interaction Cursor Invert Y Axis</English>
+        </Key>
+        <Key ID="STR_VXF_INTERACTION_CursorInvert_Description">
+            <English>Enable if you use Invert Y Axis for mouse.</English>
+            <Chinesesimp>为使用TrackIR玩家</Chinesesimp>
+        </Key>
         <Key ID="STR_VXF_INTERACTION_CursorShape">
             <English>Interaction Cursor Shape</English>
         </Key>

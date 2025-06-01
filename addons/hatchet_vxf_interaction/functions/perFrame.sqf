@@ -19,6 +19,9 @@ vxf_interaction_buttonRadius = (call cba_fnc_getFov # 1);
 if (vxf_interaction_trackIR_interaction_cursor) then {
     private _y = (inputAction "aimDown") - (inputAction "aimUp");
     private _x = (inputAction "aimRight") - (inputAction "aimLeft");
+    if (vxf_interaction_trackIR_interaction_cursor_invert) then {
+      _y = -_y;
+    };
 
     vxf_interaction_cursorPos params ["_curX", "_curY"];
     if (abs _x < 0.02) then { _x = 0; };
