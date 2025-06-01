@@ -40,6 +40,36 @@
 ] call CBA_fnc_addKeybind;
 
 [
+    "vxf_interaction_cursor_shape",
+    "EDITBOX",
+    ["STR_VXF_INTERACTION_CursorShape", "STR_VXF_INTERACTION_CursorShape_Description"],
+    "Hatchet Vehicle Framework",
+    ["\A3\ui_f\data\igui\cfg\cursors\iconComplex_ca.paa"],
+    nil,
+    {if !(fileExists vxf_interaction_cursor_shape) then {vxf_interaction_cursor_shape = "\A3\ui_f\data\igui\cfg\cursors\iconComplex_ca.paa";};}
+] call CBA_Settings_fnc_init;
+
+[
+    "vxf_interaction_trackIR_interaction_cursor",
+    "CHECKBOX",
+    ["STR_VXF_INTERACTION_Cursor", "STR_VXF_INTERACTION_Cursor_Description"],
+    "Hatchet Vehicle Framework",
+    [false],
+    nil,
+    {if !vxf_interaction_trackIR_interaction_cursor then {vxf_interaction_cursorPos = [0.5,0.5];};}
+] call CBA_Settings_fnc_init;
+
+[
+    "vxf_interaction_trackIR_interaction_cursorSensitivity",
+    "SLIDER",
+    ["STR_VXF_INTERACTION_DetachedCursorSensitivity", "STR_VXF_INTERACTION_Cursor_Description"],
+    "Hatchet Vehicle Framework",
+    [1,10,2.5,1],
+    nil,
+    {}
+] call CBA_Settings_fnc_init;
+
+[
   "vxf_interaction_autoclose_actionmenu",
   "checkbox",
   "Automatically close action menu (experimental)",
