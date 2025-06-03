@@ -4,7 +4,6 @@ about: Request a new feature or functionality
 
 ---
 
-**Important: Please report feature requests in https://github.com/acemod/ACE3/issues/3594**
 
 ### Before reporting
 
