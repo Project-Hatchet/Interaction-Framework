@@ -31,12 +31,3 @@ if (vxf_interaction_trackIR_interaction_cursor) then {
         (_curY + (_y * vxf_interaction_trackIR_interaction_cursorSensitivity * (_frameTime / 4))) max safeZoneY min (safeZoneY + safeZoneH)
     ];
 };
-
-// Draw cursor
-drawIcon3D [
-  vxf_interaction_cursor_shape,
-  [1,1,1,1],
-  positionCameraToWorld [0,0,0] vectorAdd (screenToWorldDirection vxf_interaction_cursorPos),
-  1,1,0,
-  ""
-];
