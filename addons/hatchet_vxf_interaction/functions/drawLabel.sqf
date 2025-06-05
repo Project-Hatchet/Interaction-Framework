@@ -27,7 +27,7 @@ _label = if (vxf_interaction_showLabels > 0.5) then {
     } else {
       "%2"
     };
-    format [_fmt,actionKeysNames "vxf_interaction_use", _label]
+    format [_fmt, vxf_akn_use , _label]
   } else {
     _label
   }
@@ -88,12 +88,12 @@ if (count _animConfig > 0 && count _knobConfig == 0) then {
   private _nextStep = if (_currentState == (count _animationSteps) - 1) then {_loopFirst} else {_currentState + 1};
   if (vxf_interaction_showLabels > 1) then {
     if (_prevStep > -1) then {
-      [format ["<t size='0.8'>Set to <t color='#ff0000'>%2</t> with <t color='#ff0000'>%1</t></t>", actionKeysNames "prevAction", _animationLabels # _prevStep],(-safeZoneX)+(vxf_interaction_cursorPos # 0) - (safeZoneW / 2),((vxf_interaction_cursorPos # 1) - 0.1),0,0,0, 1301] spawn BIS_fnc_dynamicText;
+      [format ["<t size='0.8'>Set to <t color='#ff0000'>%2</t> with <t color='#ff0000'>%1</t></t>", vxf_akn_prev, _animationLabels # _prevStep],(-safeZoneX)+(vxf_interaction_cursorPos # 0) - (safeZoneW / 2),((vxf_interaction_cursorPos # 1) - 0.1),0,0,0, 1301] spawn BIS_fnc_dynamicText;
     } else {
       ["",0,0.4,0,0,0, 1301] spawn BIS_fnc_dynamicText;
     };
     if (_nextStep > -1) then {
-      [format ["<t size='0.8'>Set to <t color='#ff0000'>%2</t> with <t color='#ff0000'>%1</t></t>", actionKeysNames "nextAction", _animationLabels # _nextStep],(-safeZoneX)+(vxf_interaction_cursorPos # 0) - (safeZoneW / 2),((vxf_interaction_cursorPos # 1) + 0.1),0,0,0, 1302] spawn BIS_fnc_dynamicText;
+      [format ["<t size='0.8'>Set to <t color='#ff0000'>%2</t> with <t color='#ff0000'>%1</t></t>", vxf_akn_next, _animationLabels # _nextStep],(-safeZoneX)+(vxf_interaction_cursorPos # 0) - (safeZoneW / 2),((vxf_interaction_cursorPos # 1) + 0.1),0,0,0, 1302] spawn BIS_fnc_dynamicText;
     } else {
       ["",0,0.4,0,0,0, 1302] spawn BIS_fnc_dynamicText;
     };

@@ -20,4 +20,8 @@ vxf_interaction_crosshair =  (getNumber (_vehicleConfig >> "interaction" >> "cro
 vxf_animating_keys = [];
 vxf_interaction_cursorPos = [0.5,0.5];
 
+vxf_akn_use = actionKeysNames "vxf_interaction_use";
+vxf_akn_prev = actionKeysNames "prevAction";
+vxf_akn_next = actionKeysNames "nextAction";
+
 true
