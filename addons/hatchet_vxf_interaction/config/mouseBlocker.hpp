@@ -6,7 +6,7 @@ class vxf_interaction_mouseBlocker {
   //fadein = 0;
   //fadeout = 0;
   //hideCursor = 1;
-  onLoad = "uiNamespace setVariable [""vxf_interaction_mouseBlocker"",true];";
-  onUnload = "uiNamespace setVariable [""vxf_interaction_mouseBlocker"",false]; vxf_interaction_cursorPos = [0.5,0.5];";
+  onLoad = "with uiNamespace do {vxf_interaction_mouseBlocker = true; ctrlDelete vtx_cursor_ctrl; vtx_cursor_ctrl = nil;};";
+  onUnload = "vxf_interaction_cursorPos = [0.5,0.5]; with uiNamespace do {vxf_interaction_mouseBlocker = false; ctrlDelete vtx_cursor_ctrl; vtx_cursor_ctrl = nil;};";
   //class controls { };
 };

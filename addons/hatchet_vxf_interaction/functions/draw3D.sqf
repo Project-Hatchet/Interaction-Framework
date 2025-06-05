@@ -18,15 +18,6 @@ if (uiNamespace getVariable ["vxf_interaction_mouseBlocker", false]) then {
   _this call vxf_interaction_fnc_handleMouseBlocker;
 };
 
-// Draw cursor
-drawIcon3D [
-  vxf_interaction_cursor_shape,
-  [1,1,1,1],
-  positionCameraToWorld [0,0,0] vectorAdd (screenToWorldDirection vxf_interaction_cursorPos),
-  1,1,0,
-  ""
-];
-
 if (vxf_interaction_updateIndex >= vxf_interaction_updateEvery && !vxf_interaction_dragging && !vxf_interaction_buttonHolding) then {
   vxf_interaction_updateIndex = 0;
   private _result = nil;

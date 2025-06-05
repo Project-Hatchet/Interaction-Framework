@@ -93,16 +93,54 @@
   "vxf_interaction_showLabels",
   "LIST",
   [
-    "Label Settings",
+    "Label Text",
     "Select what format of interaction labels to show."
   ],
   "Hatchet Vehicle Framework",
   [
     [0, 1, 2],
-    ["No Labels","Hide Keybinds", "Full Label"],
+    ["No Labels","Interaction Name", "Interaction Name + Keybinds"],
     2
   ]
 ] call CBA_fnc_addSetting;
+
+[
+  "vxf_interaction_labelsMode",
+  "LIST",
+  [
+    "Label Draw Method",
+    "Test which method is better performance."
+  ],
+  "Hatchet Vehicle Framework",
+  [
+    [0, 1, 2],
+    ["dynamicText","drawIcon3D", "UI"],
+    0
+  ], 0,{
+    with uiNamespace do {
+      ctrlDelete	vtx_cursor_ctrl;
+      vtx_cursor_ctrl = nil;
+    };
+  }
+] call CBA_fnc_addSetting;
+vxf_interaction_fnc_drawLabel0 = compile preprocessFileLineNumbers "hatchet_vxf_interaction\functions\drawLabel0.sqf";
+vxf_interaction_fnc_drawLabel1 = compile preprocessFileLineNumbers "hatchet_vxf_interaction\functions\drawLabel1.sqf";
+vxf_interaction_fnc_drawLabel2 = compile preprocessFileLineNumbers "hatchet_vxf_interaction\functions\drawLabel2.sqf";
+vxf_interaction_fnc_drawLabel2_set = {
+  params ["_prev", "_next"];
+  uiNamespace setVariable ["vxf_interaction_drawLabel2_text_prev", _prev];
+  uiNamespace setVariable ["vxf_interaction_drawLabel2_text_next", _next];
+  with uiNamespace do {
+    vtx_cursor_ctrl ctrlSetStructuredText parseText format [
+      "<t size='1' align='center'>%1<br/><br/>%2<br/><br/><br/>%3</t>",
+      vxf_interaction_drawLabel2_text_prev,
+      ".",
+      vxf_interaction_drawLabel2_text_next
+    ];
+    vtx_cursor_ctrl ctrlSetPosition [(-safeZoneX)+(vxf_interaction_cursorPos # 0) - (safeZoneW / 2),((vxf_interaction_cursorPos # 1) - 0.1),1,1];
+    vtx_cursor_ctrl ctrlCommit 0;
+  };
+};
 
 [
   "vxf_interaction_showDebugMessages",
