@@ -13,8 +13,8 @@ _args params ["_vehicle"];
 
 //shutdown conditions
 if (
-  (vehicle player != _vehicle) ||
-  (!alive player) ||
+  (vehicle ace_player != _vehicle) ||
+  (!alive ace_player) ||
   (!alive _vehicle)
 ) exitWith {
   [_pfhId] call CBA_fnc_removePerFrameHandler;

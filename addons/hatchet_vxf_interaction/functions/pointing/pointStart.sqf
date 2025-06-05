@@ -6,7 +6,7 @@
  *
  */
 
-private _vehicle = vehicle player;
+private _vehicle = vehicle ace_player;
 if (isNil{_vehicle getVariable "vxf_interaction"}) exitWith {false};
 
 vxf_interaction_pointStart = true;

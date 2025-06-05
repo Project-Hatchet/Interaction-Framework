@@ -7,8 +7,9 @@
 
 #include "interactDefines.hpp"
 
-private _vehicle = vehicle player;
+private _vehicle = vehicle ace_player;
 
+if (isGamePaused || {!isGameFocused}) exitWith {};
 if (cameraView != "INTERNAL") exitWith {};
 if (!isNull curatorCamera) exitWith {};
 if (!isNil {uinamespace getVariable "BIS_fnc_camera_display"}) exitWith {};
@@ -17,7 +18,14 @@ if (uiNamespace getVariable ["vxf_interaction_mouseBlocker", false]) then {
   _this call vxf_interaction_fnc_handleMouseBlocker;
 };
 
-
+// Draw cursor
+drawIcon3D [
+  vxf_interaction_cursor_shape,
+  [1,1,1,1],
+  positionCameraToWorld [0,0,0] vectorAdd (screenToWorldDirection vxf_interaction_cursorPos),
+  1,1,0,
+  ""
+];
 
 if (vxf_interaction_updateIndex >= vxf_interaction_updateEvery && !vxf_interaction_dragging && !vxf_interaction_buttonHolding) then {
   vxf_interaction_updateIndex = 0;
@@ -32,10 +40,6 @@ if (vxf_interaction_updateIndex >= vxf_interaction_updateEvery && !vxf_interacti
 vxf_interaction_updateIndex = vxf_interaction_updateIndex + 1;
 
 _this call vxf_interaction_fnc_drawLabel;
-
-if (vxf_interaction_crosshair) then {
-  ["<t color='#ebebeb' size = '.5'>.</t>",-1,0.485,1,0,0, 794] spawn BIS_fnc_dynamicText;
-};
 
 if (vxf_interaction_pointStart) then {
   [_vehicle] call vxf_interaction_fnc_pointCalculate;
