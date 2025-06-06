@@ -19,6 +19,8 @@ private _startUp = true;
 HANDLEDEFAULT(_setup,_moduleName,"vxf_%1_fnc_setup")
 HANDLEDEFAULT(_perFrame,_moduleName,"vxf_%1_fnc_perFrame")
 HANDLEDEFAULT(_perSecond,_moduleName,"vxf_%1_fnc_perSecond")
+HANDLEDEFAULT(_perFixed,_moduleName,(_projectPrefix+"_%1_fnc_perFixed"))
+HANDLEDEFAULT(_draw3D,_moduleName,(_projectPrefix+"_%1_fnc_draw3D"))
 HANDLEDEFAULT(_shutDown,_moduleName,"vxf_%1_fnc_shutDown")
 
 if (_startUp && _setup != "") then {
@@ -37,6 +39,8 @@ _vehicleModuleArray pushBack [
   _setup,
   _perFrame,
   _perSecond,
+  _perFixed,
+  _draw3D,
   _shutDown
 ];
 

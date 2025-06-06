@@ -25,6 +25,9 @@ class cfgFunctions {
       class perSecond {
         file = "hatchet_vxf_core\functions\events\perSecond.sqf";
       };
+      class perFixed {
+        file = "hatchet_vxf_core\functions\events\perFixed.sqf";
+      };
 
       //module handling
       class load {

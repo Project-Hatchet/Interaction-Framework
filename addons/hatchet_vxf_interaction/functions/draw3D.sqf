@@ -54,3 +54,11 @@ if (!isNil "vxf_interaction_knobHolding" && !vxf_interaction_dragging) then {
     [_vehicle, _animationPhase] call _dragging;
   };
 };
+
+private ["_func"];
+{ //forEach vehicle vxf_modules
+  if (_x # 1) then {
+    _func = missionNameSpace getVariable (_x # 6);
+    if (!isNil {_func}) then {[_vehicle, _frameTime] call _func;};
+  };
+} forEach (_vehicle getVariable ["vxf_modules", []]);

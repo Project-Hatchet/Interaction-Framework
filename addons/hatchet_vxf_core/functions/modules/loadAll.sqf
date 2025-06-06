@@ -31,6 +31,11 @@ private _projectPrefix = _vehicle getVariable ["vxf_projectPrefix", ""];
   HANDLEDEFAULT(_perFrame,_moduleName,(_projectPrefix+"_%1_fnc_perFrame"))
   private _perSecond = getText (_moduleConfig >> "perSecond");
   HANDLEDEFAULT(_perSecond,_moduleName,(_projectPrefix+"_%1_fnc_perSecond"))
+  private _perFixed = getText (_moduleConfig >> "perFixed");
+  HANDLEDEFAULT(_perFixed,_moduleName,(_projectPrefix+"_%1_fnc_perFixed"))
+  private _draw3D = getText (_moduleConfig >> "draw3D");
+  HANDLEDEFAULT(_draw3D,_moduleName,(_projectPrefix+"_%1_fnc_draw3D"))
+
 
   if (_startUp && _setup != "") then {
     private _func = (missionNameSpace getVariable _setup);
@@ -48,6 +53,8 @@ private _projectPrefix = _vehicle getVariable ["vxf_projectPrefix", ""];
     _setup,
     _perFrame,
     _perSecond,
+    _perFixed,
+    _draw3D,
     _shutDown
   ];
 } forEach _modules;

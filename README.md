@@ -63,8 +63,10 @@ class vxf_driver {
     class customFuelManagementModule {
       startOnEnter = 1; // this makes it so the module is automatically started when the vehicle is entered
       setup = "_this call my_fuel_fnc_setup"; // this is run when the module is started
-      perFrame = "_this call my_fuel_fnc_perFrame"; // this is run on every frame
+      perFrame = "_this call my_fuel_fnc_perFrame"; // this is run on every simulation frame
       perSecond = "_this call my_fuel_fnc_perSecond"; // this is run once per second
+      perFixed = "_this call my_fuel_fnc_perFixed"; // this is run once per fixed time interval, default 0.2 seconds
+      draw3D = "_this call my_fuel_fnc_draw3D"; // this is run once per draw frame
       shutDown = "_this call my_fuel_fnc_shutDown"; // this is called on shutdown, for example when the player leaves the vehicle, or the module is turned off
     };
   };

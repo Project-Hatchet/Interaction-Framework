@@ -14,11 +14,13 @@ if (isNil "_vehicle") then {_vehicle = vxf_vehicle};
 
 vxf_perFrameHandler call CBA_fnc_removePerFrameHandler;
 vxf_perSecondHandler call CBA_fnc_removePerFrameHandler;
+vxf_perFixedHandler call CBA_fnc_removePerFrameHandler;
 if (!isNil "vxf_drawHandler") then {
   removeMissionEventHandler ["Draw3d",vxf_drawHandler];
 };
 vxf_perFrameHandler = nil;
 vxf_perSecondHandler = nil;
+vxf_perFixedHandler = nil;
 vxf_drawHandler = nil;
 
 private ["_func"];

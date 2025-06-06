@@ -27,3 +27,8 @@ if (isNil "vxf_perFrameHandler") then {
 if (isNil "vxf_perSecondHandler") then {
   vxf_perSecondHandler = [vxf_core_fnc_perSecond, 1, [_vehicle]] call CBA_fnc_addPerFrameHandler;
 };
+
+//set up perFixedHandler for once per fixed interval
+if (isNil "vxf_perFixedHandler") then {
+  vxf_perFixedHandler = [vxf_core_fnc_perFixed, 0.2, [_vehicle]] call CBA_fnc_addPerFrameHandler;
+};
