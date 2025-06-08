@@ -108,7 +108,7 @@ if (count _animConfig > 0 && count _knobConfig == 0) then {
     private _prevText = "";
     if (_prevStep > -1) then {
       //[format ["<t size='0.8'>Set to <t color='#ff0000'>%2</t> with <t color='#ff0000'>%1</t></t>", vxf_akn_prev, _animationLabels # _prevStep],(-safeZoneX)+(vxf_interaction_cursorPos # 0) - (safeZoneW / 2),((vxf_interaction_cursorPos # 1) - 0.1),0,0,0, 1301] spawn BIS_fnc_dynamicText;
-      _prevText = format ["Set to %2 with %1", vxf_akn_prev, _animationLabels # _prevStep];
+      _prevText = format ["<t size='1.5'>Set to <t color='#ff0000'>%2</t> with <t color='#ff0000'>%1</t></t>", vxf_akn_prev, _animationLabels # _prevStep];
 
     } else {
       //["",0,0.4,0,0,0, 1301] spawn BIS_fnc_dynamicText;
@@ -116,7 +116,7 @@ if (count _animConfig > 0 && count _knobConfig == 0) then {
     private _nextText = "";
     if (_nextStep > -1) then {
       //[format ["<t size='0.8'>Set to <t color='#ff0000'>%2</t> with <t color='#ff0000'>%1</t></t>", vxf_akn_next, _animationLabels # _nextStep],(-safeZoneX)+(vxf_interaction_cursorPos # 0) - (safeZoneW / 2),((vxf_interaction_cursorPos # 1) + 0.1),0,0,0, 1302] spawn BIS_fnc_dynamicText;
-      _nextText = format ["Set to %2 with %1", vxf_akn_next, _animationLabels # _nextStep];
+      _nextText = format ["<t size='1.5'>Set to <t color='#ff0000'>%2</t> with <t color='#ff0000'>%1</t></t>", vxf_akn_next, _animationLabels # _nextStep];
     } else {
       //["",0,0.4,0,0,0, 1302] spawn BIS_fnc_dynamicText;
     };
