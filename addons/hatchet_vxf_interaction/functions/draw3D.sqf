@@ -10,7 +10,12 @@
 private _vehicle = vehicle ace_player;
 
 if (isGamePaused || {!isGameFocused}) exitWith {};
-if (cameraView != "INTERNAL") exitWith {};
+if (cameraView != "INTERNAL") exitWith {
+  with uiNamespace do {
+    ctrlDelete	vtx_cursor_ctrl;
+    vtx_cursor_ctrl = nil;
+  };
+};
 if (!isNull curatorCamera) exitWith {};
 if (!isNil {uinamespace getVariable "BIS_fnc_camera_display"}) exitWith {};
 

@@ -23,6 +23,12 @@ vxf_perSecondHandler = nil;
 vxf_perFixedHandler = nil;
 vxf_drawHandler = nil;
 
+with uiNamespace do {
+  ctrlDelete	vtx_cursor_ctrl;
+  vtx_cursor_ctrl = nil;
+};
+
+
 private ["_func"];
 { //forEach vehicle vxf_modules
   if (_x # 1) then {
