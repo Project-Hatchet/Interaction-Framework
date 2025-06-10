@@ -27,6 +27,9 @@ class cfgFunctions {
       class drawLabel {
         file = "hatchet_vxf_interaction\functions\drawLabel.sqf";
       };
+      class setLabel {
+        file = "hatchet_vxf_interaction\functions\setLabel.sqf";
+      };
       class perFrame {
         file = "hatchet_vxf_interaction\functions\perFrame.sqf";
       };
