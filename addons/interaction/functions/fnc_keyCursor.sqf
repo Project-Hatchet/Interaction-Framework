@@ -11,7 +11,11 @@ if (
   isNil "hct_vehicle"
   || {cameraView != "INTERNAL"}
   || {!isNull curatorCamera}
-) exitWith {};
+) exitWith {
+  if (uiNamespace getVariable ["hct_interaction_mouseBlocker", false]) then {
+    (findDisplay 86005) closeDisplay 0;
+  };
+};
 
 if (_this) then {
   hct_interaction_cursor_mouseDown = false;
