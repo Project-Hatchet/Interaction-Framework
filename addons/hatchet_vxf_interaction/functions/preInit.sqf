@@ -23,14 +23,22 @@
   "vxf_cursor_hold",
   "Show Interaction Cursor",
   {
-    if (isNil "vxf_vehicle") exitWith {};
+    if (
+      isNil "vxf_vehicle"
+      || {cameraView != "INTERNAL"}
+      || {!isNull curatorCamera}
+    ) exitWith {};
     vxf_interaction_cursor_mouseDown = false;
     (findDisplay 46) createDisplay "vxf_interaction_mouseBlocker";
     (finddisplay 86005) displayAddEventHandler ["KeyUp", {[_this,'keyup'] call CBA_events_fnc_keyHandler}];
     setMousePosition [0.5, 0.5];
   },
   {
-    if (isNil "vxf_vehicle") exitWith {};
+    if (
+      isNil "vxf_vehicle"
+      || {cameraView != "INTERNAL"}
+      || {!isNull curatorCamera}
+    ) exitWith {};
     if (uiNamespace getVariable ["vxf_interaction_mouseBlocker", false]) then {
       (findDisplay 86005) closeDisplay 0;
     };
@@ -103,44 +111,6 @@
     2
   ]
 ] call CBA_fnc_addSetting;
-
-[
-  "vxf_interaction_labelsMode",
-  "LIST",
-  [
-    "Label Draw Method",
-    "Test which method is better performance."
-  ],
-  "Hatchet Vehicle Framework",
-  [
-    [0, 1, 2],
-    ["dynamicText","drawIcon3D", "UI"],
-    0
-  ], 0,{
-    with uiNamespace do {
-      ctrlDelete	vtx_cursor_ctrl;
-      vtx_cursor_ctrl = nil;
-    };
-  }
-] call CBA_fnc_addSetting;
-vxf_interaction_fnc_drawLabel0 = compile preprocessFileLineNumbers "hatchet_vxf_interaction\functions\drawLabel0.sqf";
-vxf_interaction_fnc_drawLabel1 = compile preprocessFileLineNumbers "hatchet_vxf_interaction\functions\drawLabel1.sqf";
-vxf_interaction_fnc_drawLabel2 = compile preprocessFileLineNumbers "hatchet_vxf_interaction\functions\drawLabel2.sqf";
-vxf_interaction_fnc_drawLabel2_set = {
-  params ["_prev", "_next"];
-  uiNamespace setVariable ["vxf_interaction_drawLabel2_text_prev", _prev];
-  uiNamespace setVariable ["vxf_interaction_drawLabel2_text_next", _next];
-  with uiNamespace do {
-    vtx_cursor_ctrl ctrlSetStructuredText parseText format [
-      "<t size='1' align='center'>%1<br/><br/>%2<br/><br/><br/>%3</t>",
-      vxf_interaction_drawLabel2_text_prev,
-      ".",
-      vxf_interaction_drawLabel2_text_next
-    ];
-    vtx_cursor_ctrl ctrlSetPosition [(-safeZoneX)+(vxf_interaction_cursorPos # 0) - (safeZoneW / 2),((vxf_interaction_cursorPos # 1) - 0.1),1,1];
-    vtx_cursor_ctrl ctrlCommit 0;
-  };
-};
 
 [
   "vxf_interaction_showDebugMessages",
