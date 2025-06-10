@@ -4,10 +4,5 @@
 
 class CfgVehicles {
   class vn_helicopter_base;
-  //#include "LSV_01.hpp"
-  //#include "Offroad_01.hpp"
-
-  //class Truck_F: Car_F {};
-  #include "Van_02.hpp"
-
+  #include "uh1.hpp"
 };
