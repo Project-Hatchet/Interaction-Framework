@@ -10,7 +10,7 @@
  * interaction button release functionality
  */
 
- private _vehicle = vehicle ace_player;
+ private _vehicle = vehicle hct_player;
 
 #include "script_component.hpp"
 

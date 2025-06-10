@@ -6,7 +6,7 @@
  *
  */
 
-private _vehicle = vehicle ace_player;
+private _vehicle = vehicle hct_player;
 if (isNil{_vehicle getVariable "hct_interaction"}) exitWith {false};
 
 hct_interaction_pointStart = true;

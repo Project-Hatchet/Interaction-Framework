@@ -13,8 +13,8 @@ _args params ["_vehicle", "_lastFrameTime"];
 
 //shutdown conditions
 if (
-  (vehicle ace_player != _vehicle) ||
-  (!alive ace_player) ||
+  (vehicle hct_player != _vehicle) ||
+  (!alive hct_player) ||
   (!alive _vehicle)
 ) exitWith {
   [hct_vehicle] call hct_core_fnc_shutDownAll;

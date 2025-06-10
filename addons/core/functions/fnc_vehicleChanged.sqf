@@ -14,7 +14,7 @@
 params ["_caller", "_newVehicle"];
 
 if (isNil "_caller" || isNil "_newVehicle") exitWith {};
-if (_caller != ace_player) exitWith {};
+if (_caller != hct_player) exitWith {};
 if (!(isNil "hct_vehicle")) then {[hct_vehicle] call hct_core_fnc_shutDownAll;};
 
 private _isHCTSetup = [_newVehicle] call hct_core_fnc_getVehicleConfig;
@@ -29,5 +29,5 @@ if (!_isHCTSetup) exitWith {
 hct_vehicle = _newVehicle;
 
 /*hct_interaction_vehicleSwitchedEH = ["turret", {
-  [ace_player, vehicle ace_player] call hct_core_fnc_vehicleChanged;
+  [hct_player, vehicle hct_player] call hct_core_fnc_vehicleChanged;
 }, true] call CBA_fnc_addPlayerEventHandler; */

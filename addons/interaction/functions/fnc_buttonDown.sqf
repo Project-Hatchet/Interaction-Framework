@@ -20,7 +20,7 @@ _buttonConfig BTNPARAMS;
 if (_clickSound != "") then {playSound _clickSound};
 
 [_vehicle] call _buttonDown;
-[_vehicle, _position, 1, name ace_player] call hct_interaction_fnc_pointNetSend;
+[_vehicle, _position, 1, name hct_player] call hct_interaction_fnc_pointNetSend;
 
 if (!isNil "_buttonHold") then {
   hct_interaction_buttonHoldCode = _buttonHold;

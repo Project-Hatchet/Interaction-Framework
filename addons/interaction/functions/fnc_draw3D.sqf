@@ -7,7 +7,7 @@
 
 #include "script_component.hpp"
 
-private _vehicle = vehicle ace_player;
+private _vehicle = vehicle hct_player;
 
 if (isGamePaused || {!isGameFocused}) exitWith {};
 if (cameraView != "INTERNAL") exitWith {

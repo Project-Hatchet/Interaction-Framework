@@ -29,5 +29,5 @@ if(!(_vehicle call compile _interactCondition)) exitWith {};
 if (_animation in hct_animating_keys) exitWith {false};
 
 [_vehicle] call _dragStart;
-[_vehicle, _position, 1, name ace_player] call hct_interaction_fnc_pointNetSend;
+[_vehicle, _position, 1, name hct_player] call hct_interaction_fnc_pointNetSend;
 hct_animating_keys pushBack _animation;

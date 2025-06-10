@@ -17,13 +17,15 @@ private _configFound = false;
 private _configSources = [];
 
 _vehicle setVariable ["hct_config", nil];
-private _turretIndex = [ace_player] call ace_common_fnc_getTurretIndex;
+private _turretIndex = _vehicle unitTurret hct_player;
 
-if(ace_player == driver _vehicle) then {
+if(hct_player == driver _vehicle) then {
   _configSources pushBack "hct_driver";
 };
 
-private _copilotTurretIndex = [_vehicle] call ace_common_fnc_getTurretCopilot;
+private _copilotTurretIndex = fullCrew [_vehicle, "turret", true] apply {_x select 3} select {
+    getNumber ([_vehicle, _x] call CBA_fnc_getTurret >> "isCopilot") == 1
+} param [0, []];
 if((count _copilotTurretIndex) > 0 && (count _turretIndex) > 0 && {(_turretIndex # 0) == (_copilotTurretIndex # 0)}) then {
   _configSources pushBack "hct_copilot";
 };
@@ -32,11 +34,11 @@ if(count _turretIndex > 0) then {
   _configSources pushBack format["hct_turret_%1",(_turretIndex # 0)];
 };
 
-if(ace_player == gunner _vehicle) then {
+if(hct_player == gunner _vehicle) then {
   _configSources pushBack "hct_gunner";
 };
 
-if(_vehicle getCargoIndex ace_player > -1) then {
+if(_vehicle getCargoIndex hct_player > -1) then {
   _configSources pushBack "hct_cargo";
 };
 
