@@ -5,7 +5,8 @@ releases/*
 release/*
 *.biprivatekey
 keys/*
-.hemtt/local.toml
+/.hemtt
+/.hemttout
 addons/*.pbo
 .vscode
 .sconsign.dblite

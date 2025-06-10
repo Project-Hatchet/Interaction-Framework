@@ -1,0 +1,12 @@
+PREP(vehicleChanged);
+PREP(getVehicleConfig);
+PREP(hasModule);
+PREP(init);
+PREP(load);
+PREP(loadAll);
+PREP(perFixed);
+PREP(perFrame);
+PREP(perSecond);
+PREP(shutDownAll);
+PREP(start);
+PREP(startLoops);

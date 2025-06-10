@@ -19,7 +19,7 @@
 # Hatchet Vehicle Framework
 A vehicle scripting framework for Arma 3
 
-This framework is in active development, expect the `hct` prefix to change. Interaction configurations are unlikely to change.
+This framework is in active development.
 
 ## Features
  - Allows simple config based binding of scripts to vehicles and seats(module system)
@@ -66,7 +66,7 @@ class hct_driver {
       perFrame = "_this call my_fuel_fnc_perFrame"; // this is run on every simulation frame
       perSecond = "_this call my_fuel_fnc_perSecond"; // this is run once per second
       perFixed = "_this call my_fuel_fnc_perFixed"; // this is run once per fixed time interval, default 0.2 seconds
-      draw3D = "_this call my_fuel_fnc_draw3D"; // this is run once per draw frame
+      Draw3D = "_this call my_fuel_fnc_Draw3D"; // this is run once per draw frame
       shutDown = "_this call my_fuel_fnc_shutDown"; // this is called on shutdown, for example when the player leaves the vehicle, or the module is turned off
     };
   };
