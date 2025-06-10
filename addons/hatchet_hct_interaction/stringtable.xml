@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Project name="HCT">
+    <Package name="HATCHET_HCT_INTERACTION">
+        <Key ID="STR_HCT_INTERACTION_Cursor">
+            <English>Detached Interaction Cursor</English>
+            <Chinesesimp>独立式交互光标</Chinesesimp>
+        </Key>
+        <Key ID="STR_HCT_INTERACTION_Cursor_Description">
+            <English>For TrackIR users</English>
+            <Chinesesimp>为使用TrackIR玩家</Chinesesimp>
+        </Key>
+        <Key ID="STR_HCT_INTERACTION_CursorInvert">
+            <English>Detached Interaction Cursor Invert Y Axis</English>
+        </Key>
+        <Key ID="STR_HCT_INTERACTION_CursorInvert_Description">
+            <English>Enable if you use Invert Y Axis for mouse.</English>
+            <Chinesesimp>为使用TrackIR玩家</Chinesesimp>
+        </Key>
+        <Key ID="STR_HCT_INTERACTION_CursorShape">
+            <English>Interaction Cursor Shape</English>
+        </Key>
+        <Key ID="STR_HCT_INTERACTION_CursorShape_Description">
+            <English>PAA file</English>
+        </Key>
+        <Key ID="STR_HCT_INTERACTION_DetachedCursorSensitivity">
+            <English>Detached Cursor Sensitivity</English>
+            <Chinesesimp>分离光标敏感性</Chinesesimp>
+        </Key>
+        <Key ID="STR_HCT_INTERACTION_Enable_debugMessages">
+            <English>Enable debug messages</English>
+            <Chinesesimp>(DEBUG)开启系统消息</Chinesesimp>
+        </Key>
+    </Package>
+</Project>
