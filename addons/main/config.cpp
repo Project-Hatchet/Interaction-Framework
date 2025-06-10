@@ -9,7 +9,7 @@ class CfgPatches {
         requiredVersion = REQUIRED_VERSION;
         requiredAddons[] = {"cba_main"}; // include external addons here that your whole mod depends on and have your other addons require this one.
         authors[] = {"Hatchet Team"}; // sub array of authors, considered for the specific addon
-        author = "HCT Team"; // primary author name, either yours or your team's, considered for the whole mod
+        author = "Hatchet Team"; // primary author name, either yours or your team's, considered for the whole mod
         VERSION_CONFIG;
     };
 };
@@ -20,7 +20,7 @@ class CfgMods {
         dir = "@HATCHET_INTERACTION_FRAMEWORK";
         name = "Hatchet Interaction Framework";
 
-        author = "HCT Team";                    // probably shown somewhere in the mods menu, but probably ignored by CBA/HEMTT
+        author = "Hatchet Team";                    // probably shown somewhere in the mods menu, but probably ignored by CBA/HEMTT
 
         picture         = "logo_hatchet_ca.paa";       // Picture displayed from the expansions menu. Optimal size is 2048x1024
         hideName        = "false";              // Hide the extension name in main menu and extension menu
