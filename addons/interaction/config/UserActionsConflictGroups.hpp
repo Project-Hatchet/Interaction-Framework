@@ -4,7 +4,8 @@ class UserActionsConflictGroups {
             "hct_interaction_use",
             "hct_interaction_back",
             "hct_interaction_fore",
-            "hct_interaction_cursor"
+            "hct_interaction_cursor",
+            "hct_interaction_cursorToggle"
         };
     };
 

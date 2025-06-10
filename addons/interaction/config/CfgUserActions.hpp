@@ -18,9 +18,15 @@ class CfgUserActions {
         onDeactivate = "hct_alternative_scroll_down = false;";		// _this is always true.
     };
     class hct_interaction_cursor { // This class name is used for internal representation and also for the inputAction command.
-        displayName = "Mouse Cursor";
+        displayName = "Mouse Cursor (Hold)";
         tooltip = "Hold to use mouse cursor for interaction";
         onActivate = "_this call hct_interaction_fnc_keyCursor;";		// _this is always true.
         onDeactivate = "_this call hct_interaction_fnc_keyCursor;";		// _this is always true.
+    };
+    class hct_interaction_cursorToggle { // This class name is used for internal representation and also for the inputAction command.
+        displayName = "Mouse Cursor (Toggle)";
+        tooltip = "Toggle using mouse cursor for interaction";
+        onActivate = "(findDisplay 86005 isEqualTo displayNull) call hct_interaction_fnc_keyCursor;";		// _this is always true.
+        onDeactivate = "";		// _this is always true.
     };
 };
