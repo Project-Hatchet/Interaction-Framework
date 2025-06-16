@@ -1,0 +1,21 @@
+/*
+ * hct_interaction_fnc_setLabel
+ *
+ * set the label text
+ */
+
+params ["_prev", "_next"];
+
+uiNamespace setVariable ["hct_interaction_drawLabel2_text_prev", _prev];
+uiNamespace setVariable ["hct_interaction_drawLabel2_text_next", _next];
+
+with uiNamespace do {
+  hct_cursor_ctrl ctrlSetStructuredText parseText format [
+    "<t size='1' align='center'>%1<br/><br/>%2<br/><br/><br/>%3</t>",
+    hct_interaction_drawLabel2_text_prev,
+    [" ", "."] select hct_interaction_trackIR_interaction_cursor,
+    hct_interaction_drawLabel2_text_next
+  ];
+  hct_cursor_ctrl ctrlSetPosition [(-safeZoneX)+(hct_interaction_cursorPos # 0) - (safeZoneW / 2),((hct_interaction_cursorPos # 1) - 0.1),1,1];
+  hct_cursor_ctrl ctrlCommit 0;
+};
