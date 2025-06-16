@@ -93,10 +93,10 @@ class vn_air_uh1_01_base: vn_helicopter_base {
               interactionCondition="true";
               animStates[] = {0, 1};
               animLabels[] = {"Closed", "Open"};
-              animStart = "hct_vehicle animateDoor  ['door_main_l_source', [1, 0] select ((hct_vehicle animationSourcePhase 'door_main_l_source') > 0.5)];"
-              animEnd = ""
+              animStart = "hct_vehicle animateDoor ['door_main_l_source', [1, 0] select ((hct_vehicle animationSourcePhase 'door_main_l_source') > 0.5)];";
+              animEnd = "";
               radius=0.1;
-              animSpeed=true;
+              animSpeed="true";
           }; // l_door
           class r_door {
               //clickSound = "hct_CabinDoor_Sound";
@@ -107,10 +107,10 @@ class vn_air_uh1_01_base: vn_helicopter_base {
               interactionCondition="true";
               animStates[] = {0, 1};
               animLabels[] = {"Closed", "Open"};
-              animStart = "hct_vehicle animateDoor  ['door_main_r_source', [1, 0] select ((hct_vehicle animationSourcePhase 'door_main_r_source') > 0.5)];"
-              animEnd = ""
+              animStart = "hct_vehicle animateDoor ['door_main_r_source', [1, 0] select ((hct_vehicle animationSourcePhase 'door_main_r_source') > 0.5)];";
+              animEnd = "";
               radius=0.1;
-              animSpeed=true;
+              animSpeed="true";
           }; // r_door
       };
   };
