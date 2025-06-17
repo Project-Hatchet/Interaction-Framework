@@ -9,7 +9,7 @@ class vn_air_uh1_01_base: vn_helicopter_base {
           positionType = "coordinates";
           position[] = {POS_ENGINE};
           label = "Engine off";
-          radius = RADIUS;
+          radius = 0.1;
           buttonDown = "hct_vehicle engineOn false;";
         }; // engineOffButton^^
       };
@@ -19,7 +19,7 @@ class vn_air_uh1_01_base: vn_helicopter_base {
           positionType = "coordinates"; // type of position to mark location of button(can also be memory points)
           position[] = {POS_ENGINE}; // coordinates to that button location
           label = "Engine on"; // what the button will show as text when you look at it
-          radius = RADIUS; // how close to the button you have to look to activate it
+          radius = 0.1; // how close to the button you have to look to activate it
           buttonDown = "hct_vehicle engineOn true;"; // if the player presses the button this is what it will do
         }; // engineOnButton^^
       };
@@ -43,7 +43,7 @@ class vn_air_uh1_01_base: vn_helicopter_base {
           positionType = "coordinates"; // type of position to mark location of button(can also be memory points)
           position[] = {POS_LIGHTS}; // coordinates to that button location
           label = "Lights On"; // what the button will show as text when you look at it
-          radius = RADIUS; // how close to the button you have to look to activate it
+          radius = 0.1; // how close to the button you have to look to activate it
           buttonDown = "hct_vehicle setPilotLight true;"; // if the player presses the button this is what it will do
         }; // lightsOnButton^^
       };
@@ -53,7 +53,7 @@ class vn_air_uh1_01_base: vn_helicopter_base {
           positionType = "coordinates"; // type of position to mark location of button(can also be memory points)
           position[] = {POS_LIGHTS}; // coordinates to that button location
           label = "Lights Off"; // what the button will show as text when you look at it
-          radius = RADIUS; // how close to the button you have to look to activate it
+          radius = 0.1; // how close to the button you have to look to activate it
           buttonDown = "hct_vehicle setPilotLight false;"; // if the player presses the button this is what it will do
         }; // lightsButton^^
       };

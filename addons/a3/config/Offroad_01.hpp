@@ -1,28 +1,10 @@
 class Offroad_01_base_F: Car_F {
   class hct { // framework
     class interaction { // to let the framework know these are buttons
-      #undef POS_ENGINE
-      #define POS_ENGINE -0.354693,0.725035,-0.133877
-      class EngineOff {
-        condition = "isEngineOn (hct_vehicle)"; // here the condition is "on" because there is no ! infront of it so if the engine is on it will display this button
-        class engineOffButton {
-          positionType = "coordinates";
-          position[] = {POS_ENGINE};
-          label = "Engine off";
-          radius = RADIUS;
-          buttonDown = "hct_vehicle engineOn false;";
-        }; // engineOffButton^^
-      };
-      class EngineOn {
-        condition = "!isEngineOn (hct_vehicle)"; // ! = "not" so if engine is not on it will display this button
-        class engineOnButton { // name class for the button
-          positionType = "coordinates"; // type of position to mark location of button(can also be memory points)
-          position[] = {POS_ENGINE}; // coordinates to that button location
-          label = "Engine on"; // what the button will show as text when you look at it
-          radius = RADIUS; // how close to the button you have to look to activate it
-          buttonDown = "hct_vehicle engineOn true;"; // if the player presses the button this is what it will do
-        }; // engineOnButton^^
-      };
+
+      #undef POSITION
+      #define POSITION -0.354693,0.725035,-0.133877
+      #include "\z\hct\addons\util\interactions\EngineOnOff.hpp"
 
       class Horn {
         //condition = "!isEngineOn (hct_vehicle)"; // ! = "not" so if engine is not on it will display this button
@@ -35,28 +17,10 @@ class Offroad_01_base_F: Car_F {
         }; // hornButton^^
       };
 
-      #undef POS_LIGHTS
-      #define POS_LIGHTS -0.694847,0.787173,-0.223982
-      class LightsOn {
-        condition = "!isLightOn hct_vehicle"; // ! = "not" so if engine is not on it will display this button
-        class lightsOnButton { // name class for the button
-          positionType = "coordinates"; // type of position to mark location of button(can also be memory points)
-          position[] = {POS_LIGHTS}; // coordinates to that button location
-          label = "Lights On"; // what the button will show as text when you look at it
-          radius = RADIUS; // how close to the button you have to look to activate it
-          buttonDown = "hct_vehicle setPilotLight true;"; // if the player presses the button this is what it will do
-        }; // lightsOnButton^^
-      };
-      class LightsOff {
-        condition = "isLightOn hct_vehicle"; // ! = "not" so if engine is not on it will display this button
-        class lightsButton { // name class for the button
-          positionType = "coordinates"; // type of position to mark location of button(can also be memory points)
-          position[] = {POS_LIGHTS}; // coordinates to that button location
-          label = "Lights Off"; // what the button will show as text when you look at it
-          radius = RADIUS; // how close to the button you have to look to activate it
-          buttonDown = "hct_vehicle setPilotLight false;"; // if the player presses the button this is what it will do
-        }; // lightsButton^^
-      };
+      #undef POSITION
+      #define POSITION -0.694847,0.787173,-0.223982
+      #include "\z\hct\addons\util\interactions\LightsOnOff.hpp"
+
     };
   };
 };
