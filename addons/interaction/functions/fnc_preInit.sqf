@@ -69,6 +69,34 @@
 ] call CBA_Settings_fnc_init;
 
 [
+  "hct_interaction_cursorText",
+  "LIST",
+  [
+    "Cursor Shape",
+    "Select what the interaction cursor looks like."
+  ],
+  "Hatchet Vehicle Framework",
+  [
+    ["·","•","×","+","-"],
+    ["·","•","×","+","-"],
+    2
+  ],
+  false, // isGlobal
+  {uiNamespace setVariable ["hct_interaction_cursorText", hct_interaction_cursorText];}, // callback,
+  false // needRestart
+] call CBA_fnc_addSetting;
+
+[
+    "hct_interaction_cursorColor", "COLOR",
+    ["Cursor Color", "Colour of the interaction cursor."],
+    "Hatchet Vehicle Framework",
+    ["IGUI", "TEXT_RGB"] call BIS_fnc_displayColorGet, // default value
+    false, // isGlobal
+    {uiNamespace setVariable ["hct_interaction_cursorColor", hct_interaction_cursorColor call BIS_fnc_colorRGBAtoHTML];}, // callback,
+    false // needRestart
+] call CBA_settings_fnc_init;
+
+[
   "hct_interaction_showLabels",
   "LIST",
   [
