@@ -1,3 +1,6 @@
+## 0.3.2
+ - Added: Dragging horizontally on knob control
+
 ## 0.3.1
  - Fixed: With Detached Cursor setting OFF, interaction cursor did not show
  - Added: Settings for cursor shape and color

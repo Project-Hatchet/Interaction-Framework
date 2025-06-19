@@ -61,6 +61,7 @@ if(_buttonDown != "" || _buttonUp != "" || _buttonHold != "") then {
 };
 
 private _animation = getText (_config >> "animation");
+private _animationH = getText (_config >> "animationH");
 private _animStates = (_config >> "animStates") call BIS_fnc_getCfgData;
 private _animLabels = (_config >> "animLabels") call BIS_fnc_getCfgData;
 private _animSpeed = getNumber (_config >> "animSpeed");
@@ -83,6 +84,7 @@ if (_animation != "" && ISFULLARRAY(_animStates) && ISFULLARRAY(_animLabels)) th
 private _scrollIncrement = getNumber (_config >> "scrollIncrement");
 private _dragRange = getNumber (_config >> "dragRange");
 private _animLimits = (_config >> "animLimits") call BIS_fnc_getCfgData;
+private _animLimitsH = (_config >> "animLimitsH") call BIS_fnc_getCfgData;
 private _dragStart = getText (_config >> "dragStart");
 private _dragging = getText (_config >> "dragging");
 private _dragStop = getText (_config >> "dragStop");
@@ -97,7 +99,9 @@ if (_animation != "" && _dragRange > 0 && ISFULLARRAY(_animLimits)) then {
     ([_animSpeed, true] select (_animSpeed == 0)),
     compile _dragStart,
     ([nil, compile _dragging] select (_dragging != "")),
-    compile _dragStop
+    compile _dragStop,
+    _animationH,
+    _animLimitsH
   ];
   _buttonConfig = [
     {_this call hct_interaction_fnc_dragStart},
