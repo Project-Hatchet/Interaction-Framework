@@ -10,3 +10,4 @@ PREP(perSecond);
 PREP(shutDownAll);
 PREP(start);
 PREP(startLoops);
+PREP(getAnimPhase);
