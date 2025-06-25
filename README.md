@@ -32,6 +32,7 @@ Configurations can be specified to specific seats using a specifier suffix. As t
 Config options
  - `hct`: applies to all players in a vehicle
  - `hct_driver`: applies to the driver(or pilot) of a vehicle
+ - `hct_copilot`: applies to the turret of a vehicle which has `isCopilot` set to true
  - `hct_gunner`: applies to all gunners of a vehicle, this includes all door guns
  - `hct_cargo`: applies to all passengers
  - `hct_turret_` followed by the turret index: applies to the occupant of the turret with specified index, can apply to fire from vehicle seats.
@@ -156,6 +157,8 @@ parameters for animStart are `(array)[(object) vehicle]`. parameters for animEnd
    dragStart="hint ""starting"""; // code to run when animation starts
    dragging="hint ""dragging"""; // code to run while animating
    dragStop="hint ""stopping"""; // code to run when animation ends
+   animationH="SearchLight_Turn"; // animation for the control when dragging horizontally
+   animLimitsH[] = {0, 1}; // start and end phase of horizontal animation
  }; // Knob_LightUpperConsole
 ```
 
