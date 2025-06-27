@@ -1,3 +1,4 @@
+#include "script_component.hpp"
 /*
  * hct_core_fnc_getVehicleConfig
  *

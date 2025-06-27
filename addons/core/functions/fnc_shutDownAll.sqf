@@ -1,3 +1,4 @@
+#include "script_component.hpp"
 /*
  * hct_core_fnc_setup
  *
@@ -31,8 +32,8 @@ with uiNamespace do {
 
 private ["_func"];
 { //forEach vehicle hct_modules
-  if (_x # 1) then {
-    _func = missionNamespace getVariable (_x # 5);
+  if (_x # MODULEINDEX_STARTUP) then {
+    _func = missionNamespace getVariable (_x # MODULEINDEX_SHUTDOWN);
     if (!isNil {_func}) then {[_vehicle] call _func;};
   };
   _x set [1, false];
