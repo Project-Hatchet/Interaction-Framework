@@ -5,4 +5,6 @@ ADDON = false;
 #include "XEH_PREP.hpp"
 //PREP_RECOMPILE_END;
 
+call FUNC(preInit);
+
 ADDON = true;
