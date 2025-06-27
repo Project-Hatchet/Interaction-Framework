@@ -1,3 +1,4 @@
+#include "script_component.hpp"
 /*
  * hct_core_fnc_perFrame
  *
@@ -41,8 +42,8 @@ if (_frameTime > 1) exitWith {};
 
 private ["_func"];
 { //forEach vehicle hct_modules
-  if (_x # 1) then {
-    _func = missionNamespace getVariable (_x # 3);
+  if (_x # MODULEINDEX_STARTUP) then {
+    _func = missionNamespace getVariable (_x # MODULEINDEX_PERFRAME);
     if (!isNil {_func}) then {[_vehicle, _frameTime] call _func;};
   };
 } forEach (_vehicle getVariable ["hct_modules", []]);

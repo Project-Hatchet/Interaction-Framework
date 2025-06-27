@@ -1,3 +1,4 @@
+#include "script_component.hpp"
 /*
  * hct_interaction_fnc_Draw3D
  *
@@ -62,8 +63,8 @@ if (!isNil "hct_interaction_knobHolding" && !hct_interaction_dragging) then {
 
 private ["_func"];
 { //forEach vehicle hct_modules
-  if (_x # 1) then {
-    _func = missionNamespace getVariable (_x # 6);
+  if (_x # MODULEINDEX_STARTUP) then {
+    _func = missionNamespace getVariable (_x # MODULEINDEX_DRAW3D);
     if (!isNil {_func}) then {[_vehicle, _frameTime] call _func;};
   };
 } forEach (_vehicle getVariable ["hct_modules", []]);
