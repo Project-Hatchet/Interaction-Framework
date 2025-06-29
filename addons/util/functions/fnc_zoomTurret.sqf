@@ -17,7 +17,7 @@
 
 params [["_turret", [0]], ["_increment", 0], ["_vehicle", hct_vehicle]];
 
-if (isNil _vehicle || {isNull _vehicle}) exitWith {};
+if (isNil "_vehicle" || {isNull _vehicle}) exitWith {};
 
 if (_turret isEqualTo [-1]) exitWith {
     _vehicle setPilotCameraOpticsMode ((getPilotCameraOpticsMode _vehicle) + _increment);
