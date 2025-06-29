@@ -13,3 +13,8 @@
 #endif
 
 #include "\z\HCT\addons\main\script_macros.hpp"
+
+#define ANIMTYPE_NONE 0
+#define ANIMTYPE_ANIM 1
+#define ANIMTYPE_ASRC 2
+#define ANIMTYPE_DOOR 3
