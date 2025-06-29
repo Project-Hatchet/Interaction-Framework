@@ -1,3 +1,4 @@
+#include "script_component.hpp"
 /*
  * hct_core_fnc_hasModule
  *
@@ -15,7 +16,7 @@ private _vehicleModuleArray = _vehicle getVariable ["hct_modules", []];
 private _isClass = if(!isNil "_className") then [{_vehicle isKindOf _className}, {true}];
 private _hasModule = false;
 { // forEach _vehicleModuleArray
-  _name = _x # 0;
+  _name = _x # MODULEINDEX_MODULENAME;
   if (_moduleName == _name) exitWith {
     _hasModule = true;
   };

@@ -1,3 +1,4 @@
+#include "script_component.hpp"
 /*
  * hct_core_fnc_perFixed
  *
@@ -30,8 +31,8 @@ private _modules = (_vehicle getVariable ["hct_modules", []]);
   private ["_func"];
   { //forEach vehicle hct_modules
     sleep _moduleDelay;
-    if (_x # 1) then {
-      _func = missionNamespace getVariable (_x # 5);
+    if (_x # MODULEINDEX_STARTUP) then {
+      _func = missionNamespace getVariable (_x # MODULEINDEX_PERFIXED);
       if (!isNil {_func}) then {[_vehicle] call _func;};
     };
   } forEach _modules;
