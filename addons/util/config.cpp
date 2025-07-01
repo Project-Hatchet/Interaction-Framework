@@ -15,3 +15,4 @@ class CfgPatches {
 
 // configs go here
 #include "CfgEventHandlers.hpp"
+#include "CfgMoves.hpp"
