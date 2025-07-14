@@ -30,5 +30,5 @@ if (isNil "hct_perSecondHandler") then {
 
 //set up perFixedHandler for once per fixed interval
 if (isNil "hct_perFixedHandler") then {
-  hct_perFixedHandler = [hct_core_fnc_perFixed, 0.2, [_vehicle]] call CBA_fnc_addPerFrameHandler;
+  hct_perFixedHandler = [hct_core_fnc_perFixed, 0.02, [_vehicle]] call CBA_fnc_addPerFrameHandler;
 };
