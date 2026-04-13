@@ -11,6 +11,7 @@ if (
   isNil "hct_vehicle"
   || {cameraView != "INTERNAL"}
   || {!isNull curatorCamera}
+  || {visibleMap}
 ) exitWith {
   if (uiNamespace getVariable ["hct_interaction_mouseBlocker", false]) then {
     (findDisplay 86005) closeDisplay 0;
