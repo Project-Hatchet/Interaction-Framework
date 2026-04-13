@@ -46,7 +46,7 @@ if(_vehicle getCargoIndex hct_player > -1) then {
 _configSources pushBack "hct";
 
 {
-  private _config = (configFile >> "cfgVehicles" >> (typeOf _vehicle) >> _x);
+  private _config = configOf _vehicle >> _x;
   if(isClass _config) exitWith {
     _configFound = true;
     //if there was already a config present, a seat change happened, so do a shutdown of old systems

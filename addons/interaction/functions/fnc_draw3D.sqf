@@ -61,8 +61,8 @@ if (!isNil "hct_interaction_knobHolding" && !hct_interaction_dragging) then {
 
 private ["_func"];
 { //forEach vehicle hct_modules
-  if (_x # MODULEINDEX_STARTUP) then {
-    _func = missionNamespace getVariable (_x # MODULEINDEX_DRAW3D);
+  if (_x select MODULEINDEX_STARTUP) then {
+    _func = missionNamespace getVariable (_x select MODULEINDEX_DRAW3D);
     if (!isNil {_func}) then {[_vehicle] call _func;};
   };
 } forEach (_vehicle getVariable ["hct_modules", []]);

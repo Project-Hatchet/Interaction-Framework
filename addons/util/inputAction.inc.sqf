@@ -1,5 +1,11 @@
 // Add more utility for base game inputs https://community.bistudio.com/wiki/inputAction/actions
 
+// Salute in vehicle
+addUserActionEventHandler ["Salute", "Activate", {
+  if (isNull objectParent hct_player) exitWith {};
+  hct_player switchGesture ["hct_util_salute", 0, 0];
+}];
+
 // Deploy Countermeasures from other turret seats
 addUserActionEventHandler ["launchCM", "Activate", {
   if ((hct_vehicle unitTurret hct_player) isEqualTo []) exitWith {};
