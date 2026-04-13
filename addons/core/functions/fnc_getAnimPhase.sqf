@@ -4,7 +4,7 @@
 */
 params ["_vehicle", "_animName"];
 
-call [
+call ([
   {_this},
   {_vehicle animationPhase _animName},
   {_vehicle animationSourcePhase _animName},
@@ -24,4 +24,4 @@ call [
     };
     _type
   }, true
-])
+]))
