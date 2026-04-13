@@ -9,9 +9,9 @@
 private _vehicle = vehicle hct_player;
 
 if (isGamePaused || {!isGameFocused}) exitWith {};
-if (cameraView != "INTERNAL") exitWith {
+if (cameraView != "INTERNAL" || {visibleMap}) exitWith {
   with uiNamespace do {
-    ctrlDelete	hct_cursor_ctrl;
+    ctrlDelete hct_cursor_ctrl;
     hct_cursor_ctrl = nil;
   };
 };
