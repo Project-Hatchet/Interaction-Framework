@@ -8,7 +8,7 @@
 
 params ["_vehicle", "_animDirection", "_knobConfig"];
 _knobConfig params KNOBPARAMS;
-diag_log format ["%2: knob animate %1", _name, time];
+diag_log format ["%2: knob animate %1", _animation, time];
 
 if (isNil{_vehicle getVariable "hct_interaction"}) exitWith {false};
 if (!isNil "hct_interaction_knobHolding" && hct_interaction_knobHolding # 0 != _animation) exitWith {false};

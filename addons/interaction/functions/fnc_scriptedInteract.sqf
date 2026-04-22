@@ -1,3 +1,4 @@
+#include "script_component.hpp"
 /*
 * hct_interaction_fnc_scriptedInteract
 *
@@ -20,9 +21,15 @@ if (isNil "_animationTargetLabel") exitWith {
 };
 
 _interactionConfig params ["_name","_condition","_subItems",["_positionType", nil],["_position", nil],["_label", nil],["_radius", nil],["_clickSound",""],["_interactCondition",{true}],["_buttonConfig", nil], ["_animConfig", nil], ["_knobConfig", nil]];
-_animConfig params ["_animation", "_animationSpeed", "_animLooping", "_animationSteps", "_animationLabels", "_animStart", "_animEnd"];
+hct_interaction_currentButton = _interactionConfig;
 
-private _stepIndex = _animationLabels find _animationTargetLabel;
-if (_stepIndex == -1) exitWith {};
-private _targetAnimStep = _animationSteps # _stepIndex;
-[_vehicle, _animation, _targetAnimStep, _animationTargetLabel, _animationSpeed, _animStart, _animEnd, _interactionConfig] call hct_interaction_fnc_leverAnimate;
+if (_animConfig isNotEqualTo []) exitWith {
+  _animConfig params ["_animation", "_animationSpeed", "_animLooping", "_animationSteps", "_animationLabels", "_animStart", "_animEnd"];
+
+  private _stepIndex = _animationLabels find _animationTargetLabel;
+  if (_stepIndex == -1) exitWith {};
+  private _targetAnimStep = _animationSteps # _stepIndex;
+  [_vehicle, _animation, _targetAnimStep, _animationTargetLabel, _animationSpeed, _animStart, _animEnd, _interactionConfig] call hct_interaction_fnc_leverAnimate;
+};
+
+[_vehicle, _animationTargetLabel, _knobConfig] call hct_interaction_fnc_knobAnimate;
