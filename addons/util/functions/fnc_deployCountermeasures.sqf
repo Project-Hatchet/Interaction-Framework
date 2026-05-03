@@ -19,6 +19,8 @@
 params ["_vehicle"];
 
 if !(_vehicle isKindOf "LandVehicle" || {_vehicle isKindOf "Air"} || {_vehicle isKindOf "Ship"}) exitWith {};
+private _playerTurret = hct_vehicle unitTurret hct_player;
+if (_playerTurret isEqualTo [] || {hct_vehicle getCargoIndex hct_player != -1}) exitWith {};
 
 private _weapons = [];
 private _cfgAmmo = configFile >> "CfgAmmo";
@@ -28,7 +30,7 @@ private _cfgMagazines = configFile >> "CfgMagazines";
     _x params ["_magazine", "_turretPath", "_count"];
 
     // Filter empty magazines and check that the magazines' ammo type is a countermeasure
-    if (_count == 0 || {_turretPath isEqualTo (hct_vehicle unitTurret hct_player)}) then { continue; };
+    if (_count == 0 || {_turretPath isEqualTo _playerTurret}) then { continue; };
 
     private _ammo = getText (_cfgMagazines >> _magazine >> "ammo");
 
