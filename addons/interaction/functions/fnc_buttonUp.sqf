@@ -13,12 +13,13 @@ if (isNil{_vehicle getVariable "hct_interaction"}) exitWith {false};
 _button PARAMS;
 diag_log format ["%2: button up %1", _name, time];
 
-if(!(_vehicle call compile _interactCondition)) exitWith {};
-
 _buttonConfig BTNPARAMS;
 
 [_vehicle] call _buttonUp;
 hct_interaction_buttonHoldCode = nil;
+
+if(!(_vehicle call compile _interactCondition)) exitWith {};
+
 if (!isNil "_knobClick") then {
   private _clickTime = time - hct_interaction_dragging_buttonDownTime;
   if (_clickTime < 0.25) then {

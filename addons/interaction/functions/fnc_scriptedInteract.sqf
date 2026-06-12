@@ -32,4 +32,6 @@ if (_animConfig isNotEqualTo []) exitWith {
   [_vehicle, _animation, _targetAnimStep, _animationTargetLabel, _animationSpeed, _animStart, _animEnd, _interactionConfig] call hct_interaction_fnc_leverAnimate;
 };
 
-[_vehicle, _animationTargetLabel, _knobConfig] call hct_interaction_fnc_knobAnimate;
+if (_knobConfig isNotEqualTo [] && {typeName _animationTargetLabel == "SCALAR"}) then {
+  [_vehicle, _animationTargetLabel, _knobConfig] call hct_interaction_fnc_knobAnimate;
+};

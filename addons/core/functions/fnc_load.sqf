@@ -20,8 +20,8 @@ private _startUp = true;
 HANDLEDEFAULT(_setup,_moduleName,"hct_%1_fnc_setup")
 HANDLEDEFAULT(_perFrame,_moduleName,"hct_%1_fnc_perFrame")
 HANDLEDEFAULT(_perSecond,_moduleName,"hct_%1_fnc_perSecond")
-HANDLEDEFAULT(_perFixed,_moduleName,(_projectPrefix+"_%1_fnc_perFixed"))
-HANDLEDEFAULT(_Draw3D,_moduleName,(_projectPrefix+"_%1_fnc_Draw3D"))
+HANDLEDEFAULT(_perFixed,_moduleName,"hct_%1_fnc_perFixed")
+HANDLEDEFAULT(_Draw3D,_moduleName,"hct_%1_fnc_Draw3D")
 HANDLEDEFAULT(_shutDown,_moduleName,"hct_%1_fnc_shutDown")
 
 if (_startUp && _setup != "") then {
