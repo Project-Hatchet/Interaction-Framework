@@ -10,10 +10,11 @@ params ["_vehicle"];
 
 hct_interaction_currentButton PARAMS;
 _knobConfig params KNOBPARAMS;
-diag_log format ["%2: drag start %1", _name, time];
 
 if (isNil{_vehicle getVariable "hct_interaction"}) exitWith {false};
-if (!isNil "hct_interaction_knobHolding" && hct_interaction_knobHolding # 0 != _animation) exitWith {false};
+// lazy second operand: knobHolding is nil until a knob has been used this
+// session (see fnc_knobAnimate)
+if (!isNil "hct_interaction_knobHolding" && {hct_interaction_knobHolding # 0 != _animation}) exitWith {false};
 
 hct_interaction_knobHolding = hct_interaction_currentButton;
 hct_interaction_dragging = true;
