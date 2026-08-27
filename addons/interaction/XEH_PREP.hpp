@@ -22,6 +22,7 @@ PREP(pointNetReceive);
 PREP(pointNetSend);
 PREP(pointStart);
 PREP(preInit);
+PREP(redraw);
 PREP(scriptedInteract);
 PREP(setLabel);
 PREP(setup);
