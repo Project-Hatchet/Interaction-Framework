@@ -16,3 +16,6 @@ hct_interaction_dragging = false;
 
 hct_point_icons = [];
 hct_point_lifetime = 2;
+// read every frame in Draw3D; only ever assigned by the pointing functions,
+// so it must start defined or Draw3D errors before anyone has pointed
+hct_interaction_pointStart = false;
