@@ -20,6 +20,8 @@ hct_interaction_currentButton = nil;
 hct_interaction_buttonHoldCode = nil;
 hct_interaction_buttonHolding = false;
 hct_interaction_knobHolding = nil;
+hct_interaction_dragging = false;
+hct_animating_keys = [];
 hct_interaction_updateIndex = hct_interaction_updateEvery;
 hct_point_icons = [];
 
