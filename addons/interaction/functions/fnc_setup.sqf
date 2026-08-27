@@ -21,4 +21,20 @@ hct_akn_use = actionKeysNames "hct_interaction_use";
 hct_akn_prev = actionKeysNames "prevAction";
 hct_akn_next = actionKeysNames "nextAction";
 
+if (isNil {_vehicle getVariable "hct_interaction_redrawActionID"}) then {
+  // extremely low priority so this sorts to the very bottom of the scroll wheel
+  // action menu, below anything else on the vehicle
+  private _redrawActionID = _vehicle addAction [
+    "Redraw Interactions",
+    {[_this select 0] call hct_interaction_fnc_redraw;},
+    nil,
+    -1000000,
+    false,
+    true,
+    "",
+    "true"
+  ];
+  _vehicle setVariable ["hct_interaction_redrawActionID", _redrawActionID];
+};
+
 true
