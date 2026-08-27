@@ -7,17 +7,19 @@ addUserActionEventHandler ["Salute", "Activate", {
 }];
 
 // Deploy Countermeasures from other turret seats
+// hct_vehicle is nil on foot or in vehicles without hct config
 addUserActionEventHandler ["launchCM", "Activate", {
+  if (isNil "hct_vehicle") exitWith {};
   if ((hct_vehicle unitTurret hct_player) isEqualTo []) exitWith {};
   [hct_vehicle] call hct_util_fnc_deployCountermeasures;
 }];
 
 // Zoom turret from internal view for MFDs/PiP displays
 addUserActionEventHandler ["zoomIn", "Activate", {
-  if (cameraView != "INTERNAL") exitWith {};
+  if (cameraView != "INTERNAL" || {isNil "hct_vehicle"}) exitWith {};
   [hct_vehicle unitTurret hct_player, 1] call hct_util_fnc_zoomTurret;
 }];
 addUserActionEventHandler ["zoomOut", "Activate", {
-  if (cameraView != "INTERNAL") exitWith {};
+  if (cameraView != "INTERNAL" || {isNil "hct_vehicle"}) exitWith {};
   [hct_vehicle unitTurret hct_player, -1] call hct_util_fnc_zoomTurret;
 }];
