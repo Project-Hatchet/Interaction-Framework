@@ -85,6 +85,7 @@ private _scrollIncrement = getNumber (_config >> "scrollIncrement");
 private _dragRange = getNumber (_config >> "dragRange");
 private _animLimits = (_config >> "animLimits") call BIS_fnc_getCfgData;
 private _animLimitsH = (_config >> "animLimitsH") call BIS_fnc_getCfgData;
+if (isNil "_animLimitsH") then {_animLimitsH = [0, 1]};
 private _dragStart = getText (_config >> "dragStart");
 private _dragging = getText (_config >> "dragging");
 private _dragStop = getText (_config >> "dragStop");

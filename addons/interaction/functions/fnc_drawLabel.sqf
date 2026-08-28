@@ -15,7 +15,7 @@
 #include "script_component.hpp"
 
 with uiNamespace do {
-  if (isNil "hct_cursor_ctrl") then {
+  if (isNil "hct_cursor_ctrl" || {isNull hct_cursor_ctrl}) then {
     hct_cursor_ctrl = findDisplay ([46, 86005] select hct_interaction_mouseBlocker) ctrlCreate ["RscStructuredText", -1];
   };
 };
