@@ -23,7 +23,7 @@ if(!(_vehicle call compile _interactCondition)) exitWith {};
 if (!isNil "_knobClick") then {
   private _clickTime = time - hct_interaction_dragging_buttonDownTime;
   if (_clickTime < 0.25) then {
-    if (hct_interactionShowDebugMessages) then {systemChat format["CLICK TIME %1", _clickTime];};
+    if (hct_interaction_showDebugMessages) then {systemChat format["CLICK TIME %1", _clickTime];};
     [_vehicle] call _knobClick;
   };
 };
