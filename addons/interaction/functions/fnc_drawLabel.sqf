@@ -63,9 +63,11 @@ if (count _knobConfig > 0) then {
   _knobConfig params KNOBPARAMS;
   if (hct_alternative_scroll_up && !hct_interaction_scrolledHolding) then {
     [_vehicle, 1, _knobConfig] call hct_interaction_fnc_knobAnimate;
+    hct_interaction_scrolledHolding = true;
   };
   if (hct_alternative_scroll_down && !hct_interaction_scrolledHolding) then {
     [_vehicle, -1, _knobConfig] call hct_interaction_fnc_knobAnimate;
+    hct_interaction_scrolledHolding = true;
   };
   if (hct_interaction_showLabels > 1) then {
 //    ["Scroll or drag to spin",0,0.6,0,0,0, 1303] spawn BIS_fnc_dynamicText;

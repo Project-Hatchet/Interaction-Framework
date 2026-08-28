@@ -15,6 +15,11 @@ if (isNil{_vehicle getVariable "hct_interaction"}) exitWith {false};
 // first keybind-driven knob use)
 if (!isNil "hct_interaction_knobHolding" && {hct_interaction_knobHolding # 0 != _animation}) exitWith {false};
 
+hct_interaction_currentButton PARAMS;
+
+if (_animation in hct_animating_keys) exitWith {false};
+if(!(_vehicle call compile _interactCondition)) exitWith {};
+
 private _animationPhase = (_vehicle animationPhase _animation);
 private _base = _vehicle getVariable [("knob_" + _animation), _animationPhase];
 private _endPoint = _base + (_scrollIncrement * _animDirection);
@@ -23,12 +28,7 @@ _vehicle setVariable [("knob_" + _animation), _endPoint];
 _vehicle animateSource [_animation, _endPoint, _animSpeed];
 hct_interaction_knobHolding = hct_interaction_currentButton;
 
-hct_interaction_currentButton PARAMS;
-
 [] call hct_interaction_fnc_attemptCloseActionMenu;
-
-if(!(_vehicle call compile _interactCondition)) exitWith {};
-if (_animation in hct_animating_keys) exitWith {false};
 
 [_vehicle] call _dragStart;
 [_vehicle, _position, 1, name hct_player] call hct_interaction_fnc_pointNetSend;

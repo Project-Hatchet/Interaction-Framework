@@ -123,6 +123,7 @@
 
 hct_alternative_scroll_up = false;
 hct_alternative_scroll_down = false;
+hct_interaction_scrolledHolding = false;
 
 uiNamespace setVariable [
   "hct_interaction_mouseBlocker",
