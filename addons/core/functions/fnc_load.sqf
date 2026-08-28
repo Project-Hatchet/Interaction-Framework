@@ -22,6 +22,10 @@ HANDLEDEFAULT(_perFrame,_moduleName,"hct_%1_fnc_perFrame")
 HANDLEDEFAULT(_perSecond,_moduleName,"hct_%1_fnc_perSecond")
 HANDLEDEFAULT(_perFixed,_moduleName,"hct_%1_fnc_perFixed")
 HANDLEDEFAULT(_Draw3D,_moduleName,"hct_%1_fnc_Draw3D")
+// the interaction pseudo-module's Draw3D IS the mission event handler that
+// runs the per-module Draw3D loop - registering it as this module's Draw3D
+// slot would make the handler call itself every frame
+if (_Draw3D == "hct_interaction_fnc_Draw3D") then {_Draw3D = "";};
 HANDLEDEFAULT(_shutDown,_moduleName,"hct_%1_fnc_shutDown")
 
 if (_startUp && _setup != "") then {
