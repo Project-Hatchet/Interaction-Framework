@@ -5,7 +5,7 @@ Top block is the next dev push's change note (rendered to the Workshop by
 what changed for the player, not how. Keep the top block titled **Unreleased**
 between pushes; the push script stamps it with the version it ships.
 
-**Unreleased**
+**0.3.3.1**
 
 - Fixed: knobs now respond to their keybinds on the first use in a session (#63)
 - Fixed: the "Enable debug messages" option in Addon Options now works (#60)
