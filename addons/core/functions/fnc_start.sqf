@@ -13,7 +13,7 @@ params ["_vehicle", "_moduleName", ["_parameters", nil]];
 
 private _vehicleModuleArray = _vehicle getVariable ["hct_modules", []];
 
-private ["_moduleName", "_running", "_setup"];
+private ["_module", "_name", "_running", "_setup"];
 { // forEach _vehicleModuleArray
   _module = _x;
   _name = _module # 0;
