@@ -51,7 +51,7 @@ if (!isNil "hct_interaction_knobHolding" && !hct_interaction_dragging) then {
     (_animationPhase < _animationEnd + 0.02)
   ) then {
     hct_interaction_knobHolding = nil;
-    [_vehicle, _animationPhase, _animLimitsH] call _dragStop;
+    [_vehicle, _animationPhase] call _dragStop;
     _vehicle setVariable [("knob_" + _animation), nil];
     hct_animating_keys deleteAt (hct_animating_keys find _animation);
   } else {
