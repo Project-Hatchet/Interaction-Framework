@@ -5,7 +5,7 @@ Top block is the next dev push's change note (rendered to the Workshop by
 what changed for the player, not how. Keep the top block titled **Unreleased**
 between pushes; the push script stamps it with the version it ships.
 
-**Unreleased**
+**0.3.3.2**
 
 - Fixed: severe display-loop error introduced in 0.3.3.1 that could spam errors or freeze the game when entering framework vehicles (caught before wide testing - if you downloaded 0.3.3.1, please update)
 
