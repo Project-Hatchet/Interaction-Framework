@@ -11,3 +11,4 @@ addons/*.pbo
 keys/*
 release/*
 releases/*
+__pycache__/
