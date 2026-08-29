@@ -44,7 +44,7 @@ import time
 import winreg
 from pathlib import Path
 
-DEV_WORKSHOP_ID = "3791285868"  # Hatchet Interaction Framework - Development branch
+DEV_WORKSHOP_ID = "2403978406"  # Hatchet Interaction Framework - Development branch (Project Hatchet account)
 ISSUE_URL = "https://github.com/Project-Hatchet/Interaction-Framework/issues/"
 MOD_FOLDER = Path("release") / "@HCT-dev"
 HEMTT_OUT = Path(".hemttout") / "build"

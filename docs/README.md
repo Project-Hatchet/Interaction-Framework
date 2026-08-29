@@ -31,3 +31,7 @@ source and any rendered PDF copy - the same convention as the H-60 and H-1 repos
   `CHANGELOG.md` tracks stable releases.
 - Dev builds ship unsigned from the dev Workshop item via `tools/push_dev.py`;
   stable pushes and signing are done manually.
+- The dev Workshop item is the unlisted
+  [Development branch](https://steamcommunity.com/sharedfiles/filedetails/?id=2403978406)
+  on the Project Hatchet account - pushing to it requires the Steam client on the
+  build machine to be logged into that account.
