@@ -18,7 +18,7 @@ if (
   (!alive hct_player) ||
   (!alive _vehicle)
 ) exitWith {
-  [hct_vehicle] call hct_core_fnc_shutDownAll;
+  [_vehicle] call hct_core_fnc_shutDownAll;
   [_pfhId] call CBA_fnc_removePerFrameHandler;
   hct_perFrameHandler = nil;
   if (!isNil {hct_drawHandler}) then {
