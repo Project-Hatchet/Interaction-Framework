@@ -13,7 +13,9 @@ if (isNil{_vehicle getVariable "hct_interaction"}) exitWith {false};
 // lazy second operand: knobHolding is nil until a knob has been used this
 // session, and non-lazy && evaluated the index anyway (script error on the
 // first keybind-driven knob use)
-if (!isNil "hct_interaction_knobHolding" && {hct_interaction_knobHolding # 0 != _animation}) exitWith {false};
+// element 11 of a held button is its knob config, whose first entry is the
+// animation name (element 0 is the interaction's class name)
+if (!isNil "hct_interaction_knobHolding" && {((hct_interaction_knobHolding param [11, []]) param [0, ""]) != _animation}) exitWith {false};
 
 hct_interaction_currentButton PARAMS;
 
