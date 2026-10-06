@@ -1,8 +1,8 @@
 #include "script_component.hpp"
 /*
- * hct_core_fnc_setup
+ * hct_core_fnc_shutDownAll
  *
- * Reads out relevant vehicle modules from config and stores them in vehicle variables
+ * Stops the loops and the Draw3D handler and shuts down every running module
  *
  * Params: array[array[(object) vehicle]
  * Returns: nothing
@@ -11,11 +11,13 @@
  */
 params ["_vehicle"];
 
-if (isNil "_vehicle") then {_vehicle = hct_vehicle};
+// both can be nil when a loop shuts itself down after the vehicle change
+// handler already ran (death, destroyed vehicle)
+if (isNil "_vehicle") then {_vehicle = missionNamespace getVariable ["hct_vehicle", objNull];};
 
-hct_perFrameHandler call CBA_fnc_removePerFrameHandler;
-hct_perSecondHandler call CBA_fnc_removePerFrameHandler;
-hct_perFixedHandler call CBA_fnc_removePerFrameHandler;
+if (!isNil "hct_perFrameHandler") then {hct_perFrameHandler call CBA_fnc_removePerFrameHandler;};
+if (!isNil "hct_perSecondHandler") then {hct_perSecondHandler call CBA_fnc_removePerFrameHandler;};
+if (!isNil "hct_perFixedHandler") then {hct_perFixedHandler call CBA_fnc_removePerFrameHandler;};
 if (!isNil "hct_drawHandler") then {
   removeMissionEventHandler ["Draw3D",hct_drawHandler];
 };
