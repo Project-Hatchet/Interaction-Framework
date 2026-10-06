@@ -3,7 +3,7 @@
 </p>
 <p align="center">
     <a href="https://github.com/Project-Hatchet/Interaction-Framework/releases">
-        <img src="https://img.shields.io/badge/Version-0.2.0-blue.svg?style=flat-square" alt="Framework Version">
+        <img src="https://img.shields.io/badge/Version-0.3.4-blue.svg?style=flat-square" alt="Framework Version">
     </a>
     <a href="https://steamcommunity.com/sharedfiles/filedetails/?id=2941986336">
         <img src="https://img.shields.io/steam/downloads/2941986336" alt="Framework" >
