@@ -12,7 +12,7 @@ if (isNil{_vehicle getVariable "hct_interaction"}) exitWith {false};
 if (_animation in hct_animating_keys) exitWith {false};
 
 _button PARAMS;
-diag_log format ["%2: lever animate %1", _name, time];
+if (hct_interaction_showDebugMessages) then {diag_log format ["%2: lever animate %1", _name, time];};
 
 if(!(_this call compile _interactCondition)) exitWith {
   [] call hct_interaction_fnc_attemptCloseActionMenu;

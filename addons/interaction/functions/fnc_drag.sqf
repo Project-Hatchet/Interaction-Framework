@@ -10,7 +10,6 @@ params ["_vehicle"];
 
 hct_interaction_currentButton PARAMS;
 _knobConfig params KNOBPARAMS;
-diag_log format ["%2: dragging %1", _name, time];
 
 if (_positionType == "anim") then {
  _position = _vehicle selectionPosition _position;

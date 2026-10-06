@@ -8,7 +8,7 @@ params ["_vehicle"];
 
 hct_interaction_currentButton PARAMS;
 _knobConfig params KNOBPARAMS;
-diag_log format ["%2: drag stop %1", _name, time];
+if (hct_interaction_showDebugMessages) then {diag_log format ["%2: drag stop %1", _name, time];};
 
 hct_interaction_dragging = false;
 hct_interaction_knobHolding = nil;
