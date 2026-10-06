@@ -113,11 +113,18 @@ if (count _animConfig > 0 && count _knobConfig == 0) then {
   } else {
     ["", ""] call hct_interaction_fnc_setLabel;
   };
+  // animSpeedCode, when the lever has one, sets the speed of this move
+  private _speedTo = {
+    params ["_step"];
+    if (_animSpeedCode isEqualTo {}) exitWith {_animationSpeed};
+    private _speed = [_vehicle, _animation, _animationLabels # _step, _animationSteps # _step, _animationPhase] call _animSpeedCode;
+    [_speed, true] select (_speed == 0)
+  };
   if (hct_alternative_scroll_up && _prevStep > -1) then {
-    [_vehicle, _animation, _animationSteps # _prevStep, _animationLabels # _prevStep, _animationSpeed, _animStart, _animEnd, hct_interaction_currentButton] call hct_interaction_fnc_leverAnimate;
+    [_vehicle, _animation, _animationSteps # _prevStep, _animationLabels # _prevStep, [_prevStep] call _speedTo, _animStart, _animEnd, hct_interaction_currentButton] call hct_interaction_fnc_leverAnimate;
   };
   if (hct_alternative_scroll_down && _nextStep > -1) then {
-    [_vehicle, _animation, _animationSteps # _nextStep, _animationLabels # _nextStep, _animationSpeed, _animStart, _animEnd, hct_interaction_currentButton] call hct_interaction_fnc_leverAnimate;
+    [_vehicle, _animation, _animationSteps # _nextStep, _animationLabels # _nextStep, [_nextStep] call _speedTo, _animStart, _animEnd, hct_interaction_currentButton] call hct_interaction_fnc_leverAnimate;
   };
 } else {
   ["", ""] call hct_interaction_fnc_setLabel;

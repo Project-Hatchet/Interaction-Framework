@@ -136,6 +136,13 @@ The above example shows the configuration of an animated lever, the basic config
 
 For animated levers/switches, the `animSpeed` variable is optional and defaults to 1. `animStart` and `animEnd` are also optional.
 
+A lever whose moves take different times can set `animSpeedCode` as well: code run as each move starts, returning that move's speed (`0` snaps it). It is called with `[vehicle, animation, target label, target state, current phase]`, so a power lever can move to IDLE quickly but take as long as its engine does to reach FLY:
+```
+  animSpeed = 0.0775; // still used by a Hatchet without animSpeedCode
+  animSpeedCode = "_this call my_fnc_powerLeverSpeed";
+```
+Without `animSpeedCode`, every move uses `animSpeed` as before.
+
 Animated lever and button configs can freely be mixed, animations are triggered by the nextAction and prevAction keys, which are the next and previous keys for the action menu(scroll up and down by default). This means you can configure a lever to both allow a push action, and a scroll(animate) action. This could be used to, for example, implement switches that in real life have a safety function that requires you to pull them outwards in order to move them to a different position.
 
 parameters for animStart are `(array)[(object) vehicle]`. parameters for animEnd are `(array)[(object) vehicle, (string) animation end point label]`.
