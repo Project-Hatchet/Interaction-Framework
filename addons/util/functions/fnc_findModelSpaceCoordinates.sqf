@@ -15,7 +15,7 @@ call hct_util_fnc_findModelSpaceCoordinates
  * move head position, open Esc menu, and mouse over the point
  * run in debug console to add the first line
 
-hct_helperPoints pushBack [positionCameraToWorld [0,0,0], screenToWorld getMousePosition];
+call hct_util_fnc_addModelSpacePoint
 
  * move head position and add another line
  * with 2 points the coordinates will be calculated, displayed, and copied to clipboard
@@ -35,6 +35,14 @@ hct_helperID = addMissionEventHandler ["Draw3D",{
   if (count hct_helperPoints == 3) then {
     hct_helperPoints = [hct_helperPoints # 2];
   };
+  // a sight line without two full positions errors in every draw below
+  private _valid = hct_helperPoints select {
+    _x isEqualTypeArray [[], []] && {count (_x # 0) == 3} && {count (_x # 1) == 3}
+  };
+  if (count _valid != count hct_helperPoints) then {
+    hct_helperPoints = _valid;
+    systemChat "Ignored a sight line with no position - add lines with: call hct_util_fnc_addModelSpacePoint";
+  };
   hintSilent format ["# points %1/2", count hct_helperPoints];
 
   {
@@ -50,6 +58,11 @@ hct_helperID = addMissionEventHandler ["Draw3D",{
     _d1 = (_pair1 # 0) vectorFromTo (_pair1 # 1);
     _d2 = (_pair2 # 0) vectorFromTo (_pair2 # 1);
     _n = _d1 vectorCrossProduct _d2;
+    // parallel sight lines never cross and divide by zero below
+    if (vectorMagnitude _n < 0.001) exitWith {
+      hct_helperPoints deleteAt 1;
+      systemChat "The two sight lines are parallel - move your head further before adding the second line";
+    };
     _n1 = _d1 vectorCrossProduct _n;
     _n2 = _d2 vectorCrossProduct _n;
     _c1 = _p1 vectorAdd (_d1 vectorMultiply (((_p2 vectorDiff _p1) vectorDotProduct _n2)/(_d1 vectorDotProduct _n2)));
