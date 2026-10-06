@@ -11,7 +11,7 @@ if (isNil{_vehicle getVariable "hct_interaction"}) exitWith {false};
 if (isNil "hct_interaction_currentButton" && !_forced) exitWith {};
 
 _button PARAMS;
-diag_log format ["%2: button down %1", _name, time];
+if (hct_interaction_showDebugMessages) then {diag_log format ["%2: button down %1", _name, time];};
 
 if(!(_vehicle call compile _interactCondition)) exitWith {};
 
