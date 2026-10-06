@@ -4,8 +4,16 @@ on:
   push:
     branches:
       - main
+      - devbuild
   pull_request:
   workflow_dispatch:
+
+# Only the latest build of a PR matters, and the devbuild branch is
+# machine-generated and force-pushed on every label change - cancel superseded
+# runs of both. Builds of main are never cancelled.
+concurrency:
+  group: build-${{ github.ref }}
+  cancel-in-progress: ${{ github.event_name == 'pull_request' || github.ref == 'refs/heads/devbuild' }}
 
 jobs:
   build:
