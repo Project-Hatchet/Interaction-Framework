@@ -12,12 +12,13 @@ call ([
 ] select (hct_core_animTypeMap getOrDefaultCall [
   typeOf _vehicle + _animName,
   {
-    _type = ANIMTYPE_NONE;
+    private _type = ANIMTYPE_NONE;
     if (isClass (configOf _vehicle >> "AnimationSources" >> _animName)) then {
       if (getText (configOf _vehicle >> "AnimationSources" >> _animName >> "source") == "door") then {
         _type = ANIMTYPE_DOOR;
+      } else {
+        _type = ANIMTYPE_ASRC;
       };
-      _type = ANIMTYPE_ASRC;
     };
     if (_animName in animationNames _vehicle) then {
       _type = ANIMTYPE_ANIM;
