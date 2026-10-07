@@ -6,6 +6,7 @@ class CfgDefaultKeysPresets {
             hct_interaction_fore[] = {0x00100005};
             hct_interaction_cursor[] = {0xDC};
             hct_interaction_cursorToggle[] = {};
+            hct_interaction_redraw[] = {};
 		};
 	};
 };
