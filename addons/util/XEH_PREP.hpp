@@ -2,6 +2,7 @@ PREP(pidCreate);
 PREP(pidReset);
 PREP(pidRun);
 PREP(findModelSpaceCoordinates);
+PREP(addModelSpacePoint);
 PREP(reloadTurret);
 PREP(toggleRenderTargets);
 PREP(deployCountermeasures);
