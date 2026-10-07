@@ -5,10 +5,6 @@ Top block is the next dev push's change note (rendered to the Workshop by
 what changed for the player, not how. Keep the top block titled **Unreleased**
 between pushes; the push script stamps it with the version it ships.
 
-**Unreleased**
-
-- Added: levers and switches can set the speed of each move as it starts (`animSpeedCode`) - a power lever can move to IDLE quickly but take as long as its engine to reach FLY
-
 **0.3.3.2**
 
 - Fixed: severe display-loop error introduced in 0.3.3.1 that could spam errors or freeze the game when entering framework vehicles (caught before wide testing - if you downloaded 0.3.3.1, please update)
