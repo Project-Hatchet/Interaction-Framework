@@ -11,7 +11,7 @@ params ["_vehicle", "_button"];
 if (isNil{_vehicle getVariable "hct_interaction"}) exitWith {false};
 
 _button PARAMS;
-diag_log format ["%2: button up %1", _name, time];
+if (hct_interaction_showDebugMessages) then {diag_log format ["%2: button up %1", _name, time];};
 
 _buttonConfig BTNPARAMS;
 
