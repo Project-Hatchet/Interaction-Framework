@@ -29,4 +29,10 @@ class CfgUserActions {
         onActivate = "(findDisplay 86005 isEqualTo displayNull) call hct_interaction_fnc_keyCursor;";		// _this is always true.
         onDeactivate = "";		// _this is always true.
     };
+    class hct_interaction_redraw { // This class name is used for internal representation and also for the inputAction command.
+        displayName = "Redraw Interactions";
+        tooltip = "Rebuild the interaction display and reset stuck controls";
+        onActivate = "[] call hct_interaction_fnc_redraw;";		// _this is always true.
+        onDeactivate = "";		// _this is always true.
+    };
 };
