@@ -1,9 +1,16 @@
 # Development branch changelog
 
-Top block is the next dev push's change note (rendered to the Workshop by
-`tools/push_dev.py --note-from-changelog`). Write entries in player language -
-what changed for the player, not how. Keep the top block titled **Unreleased**
-between pushes; the push script stamps it with the version it ships.
+Entries are written in batches, in a changelog PR of their own, after a set of
+PRs has merged or before a stable release - never inside feature PRs. The
+devbuild branch stacks every PR labeled `Ready for Testing` on top of `main`,
+and two PRs that both add a block at the top of this file cannot be stacked:
+the second one is skipped from the build. Dev build Workshop notes come from
+the labeled PR list (`tools/push_dev.py --note-from-prs`), not from this file.
+
+Write entries in player language - what changed for the player, not how - and
+end each one with its PR number, like the H-60's changelog. A push that uses
+`--note-from-changelog` renders the top block as its Workshop note; keep that
+block titled **Unreleased** until the push stamps it with the version shipped.
 
 **0.3.3.2**
 
