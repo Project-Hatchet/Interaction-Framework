@@ -9,11 +9,14 @@ params ["_prev", "_next"];
 uiNamespace setVariable ["hct_interaction_drawLabel2_text_prev", _prev];
 uiNamespace setVariable ["hct_interaction_drawLabel2_text_next", _next];
 
+// a zero-alpha colour does not hide the text, so drop the cursor glyph instead
+private _cursorText = [uiNamespace getVariable ["hct_interaction_cursorText", ""], ""] select ((hct_interaction_cursorColor param [3, 1]) <= 0);
+
 with uiNamespace do {
   hct_cursor_ctrl ctrlSetStructuredText parseText format [
     "<t color='%4' size='1' align='center'>%1<br/><br/>%2<br/><br/><br/>%3</t>",
     hct_interaction_drawLabel2_text_prev,
-    hct_interaction_cursorText,
+    _cursorText,
     hct_interaction_drawLabel2_text_next,
     hct_interaction_cursorColor
   ];
