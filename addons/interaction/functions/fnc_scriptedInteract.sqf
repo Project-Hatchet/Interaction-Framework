@@ -24,12 +24,18 @@ _interactionConfig params ["_name","_condition","_subItems",["_positionType", ni
 hct_interaction_currentButton = _interactionConfig;
 
 if (_animConfig isNotEqualTo []) exitWith {
-  _animConfig params ["_animation", "_animationSpeed", "_animLooping", "_animationSteps", "_animationLabels", "_animStart", "_animEnd"];
+  _animConfig params ANIMPARAMS;
 
   private _stepIndex = _animationLabels find _animationTargetLabel;
   if (_stepIndex == -1) exitWith {};
   private _targetAnimStep = _animationSteps # _stepIndex;
-  [_vehicle, _animation, _targetAnimStep, _animationTargetLabel, _animationSpeed, _animStart, _animEnd, _interactionConfig] call hct_interaction_fnc_leverAnimate;
+  // animSpeedCode, when the lever has one, sets the speed of this move
+  private _speed = _animationSpeed;
+  if !(_animSpeedCode isEqualTo {}) then {
+    _speed = [_vehicle, _animation, _animationTargetLabel, _targetAnimStep, _vehicle animationPhase _animation] call _animSpeedCode;
+    _speed = [_speed, true] select (_speed == 0);
+  };
+  [_vehicle, _animation, _targetAnimStep, _animationTargetLabel, _speed, _animStart, _animEnd, _interactionConfig] call hct_interaction_fnc_leverAnimate;
 };
 
 if (_knobConfig isNotEqualTo [] && {typeName _animationTargetLabel == "SCALAR"}) then {

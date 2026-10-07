@@ -65,6 +65,7 @@ private _animationH = getText (_config >> "animationH");
 private _animStates = (_config >> "animStates") call BIS_fnc_getCfgData;
 private _animLabels = (_config >> "animLabels") call BIS_fnc_getCfgData;
 private _animSpeed = getNumber (_config >> "animSpeed");
+private _animSpeedCode = getText (_config >> "animSpeedCode");
 private _animLooping = getNumber (_config >> "looping");
 private _animStart = getText (_config >> "animStart");
 private _animEnd = getText (_config >> "animEnd");
@@ -77,7 +78,8 @@ if (_animation != "" && ISFULLARRAY(_animStates) && ISFULLARRAY(_animLabels)) th
     _animStates,
     _animLabels,
     compile _animStart,
-    compile _animEnd
+    compile _animEnd,
+    compile _animSpeedCode // optional: the speed of each move, decided when it starts - {} uses animSpeed
   ];
 };
 
